@@ -59,18 +59,6 @@ export const surveyShort: Kobo.Form['content'] = {
       'select_from_list_name': 'yn'
     },
     {
-      'name': 'ben_det_hh_size',
-      'type': 'integer',
-      '$kuid': 'fSyBAGJsw',
-      'label': [
-        '2.7 Household Size',
-        '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
-      ],
-      '$xpath': 'ben_det/ben_det_hh_size',
-      'required': true,
-      '$autoname': 'ben_det_hh_size'
-    },
-    {
       'hint': [
         'Do not inlcude +380 prefix. Number must contain 9 digits',
         'Не вводьте префікс +380. Номер повинен складатися з 9 цифр'
@@ -97,6 +85,7 @@ export const surveyShort: Kobo.Form['content'] = {
         '2.5.1 Registration Oblast',
         '2.5.1 Виберіть область, де буде проходити реєстрація'
       ],
+      'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
       '$xpath': 'ben_det/ben_det_oblast',
       'required': true,
       '$autoname': 'ben_det_oblast',
@@ -105,6 +94,7 @@ export const surveyShort: Kobo.Form['content'] = {
     {
       'name': 'ben_det_raion',
       'type': 'select_one',
+      'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
       'label': [
         '2.5.2 Registration Raion',
         '2.5.2 Виберіть район, де буде проходити реєстрація'
@@ -114,6 +104,18 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'ben_det_raion',
       'choice_filter': 'oblast=${ben_det_oblast}',
       'select_from_list_name': 'raion'
+    },
+    {
+      'name': 'ben_det_hh_size',
+      'type': 'integer',
+      '$kuid': 'fSyBAGJsw',
+      'label': [
+        '2.7 Household Size',
+        '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
+      ],
+      '$xpath': 'ben_det/ben_det_hh_size',
+      'required': true,
+      '$autoname': 'ben_det_hh_size'
     },
     {
       'name': 'hh_char',
@@ -127,6 +129,40 @@ export const surveyShort: Kobo.Form['content'] = {
       'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
       'required': false,
       '$autoname': 'hh_char'
+    },
+    {
+      'hint': [
+        '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
+        '**НЕ ЗАЗНАЧАЙТЕ ЧЛЕНІВ ДОМОГОСПОДАРСТВА, ПРО ЯКИХ УЖЕ ЙШЛОСЯ ВИЩЕ**'
+      ],
+      'name': 'hh_char_hh_det',
+      'type': 'begin_repeat',
+      'label': [
+        '3.2 HH Members',
+        '3.2  Члени домогосподарства'
+      ],
+      '$xpath': 'hh_char/hh_char_hh_det',
+      'relevant': '${ben_det_hh_size} !=\'\'',
+      'required': false,
+      '$autoname': 'hh_char_hh_det',
+      'appearance': 'field-list',
+      'repeat_count': '${ben_det_hh_size}'
+    },
+    {
+      'name': 'hh_char_tax_id_yn',
+      'type': 'select_one',
+      'label': [
+        'Have individual tax number (TIN)?',
+        'Чи має член домогосподарства індивідуальний податковий номер (ІПН)?'
+      ],
+      '$xpath': 'hh_char/hh_char_hh_det/hh_char_tax_id_yn',
+      'default': 'yes',
+      'required': true,
+      '$autoname': 'hh_char_tax_id_yn',
+      'select_from_list_name': 'yn'
+    },
+    {
+      'type': 'end_repeat',
     },
     {
       'type': 'end_group',
