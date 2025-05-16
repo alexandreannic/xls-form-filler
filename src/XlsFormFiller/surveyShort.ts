@@ -103,6 +103,19 @@ export const surveyShort: Kobo.Form['content'] = {
       'select_from_list_name': 'oblast'
     },
     {
+      'name': 'ben_det_raion',
+      'type': 'select_one',
+      'label': [
+        '2.5.2 Registration Raion',
+        '2.5.2 Виберіть район, де буде проходити реєстрація'
+      ],
+      '$xpath': 'ben_det/ben_det_raion',
+      'required': true,
+      '$autoname': 'ben_det_raion',
+      'choice_filter': 'oblast=${ben_det_oblast}',
+      'select_from_list_name': 'raion'
+    },
+    {
       'name': 'hh_char',
       'type': 'begin_group',
       '$kuid': 'Vxawdkq8z',

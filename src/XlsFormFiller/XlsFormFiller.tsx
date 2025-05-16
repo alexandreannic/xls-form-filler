@@ -8,6 +8,12 @@ import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
 
 export type FormValue = Record<string, any>
 
+const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
+  if (!q.choice_filter) return
+  const [, key, questionName] = q.choice_filter.match(/([^=]*)=\$\{(.*?)}/)
+  return {key, questionName}
+}
+
 export const XlsFormFiller = ({
   schema = surveyShort,
   // schema = surveyShort,
@@ -38,6 +44,7 @@ export const XlsFormFiller = ({
           hint: getLabel(q.hint),
           error: isValid ? undefined : getLabel(q.constraint_message)
         }
+        const choiceFilter = parseChoiceFilter(q)
         if (!visible) return <Box>{visible}</Box>
         return (
           <Grow key={q.$xpath} in={visible}>
@@ -68,18 +75,26 @@ export const XlsFormFiller = ({
                     />
                   </QuestionLayout>
                 ),
-                select_one: (
-                  <QuestionLayout {...questionLayoutProps}>
-                    <RadioGroup
-                      defaultValue={defaultValue}
-                      onChange={onChange}
-                    >
-                      {choicesIndex[q.select_from_list_name!]?.map(c =>
-                        <FormControlLabel label={c.label?.[lang] ?? ''} control={<Radio/>} value={c.name} key={c.name}/>
-                      )}
-                    </RadioGroup>
-                  </QuestionLayout>
-                )
+                select_one: (() => {
+                  let choices = choicesIndex[q.select_from_list_name!] ?? []
+                  if (choiceFilter) {
+                    choices = choices.filter(_ => (_ as any)[choiceFilter.key] === values[choiceFilter.questionName])
+                  }
+                  return (
+                    <QuestionLayout {...questionLayoutProps}>
+                      <RadioGroup
+                        defaultValue={defaultValue}
+                        onChange={onChange}
+                      >
+                        {choices.map(c => {
+                          return (
+                            <FormControlLabel label={c.label?.[lang] ?? ''} control={<Radio/>} value={c.name} key={c.name}/>
+                          )
+                        })}
+                      </RadioGroup>
+                    </QuestionLayout>
+                  )
+                })()
               }).default(() => <></>)}
             </Box>
           </Grow>
