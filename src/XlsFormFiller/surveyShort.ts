@@ -71,6 +71,38 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'ben_det_hh_size'
     },
     {
+      'hint': [
+        'Do not inlcude +380 prefix. Number must contain 9 digits',
+        'Не вводьте префікс +380. Номер повинен складатися з 9 цифр'
+      ],
+      'name': 'ben_det_ph_number',
+      'type': 'integer',
+      'label': [
+        '2.4 Phone Number',
+        '2.4 Ваш контактний номер телефону?'
+      ],
+      '$xpath': 'ben_det/ben_det_ph_number',
+      'required': true,
+      '$autoname': 'ben_det_ph_number',
+      'constraint': '. > 100000000 and . < 1000000000',
+      'constraint_message': [
+        'Phone number must be nine digits',
+        'Номер телефону повинен складатися з дев\'яти цифр'
+      ]
+    },
+    {
+      'name': 'ben_det_oblast',
+      'type': 'select_one',
+      'label': [
+        '2.5.1 Registration Oblast',
+        '2.5.1 Виберіть область, де буде проходити реєстрація'
+      ],
+      '$xpath': 'ben_det/ben_det_oblast',
+      'required': true,
+      '$autoname': 'ben_det_oblast',
+      'select_from_list_name': 'oblast'
+    },
+    {
       'name': 'hh_char',
       'type': 'begin_group',
       '$kuid': 'Vxawdkq8z',

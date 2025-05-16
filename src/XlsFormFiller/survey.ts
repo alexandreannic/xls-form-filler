@@ -6,21 +6,18 @@ export const survey = {
     {
       'name': 'start',
       'type': 'start',
-      '$kuid': 'ZYQW3Q3Yh',
       '$xpath': 'start',
       '$autoname': 'start'
     },
     {
       'name': 'end',
       'type': 'end',
-      '$kuid': 'IYU4aQttb',
       '$xpath': 'end',
       '$autoname': 'end'
     },
     {
       'name': 'date',
       'type': 'date',
-      '$kuid': '0SbqyRdjz',
       'label': [
         'Date',
         'Дата'
@@ -32,7 +29,6 @@ export const survey = {
     {
       'name': 'background',
       'type': 'begin_group',
-      '$kuid': 'BWQ6NOflx',
       'label': [
         '###1. Background',
         '###1. Фон'
@@ -45,7 +41,6 @@ export const survey = {
     {
       'name': 'back_un_id',
       'type': 'note',
-      '$kuid': '44vJlV5qc',
       'label': [
         '**1. ID/Case Number**',
         '**Унікальний персональний код**'
@@ -58,7 +53,6 @@ export const survey = {
     {
       'name': 'back_office',
       'type': 'select_one',
-      '$kuid': 'lgHKqzrxe',
       'label': [
         '1.1 Office',
         '1.1 Офіс'
@@ -72,7 +66,6 @@ export const survey = {
     {
       'name': 'back_enum',
       'type': 'select_one',
-      '$kuid': 'RqpgY2hCD',
       'label': [
         '1.2 Enumerator',
         '1.2 Переписувач'
@@ -90,7 +83,6 @@ export const survey = {
       ],
       'name': 'back_prog_type',
       'type': 'select_multiple',
-      '$kuid': 'ur7DVm5jt',
       'label': [
         '1.3 Programme Type',
         '1.3 Тип програми'
@@ -104,7 +96,6 @@ export const survey = {
     {
       'name': 'donor_mpca',
       'type': 'select_one',
-      '$kuid': '0tiwOorii',
       'label': [
         '1.3.1 Donor for MPCA',
         '1.3.1 Який донор для MPCA'
@@ -119,7 +110,6 @@ export const survey = {
     {
       'name': 'donor_nfi',
       'type': 'select_one',
-      '$kuid': 'N2wnqRLCK',
       'label': [
         '1.3.2 Donor for NFI',
         '1.3.2 Який донор для NFI'
@@ -134,7 +124,6 @@ export const survey = {
     {
       'name': 'donor_esk',
       'type': 'select_one',
-      '$kuid': '8L3ZUM0Mu',
       'label': [
         '1.3.3 Donor for Emergency Shelter Kit',
         '1.3.3 Який донор для Emergency Shelter Kit'
@@ -149,7 +138,6 @@ export const survey = {
     {
       'name': 'donor_cfr',
       'type': 'select_one',
-      '$kuid': 'y4ni88rSK',
       'label': [
         '1.3.4 Donor for Cash for Rent',
         '1.3.4 Який донор для Cash for Rent'
@@ -164,7 +152,6 @@ export const survey = {
     {
       'name': 'donor_cff',
       'type': 'select_one',
-      '$kuid': '6xRknT5uy',
       'label': [
         '1.3.5 Donor for Cash for Fuel',
         '1.3.5 Який донор для Cash for Fuel'
@@ -179,7 +166,6 @@ export const survey = {
     {
       'name': 'donor_cfe',
       'type': 'select_one',
-      '$kuid': '577qrJdyh',
       'label': [
         '1.3.6 Donor for Cash for Education',
         '1.3.6 Який донор для Cash for Education'
@@ -194,7 +180,6 @@ export const survey = {
     {
       'name': 'donor_iwk',
       'type': 'select_one',
-      '$kuid': 'jxVtYOAK4',
       'label': [
         '1.3.7 Donor for Infant Winterclothing Kit',
         '1.3.7 Який донор для Infant Winterclothing Kit'
@@ -209,7 +194,6 @@ export const survey = {
     {
       'name': 'donor_ihk',
       'type': 'select_one',
-      '$kuid': 'FQquSYpcm',
       'label': [
         '1.3.8 Donor for Infant Hygiene Kit',
         '1.3.8 Який донор для Infant Hygiene Kitм'
@@ -224,7 +208,6 @@ export const survey = {
     {
       'name': 'donor_cfu',
       'type': 'select_one',
-      '$kuid': 'a4YvGNl5v',
       'label': [
         '1.3.9 Donor for Cash for Utilities',
         '1.3.9 Який донор для Cash for Utilities'
@@ -243,7 +226,6 @@ export const survey = {
       ],
       'name': 'back_donor',
       'type': 'select_multiple',
-      '$kuid': '6nkur3r5A',
       'label': [
         '1.4 Donors selected',
         '1.4 Вибрані донори'
@@ -258,7 +240,6 @@ export const survey = {
     {
       'name': 'back_refer',
       'type': 'select_one',
-      '$kuid': 'AAHNH5HFk',
       'label': [
         '1.5.1 Internal DRC Referral?',
         '1.5.1 Чи було це направлення здійснено у межах ДРБ?'
@@ -272,7 +253,6 @@ export const survey = {
     {
       'name': 'back_refer_who',
       'type': 'select_one',
-      '$kuid': 'aGj0Wm8PI',
       'label': [
         '1.5.2 Referral Department',
         '1.5.2 З якого відділу було здійснено це направлення?'
@@ -290,7 +270,6 @@ export const survey = {
       ],
       'name': 'back_consent',
       'type': 'select_one',
-      '$kuid': 'We6B356tk',
       'label': [
         '1.6.1 Consent',
         '1.6.1 Згода'
@@ -303,7 +282,6 @@ export const survey = {
     {
       'name': 'back_consen_no_reas',
       'type': 'text',
-      '$kuid': 'Tpl8KfZPM',
       'label': [
         '1.6.2 Reason for No Consent',
         '1.6.2 Зазначте, будь ласка, причину, з якої Ви не погоджуєтеся заповнити анкету?'
@@ -316,7 +294,6 @@ export const survey = {
     {
       'name': 'back_consent_no_note',
       'type': 'note',
-      '$kuid': 'GdSbdGqhH',
       'label': [
         'Thank you very much for your time, we will not proceed with the questionnaire without your consent.',
         'Щиро дякуємо за ваш час, ми не будемо продовжувати заповнення анкети без вашої згоди.'
@@ -328,12 +305,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': '6yZhCYq2D'
     },
     {
       'name': 'ben_det',
       'type': 'begin_group',
-      '$kuid': 'lPHyxrxGq',
       'label': [
         '###2. Beneficiary Details',
         '###2. Відомості про одержувача'
@@ -351,7 +326,6 @@ export const survey = {
       ],
       'name': 'ben_det_surname',
       'type': 'text',
-      '$kuid': 'ttU9hd7ef',
       'label': [
         '2.1 Surname',
         '2.1 Яке ваше прізвище (як вказано в паспорті)?'
@@ -367,7 +341,6 @@ export const survey = {
       ],
       'name': 'ben_det_first_name',
       'type': 'text',
-      '$kuid': 'zsfeDNcVt',
       'label': [
         '2.2 First Name',
         '2.2 Яке ваше ім\'я (як зазначено в паспорті)?'
@@ -383,7 +356,6 @@ export const survey = {
       ],
       'name': 'ben_det_pat_name',
       'type': 'text',
-      '$kuid': 'oYCMyguau',
       'label': [
         '2.3 Patronymic Name',
         '2.3 Яке ваше по-батькові?'
@@ -399,7 +371,6 @@ export const survey = {
       ],
       'name': 'ben_det_ph_number',
       'type': 'integer',
-      '$kuid': 'V9jSTbc2p',
       'label': [
         '2.4 Phone Number',
         '2.4 Ваш контактний номер телефону?'
@@ -416,7 +387,6 @@ export const survey = {
     {
       'name': 'ben_det_oblast',
       'type': 'select_one',
-      '$kuid': '626G4liwu',
       'label': [
         '2.5.1 Registration Oblast',
         '2.5.1 Виберіть область, де буде проходити реєстрація'
@@ -429,7 +399,6 @@ export const survey = {
     {
       'name': 'ben_det_raion',
       'type': 'select_one',
-      '$kuid': 'pgHLi4Ll5',
       'label': [
         '2.5.2 Registration Raion',
         '2.5.2 Виберіть район, де буде проходити реєстрація'
@@ -443,7 +412,6 @@ export const survey = {
     {
       'name': 'ben_det_hromada',
       'type': 'select_one',
-      '$kuid': 'F6T6F4LXC',
       'label': [
         '2.5.3 Registration Hromada',
         '2.5.3 Виберіть громаду, де відбувається реєстрація'
@@ -458,7 +426,6 @@ export const survey = {
       'file': 'kobo_settlements_activityinfo.csv',
       'name': 'ben_det_settlement',
       'type': 'select_one_from_file',
-      '$kuid': 'QPbThcOwr',
       'label': [
         '2.5.4 Registration Settlement',
         '2.5.4 Виберіть Поселення, де відбувається реєстрація'
@@ -471,7 +438,6 @@ export const survey = {
     {
       'name': 'ben_det_res_stat',
       'type': 'select_one',
-      '$kuid': 'YgWYAJR9X',
       'label': [
         '2.5.5 Residential Status',
         '2.5.5 Виберіть статус проживання'
@@ -484,7 +450,6 @@ export const survey = {
     {
       'name': 'ben_det_prev_oblast',
       'type': 'select_one',
-      '$kuid': 'hsMb6s6De',
       'label': [
         '2.5.6 Area of Origin',
         '2.5.6 Який регіон є пріорітетним до переміщення? (Виберіть область)'
@@ -498,7 +463,6 @@ export const survey = {
     {
       'name': 'ben_det_idp_time',
       'type': 'select_one',
-      '$kuid': 'DyqyWVz50',
       'label': [
         '2.5.7 Internally Displaced Person(s) in Household',
         '2.5.7 Домогосподарство з внутрішньо переміщеною особою (особами)'
@@ -516,7 +480,6 @@ export const survey = {
       ],
       'name': 'ben_det_income',
       'type': 'integer',
-      '$kuid': 'rOa3OzObi',
       'label': [
         '2.6 Total Value of Resources Received (UAH) per month',
         '2.6 Якою була загальна вартість у гривнях усіх ресурсів, отриманих Вашим домогосподарством за останній один місяць?'
@@ -528,7 +491,6 @@ export const survey = {
     {
       'name': 'ben_det_hh_size',
       'type': 'integer',
-      '$kuid': 'fSyBAGJsw',
       'label': [
         '2.7 Household Size',
         '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
@@ -539,12 +501,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'BVYRcGVN2'
     },
     {
       'name': 'hh_char',
       'type': 'begin_group',
-      '$kuid': 'Vxawdkq8z',
       'label': [
         '###3. Household Characteristics & Vulnerability Assessment',
         '###3. Характеристика домогосподарства та оцінка вразливостей'
@@ -561,7 +521,6 @@ export const survey = {
       ],
       'name': 'hh_char_hhh',
       'type': 'select_one',
-      '$kuid': 'pOobvxvQ8',
       'label': [
         '3.1 Head of Household?',
         '3.1 Ви голова домогосподарства?'
@@ -576,7 +535,6 @@ export const survey = {
     {
       'name': 'hh_char_res_gender',
       'type': 'select_one',
-      '$kuid': 'cl0xbzHAC',
       'label': [
         '3.1.1 Gender of Respondent',
         '3.1.1 Виберіть стать респондента'
@@ -591,7 +549,6 @@ export const survey = {
     {
       'name': 'hh_char_res_age',
       'type': 'integer',
-      '$kuid': 'DaKX9YwTK',
       'label': [
         '3.1.2 Age of Respondent',
         '3.1.2 Вік респондента'
@@ -608,7 +565,6 @@ export const survey = {
       ],
       'name': 'hh_char_res_dis_select',
       'type': 'select_multiple',
-      '$kuid': 'fbEAnulEu',
       'label': [
         '3.1.3 Respondent Characteristics',
         '3.1.3 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються респондента'
@@ -627,7 +583,6 @@ export const survey = {
     {
       'name': 'hh_char_res_dis_level',
       'type': 'select_one',
-      '$kuid': 'WsiKTmuwt',
       'label': [
         '3.1.4 Difficulty Level of Respondent Characteristics',
         '3.1.4 Який рівень складності обраних варіантів відповідей на попередні запитання?'
@@ -642,7 +597,6 @@ export const survey = {
     {
       'name': 'hh_char_hhh_gender',
       'type': 'select_one',
-      '$kuid': 'pyLe8l5pA',
       'label': [
         '3.2.1 Gender of Head of Household',
         '3.2.1 Яка стать голови родини?'
@@ -657,7 +611,6 @@ export const survey = {
     {
       'name': 'hh_char_hhh_age',
       'type': 'integer',
-      '$kuid': 'rXrhl2OI0',
       'label': [
         '3.2.2 Age of Head of Household',
         '3.2.2 Скільки років голові домогосподарства?'
@@ -674,7 +627,6 @@ export const survey = {
       ],
       'name': 'hh_char_hhh_dis_select',
       'type': 'select_multiple',
-      '$kuid': 'UStxYkpVX',
       'label': [
         '3.2.3 Head of Household Characteristics',
         '3.2.3 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються голови домогосподарства'
@@ -693,7 +645,6 @@ export const survey = {
     {
       'name': 'hh_char_hhh_dis_level',
       'type': 'select_one',
-      '$kuid': 'ZIw108tzl',
       'label': [
         '3.2.4 Difficulty Level of Head of Household Characteristics',
         '3.2.4 Який рівень складності обраних варіантів відповідей на попередні запитання?'
@@ -708,7 +659,6 @@ export const survey = {
     {
       'name': 'calc_hhh_res_dis_level',
       'type': 'calculate',
-      '$kuid': 'qOurHCNkY',
       '$xpath': 'hh_char/calc_hhh_res_dis_level',
       'relevant': 'FALSE',
       'required': false,
@@ -718,7 +668,6 @@ export const survey = {
     {
       'name': 'hh_char_civ_stat',
       'type': 'select_one',
-      '$kuid': 'VabPKyDIz',
       'label': [
         '3.1 Civil Status of Head of Household',
         '3.1 Який цивільно-правовий статус голови домогосподарства?'
@@ -732,7 +681,6 @@ export const survey = {
     {
       'name': 'hh_char_pensioner',
       'type': 'select_one',
-      '$kuid': 'BSQ2vyiVS',
       'label': [
         '3.1.1 Pension Receiver in Household?',
         '3.1.1 Чи є в домогосподарстві кого-небудь, хто отримує пенсію?'
@@ -746,7 +694,6 @@ export const survey = {
     {
       'name': 'hh_char_preg',
       'type': 'select_one',
-      '$kuid': 'RQomc3JF9',
       'label': [
         '3.1.2 Pregnant/Lactating Females in Household?',
         '3.1.2 Чи є у домогосподарстві жінки, які вагітні чи годують грудьми?'
@@ -761,7 +708,6 @@ export const survey = {
     {
       'name': 'hh_char_preg_number',
       'type': 'integer',
-      '$kuid': 'ZoBbyzzwA',
       'label': [
         '3.1.2.1 How many Pregnant/Lactating Females in Household?',
         '3.1.2.1 Скільки вагітних/годуючих жінок у домогосподарстві?'
@@ -775,7 +721,6 @@ export const survey = {
     {
       'name': 'calc_char_civ_stat',
       'type': 'calculate',
-      '$kuid': 'iCbsVxb79',
       '$xpath': 'hh_char/calc_char_civ_stat',
       'required': false,
       '$autoname': 'calc_char_civ_stat',
@@ -784,7 +729,6 @@ export const survey = {
     {
       'name': 'cal_head_tax',
       'type': 'calculate',
-      '$kuid': 'x9l5MNWxS',
       '$xpath': 'hh_char/cal_head_tax',
       'required': false,
       '$autoname': 'cal_head_tax',
@@ -797,7 +741,6 @@ export const survey = {
       ],
       'name': 'hh_char_hh_det',
       'type': 'begin_repeat',
-      '$kuid': 'MmF6uPAtx',
       'label': [
         '3.2 HH Members',
         '3.2  Члени домогосподарства'
@@ -812,7 +755,6 @@ export const survey = {
     {
       'name': 'hh_chart_note_resp',
       'type': 'note',
-      '$kuid': 'Q019nyVJ0',
       'label': [
         '**Should be respondant**',
         '**Має бути отримувачем допомоги**'
@@ -825,7 +767,6 @@ export const survey = {
     {
       'name': 'hh_char_tax_id_yn',
       'type': 'select_one',
-      '$kuid': 'rx0mQo8Su',
       'label': [
         'Have individual tax number (TIN)?',
         'Чи має член домогосподарства індивідуальний податковий номер (ІПН)?'
@@ -839,7 +780,6 @@ export const survey = {
     {
       'name': 'head_tax_id',
       'type': 'calculate',
-      '$kuid': 'ZJPedlptj',
       'label': [
         'Individual tax number respondant',
         'Ідентифікаційний номер отримувача допомоги'
@@ -856,7 +796,6 @@ export const survey = {
       ],
       'name': 'hh_char_tax_id_num',
       'type': 'text',
-      '$kuid': 'LrsXGptM1',
       'label': [
         'Individual tax number',
         'Ідентифікаційний номер (ІПН) бенефіціара'
@@ -875,7 +814,6 @@ export const survey = {
     {
       'name': 'hh_char_date_birth',
       'type': 'date',
-      '$kuid': 'utovmMecV',
       'label': [
         'Date of birth',
         'Дата народження члена домогосподарства'
@@ -887,7 +825,6 @@ export const survey = {
     {
       'name': 'taxid_weightedsum',
       'type': 'calculate',
-      '$kuid': 'R0z5xAuyd',
       '$xpath': 'hh_char/hh_char_hh_det/taxid_weightedsum',
       'required': false,
       '$autoname': 'taxid_weightedsum',
@@ -896,7 +833,6 @@ export const survey = {
     {
       'name': 'taxid_roundedsum',
       'type': 'calculate',
-      '$kuid': 'SNfmp7wAm',
       '$xpath': 'hh_char/hh_char_hh_det/taxid_roundedsum',
       'required': false,
       '$autoname': 'taxid_roundedsum',
@@ -905,7 +841,6 @@ export const survey = {
     {
       'name': 'hh_char_hh_det_gender',
       'type': 'select_one',
-      '$kuid': 'io1Usedgu',
       'label': [
         'Gender',
         'Будь ласка, вкажіть СТАТЬ члена домогосподарства'
@@ -918,7 +853,6 @@ export const survey = {
     {
       'name': 'hh_char_hh_det_age',
       'type': 'integer',
-      '$kuid': 'ETZJBECch',
       'label': [
         'Age',
         'ВІК члена домогосподарства'
@@ -931,7 +865,6 @@ export const survey = {
     {
       'name': 'hh_char_student',
       'type': 'select_one',
-      '$kuid': 'HplLIeozh',
       'label': [
         'Are you a student?',
         'Чи ви студент?'
@@ -949,7 +882,6 @@ export const survey = {
       ],
       'name': 'hh_char_hh_det_dis_select',
       'type': 'select_multiple',
-      '$kuid': 'SlUkWpxf3',
       'label': [
         'Member Characteristics',
         'Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються члена вашого домогосподарства'
@@ -967,7 +899,6 @@ export const survey = {
     {
       'name': 'hh_char_hh_det_dis_level',
       'type': 'select_one',
-      '$kuid': 'AWOLjcwOk',
       'label': [
         'Difficulty Level of Member Characteristics',
         'Який рівень складності обраних варіантів відповідей на попередні запитання?'
@@ -981,7 +912,6 @@ export const survey = {
     {
       'name': 'calc_u5',
       'type': 'calculate',
-      '$kuid': 'xqxrpVFYo',
       '$xpath': 'hh_char/hh_char_hh_det/calc_u5',
       'required': false,
       '$autoname': 'calc_u5',
@@ -990,7 +920,6 @@ export const survey = {
     {
       'name': 'calc_u18',
       'type': 'calculate',
-      '$kuid': 'WgdqHWV3U',
       '$xpath': 'hh_char/hh_char_hh_det/calc_u18',
       'required': false,
       '$autoname': 'calc_u18',
@@ -999,7 +928,6 @@ export const survey = {
     {
       'name': 'calc_o60',
       'type': 'calculate',
-      '$kuid': 'POcNk9DZB',
       '$xpath': 'hh_char/hh_char_hh_det/calc_o60',
       'required': false,
       '$autoname': 'calc_o60',
@@ -1008,7 +936,6 @@ export const survey = {
     {
       'name': 'calc_ed_age',
       'type': 'calculate',
-      '$kuid': 'kJCUtN3fU',
       '$xpath': 'hh_char/hh_char_hh_det/calc_ed_age',
       'required': false,
       '$autoname': 'calc_ed_age',
@@ -1017,7 +944,6 @@ export const survey = {
     {
       'name': 'calc_baby_age',
       'type': 'calculate',
-      '$kuid': 'Pke2nbYHd',
       '$xpath': 'hh_char/hh_char_hh_det/calc_baby_age',
       'required': false,
       '$autoname': 'calc_baby_age',
@@ -1026,7 +952,6 @@ export const survey = {
     {
       'name': 'calc_preg',
       'type': 'calculate',
-      '$kuid': 'TfpNT9Dwa',
       '$xpath': 'hh_char/hh_char_hh_det/calc_preg',
       'required': false,
       '$autoname': 'calc_preg',
@@ -1035,7 +960,6 @@ export const survey = {
     {
       'name': 'calc_det_dis_level',
       'type': 'calculate',
-      '$kuid': 'AtkV2VWzw',
       '$xpath': 'hh_char/hh_char_hh_det/calc_det_dis_level',
       'required': false,
       '$autoname': 'calc_det_dis_level',
@@ -1044,7 +968,6 @@ export const survey = {
     {
       'name': 'cal_student',
       'type': 'calculate',
-      '$kuid': 'WBqQEuet5',
       '$xpath': 'hh_char/hh_char_hh_det/cal_student',
       'required': false,
       '$autoname': 'cal_student',
@@ -1053,7 +976,6 @@ export const survey = {
     {
       'name': 'cal_scoring_difficulty_level',
       'type': 'calculate',
-      '$kuid': 'D7hbggchV',
       '$xpath': 'hh_char/hh_char_hh_det/cal_scoring_difficulty_level',
       'required': false,
       '$autoname': 'cal_scoring_difficulty_level',
@@ -1061,12 +983,10 @@ export const survey = {
     },
     {
       'type': 'end_repeat',
-      '$kuid': 'tJEbH7KMF'
     },
     {
       'name': 'hh_char_chh',
       'type': 'note',
-      '$kuid': 'GaSRBI90P',
       'label': [
         'This is a child headed household (high risk protection case), please refer immediately to a DRC Protection colleague and complete internal referral form.',
         'Це домогосподарство, яке очолює дитина (ситуація з високим рівнем ризику у сфері соціального захисту), будь ласка, негайно зверніться до колеги з відділу соцыально-правового захисту ДРБ та заповніть внутрішню форму перенаправлення .'
@@ -1079,7 +999,6 @@ export const survey = {
     {
       'name': 'calc_tot_baby_age',
       'type': 'calculate',
-      '$kuid': 'NAfSk52jf',
       '$xpath': 'hh_char/calc_tot_baby_age',
       'required': false,
       '$autoname': 'calc_tot_baby_age',
@@ -1088,7 +1007,6 @@ export const survey = {
     {
       'name': 'calc_tot_calc_u5',
       'type': 'calculate',
-      '$kuid': 'Div3S4xYK',
       '$xpath': 'hh_char/calc_tot_calc_u5',
       'required': false,
       '$autoname': 'calc_tot_calc_u5',
@@ -1097,7 +1015,6 @@ export const survey = {
     {
       'name': 'calc_tot_chi',
       'type': 'calculate',
-      '$kuid': 'jLtHR9XEe',
       '$xpath': 'hh_char/calc_tot_chi',
       'required': false,
       '$autoname': 'calc_tot_chi',
@@ -1106,7 +1023,6 @@ export const survey = {
     {
       'name': 'calc_tot_ed_age',
       'type': 'calculate',
-      '$kuid': 'bPBJn4Phk',
       '$xpath': 'hh_char/calc_tot_ed_age',
       'required': false,
       '$autoname': 'calc_tot_ed_age',
@@ -1115,7 +1031,6 @@ export const survey = {
     {
       'name': 'calc_tot_eld',
       'type': 'calculate',
-      '$kuid': 'pZXLIBNgE',
       '$xpath': 'hh_char/calc_tot_eld',
       'required': false,
       '$autoname': 'calc_tot_eld',
@@ -1124,7 +1039,6 @@ export const survey = {
     {
       'name': 'calc_tot_student',
       'type': 'calculate',
-      '$kuid': '2F7KdZvMY',
       '$xpath': 'hh_char/calc_tot_student',
       'required': false,
       '$autoname': 'calc_tot_student',
@@ -1133,7 +1047,6 @@ export const survey = {
     {
       'name': 'cal_tot_scoring_difficulty_level',
       'type': 'calculate',
-      '$kuid': 'ULcvAMVF0',
       '$xpath': 'hh_char/cal_tot_scoring_difficulty_level',
       'required': false,
       '$autoname': 'cal_tot_scoring_difficulty_level',
@@ -1142,7 +1055,6 @@ export const survey = {
     {
       'name': 'hh_char_dis_note',
       'type': 'note',
-      '$kuid': 'ZGFYq0yo6',
       'label': [
         '**3.4 Activities Difficulty (Members over 5)**',
         '**3.4 Нижче наведені питання стосуються труднощів, з якими Ви або члени Вашого домогосподарства можете зіткнутися під час виконання певних дій. Ці запитання стосуються лише членів домогосподарства віком понад 5 років.**'
@@ -1159,7 +1071,6 @@ export const survey = {
       ],
       'name': 'hh_char_dis_select',
       'type': 'select_multiple',
-      '$kuid': 'PABfXdVd8',
       'label': [
         '3.4.1 Activities Difficulty',
         '3.4.1 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються вас або члена вашого домогосподарства'
@@ -1182,7 +1093,6 @@ export const survey = {
       ],
       'name': 'hh_char_dis_level',
       'type': 'select_one',
-      '$kuid': 'gUeVv13L2',
       'label': [
         '3.4.2 Difficulty Level of Activities',
         '3.4.2 Який рівень складності обраних варіантів відповідей на попередні запитання?'
@@ -1197,7 +1107,6 @@ export const survey = {
     {
       'name': 'calc_dis_level',
       'type': 'calculate',
-      '$kuid': 'eMh1Abun3',
       '$xpath': 'hh_char/calc_dis_level',
       'required': false,
       '$autoname': 'calc_dis_level',
@@ -1206,7 +1115,6 @@ export const survey = {
     {
       'name': 'receive_financial_assistance',
       'type': 'select_one',
-      '$kuid': 'qKMzLv2C3',
       'label': [
         '3.5 Financial Assistance from Government or Agencies?',
         '3.5 Чи отримуєте Ви або хтось із членів Вашого домогосподарства фінансову допомогу від держави або інших установ?'
@@ -1221,7 +1129,6 @@ export const survey = {
     {
       'name': 'households_damaged',
       'type': 'select_one',
-      '$kuid': 'awaHbA54n',
       'label': [
         '3.6 Housing Damage from Hostilities',
         '3.6 Домогосподарства з пошкодженим (включаючи навколишню інфраструктуру, яка була пошкоджена і вплинула на домогосподарство, наприклад, зруйновані водопроводи) або зруйнованим житлом внаслідок бойових дій'
@@ -1234,12 +1141,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'CtkH83Wvr'
     },
     {
       'name': 'nfi',
       'type': 'begin_group',
-      '$kuid': 'Ga6iMw7W6',
       'label': [
         '###4. NFI Needs',
         '###4. Підтримка наборами NFI'
@@ -1253,7 +1158,6 @@ export const survey = {
     {
       'name': 'nfi_fam',
       'type': 'calculate',
-      '$kuid': 'M6vPw9qcx',
       '$xpath': 'nfi/nfi_fam',
       'required': false,
       '$autoname': 'nfi_fam',
@@ -1266,7 +1170,6 @@ export const survey = {
       ],
       'name': 'eligibility_summary_nfi',
       'type': 'note',
-      '$kuid': '1CmDyhPpr',
       'label': [
         '**Based on minimum standards this house is eligible for:**',
         'Виходячи з наведених вище відповідей, домогосподарство має право на наступне:'
@@ -1278,7 +1181,6 @@ export const survey = {
     {
       'name': 'nfi_fam_hy',
       'type': 'note',
-      '$kuid': 'OzVa6rbFX',
       'label': [
         '**${nfi_fam}** Family Hygiene Kit (HKMV)',
         '**${nfi_fam}** Сімейний гігієнічний набір (HKMV)'
@@ -1290,7 +1192,6 @@ export const survey = {
     {
       'name': 'nfi_fam_nfi',
       'type': 'note',
-      '$kuid': '9iXEIrRBf',
       'label': [
         '**${nfi_fam}** Family NFI Kit (NFKF + KS)',
         '**${nfi_fam}** Сімейний непродовольчий набір (NFKF + KS)'
@@ -1302,7 +1203,6 @@ export const survey = {
     {
       'name': 'ihk_nfi',
       'type': 'note',
-      '$kuid': 'Yd5CyA3Ar',
       'label': [
         '**1** Baby Hygiene Kit (BK)',
         '**1** Дитячий Гігієнічний набір (BK)'
@@ -1315,7 +1215,6 @@ export const survey = {
     {
       'name': 'iwk_nfi',
       'type': 'note',
-      '$kuid': 'KAvZpHR6V',
       'label': [
         '**1** Baby Winter Kit (WKB)',
         '**1** Дитячий Зимовий набір'
@@ -1328,7 +1227,6 @@ export const survey = {
     {
       'name': 'fnk_ks_last_6months',
       'type': 'select_one',
-      '$kuid': 'Sdf8KA5EB',
       'label': [
         'Household has received assistance (FAMILY NFI KIT/KITCHEN SET) in the last 6 months to cover household needs',
         'Домогосподарство отримувало допомогу (СІМЕЙНИЙ НАБІР/КУХОННИЙ НАБІР) протягом останніх 6 місяців для покриття побутових потреб'
@@ -1342,7 +1240,6 @@ export const survey = {
     {
       'name': 'family_need_fnk_ks',
       'type': 'select_one',
-      '$kuid': 'VDZLMwsls',
       'label': [
         'Does your family need a Family kit/Kitchen set?',
         'Вашій родині потрібен Сімейний набір/Кухонний набір?'
@@ -1356,7 +1253,6 @@ export const survey = {
     {
       'name': 'nfi_kit_disitrbuted',
       'type': 'select_one',
-      '$kuid': '6uKFnQ6Q9',
       'label': [
         'Did you distribute the NFI Kits at the point of registration',
         'Чи видавали Ви комплекти NFI на місці реєстрації?'
@@ -1369,7 +1265,6 @@ export const survey = {
     {
       'name': 'begin_group_LF3jyHrmq',
       'type': 'begin_group',
-      '$kuid': 'asdHBcVEG',
       '$xpath': 'nfi/begin_group_LF3jyHrmq',
       'relevant': 'selected(${nfi_kit_disitrbuted}, \'yes\')',
       'required': false,
@@ -1383,7 +1278,6 @@ export const survey = {
       ],
       'name': 'nfi_dist_label',
       'type': 'note',
-      '$kuid': 'mif6Np9W8',
       'label': [
         '**How many of the following kits have been distributed?**',
         '**Скільки комплектів було роздано?**'
@@ -1395,7 +1289,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkf',
       'type': 'integer',
-      '$kuid': 'jmV8JYKIU',
       'label': [
         'Family Hygiene Kits (HKF)',
         'Сімейні гігієнічні набори (HKF)'
@@ -1408,7 +1301,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkf_donor',
       'type': 'select_one',
-      '$kuid': 'ERmaUyswK',
       'label': [
         'Donor Family Hygiene Kits (HKF)',
         'Донор сімейних гігієнічні набори (HKF)'
@@ -1422,7 +1314,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkmv',
       'type': 'integer',
-      '$kuid': 'R0pIz5m2l',
       'label': [
         'Family Hygiene Kits for IDPs on the Move distributed (HKMV)',
         'Роздача сімейних гігієнічних наборів для ВПО, що знаходяться в русі (НКMV)'
@@ -1435,7 +1326,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkmv_donor',
       'type': 'select_one',
-      '$kuid': 'ueV9YTPoJ',
       'label': [
         'Donor Family Hygiene Kits for IDPs on the Move distributed (HKMV)',
         'Донор сімейних гігієнічних наборів для ВПО, що знаходяться в русі (НКMV)'
@@ -1449,7 +1339,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkf_001',
       'type': 'integer',
-      '$kuid': 'ACglfDTPA',
       'label': [
         'Family NFI kits distributed (NFKF + KS)',
         'Роздача сімейних наборів (NFKF + KS)'
@@ -1462,7 +1351,6 @@ export const survey = {
     {
       'name': 'nfi_dist_hkf_001_donor',
       'type': 'select_one',
-      '$kuid': 'piM7UR7yv',
       'label': [
         'Donor Family NFI kits distributed (NFKF + KS)',
         'Донор сімейних наборів (NFKF + KS)'
@@ -1476,7 +1364,6 @@ export const survey = {
     {
       'name': 'nfi_dist_bk',
       'type': 'integer',
-      '$kuid': 'R4L4jPrgl',
       'label': [
         'Baby Kits distributed (BK)',
         'Роздача дитячих наборів (BK)'
@@ -1490,7 +1377,6 @@ export const survey = {
     {
       'name': 'nfi_dist_wkb1',
       'type': 'integer',
-      '$kuid': 'RLt7CVB8K',
       'label': [
         'Baby Winter Kits S distributed (WKB1)',
         'Роздача дитячих зимових наборів в розмірі S (WKB1)'
@@ -1504,7 +1390,6 @@ export const survey = {
     {
       'name': 'nfi_dist_wkb2',
       'type': 'integer',
-      '$kuid': 'fRdcu8nAn',
       'label': [
         'Baby Winter Kits M distributed (WKB2)',
         'Роздача дитячих зимових наборів в розмірі М (WKB2)'
@@ -1518,7 +1403,6 @@ export const survey = {
     {
       'name': 'nfi_dist_wkb3',
       'type': 'integer',
-      '$kuid': 'pIIN1pcOA',
       'label': [
         'Baby Winter Kits L distributed (WKB3)',
         'Роздача дитячих зимових наборів в розмірі L (WKB3)'
@@ -1532,7 +1416,6 @@ export const survey = {
     {
       'name': 'nfi_dist_wkb4',
       'type': 'integer',
-      '$kuid': 'IoUgFsMSK',
       'label': [
         'Baby Winter Kits XL distributed (WKB4)',
         'Роздача дитячих зимових наборів в розмірі XL (WKB4)'
@@ -1546,7 +1429,6 @@ export const survey = {
     {
       'name': 'nfi_kit_cc',
       'type': 'integer',
-      '$kuid': 'ktjUx0vom',
       'label': [
         'NFI Kit for Collective Center distributed',
         'Роздача наборів для колективного центру'
@@ -1560,7 +1442,6 @@ export const survey = {
     {
       'name': 'nfi_bed',
       'type': 'integer',
-      '$kuid': 'l2KN5RMbw',
       'label': [
         'Folding Beds distributed',
         'Роздача розкладних ліжок'
@@ -1575,7 +1456,6 @@ export const survey = {
       'file': '0',
       'name': 'nfi_fks',
       'type': 'integer',
-      '$kuid': 'PHzsAiu74',
       'label': [
         'Family kitchen set (FKS)',
         'Сімейний набір кухонного приладдя (FKS)'
@@ -1590,7 +1470,6 @@ export const survey = {
       'file': 'ukr000270_pooledfunds',
       'name': 'donor_nfi_fks',
       'type': 'select_one',
-      '$kuid': 'WycDBew7H',
       'label': [
         'Donor Family kitchen set (FKS)',
         'Донор сімейних наборів кухонного приладдя (FKS)'
@@ -1603,16 +1482,13 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'IIXKIDF5S'
     },
     {
       'type': 'end_group',
-      '$kuid': 'n1jbpJ7tu'
     },
     {
       'name': 'Section_4a_ESK',
       'type': 'begin_group',
-      '$kuid': '4HtfzN8xh',
       'label': [
         '####4.a. ESK',
         '####4.a. ESK'
@@ -1626,7 +1502,6 @@ export const survey = {
     {
       'name': 'shelter_damage',
       'type': 'select_one',
-      '$kuid': 'QaQD8LOWD',
       'label': [
         '4.1 Is there damage to your current shelter?',
         'Чи пошкоджено ваше теперішнє житло?'
@@ -1639,7 +1514,6 @@ export const survey = {
     {
       'name': 'note_heavy_damage',
       'type': 'note',
-      '$kuid': 'eFAYyNG24',
       'label': [
         'If there is heavy damage to this property, please refer to the shelter team immediately',
         'Якщо цей будинок має серйозні пошкодження, негайно зверніться до команди шелтер'
@@ -1656,7 +1530,6 @@ export const survey = {
       ],
       'name': 'estimate_sqm_damage',
       'type': 'integer',
-      '$kuid': 'fitwfyDKg',
       'label': [
         '4.2 Can you estimate the square meter or roof or window that is damaged?',
         'Чи можете ви підрахувати площу даху чи вікон, які пошкоджено?'
@@ -1673,7 +1546,6 @@ export const survey = {
       ],
       'name': 'eligibility_summary_esk',
       'type': 'note',
-      '$kuid': 'XNrlkseH5',
       'label': [
         'Based upon the answers above, the household is eligible for the following:',
         'Виходячи з наведених вище відповідей, домогосподарство має право на наступне:'
@@ -1690,7 +1562,6 @@ export const survey = {
       ],
       'name': 'note_eligible_1',
       'type': 'note',
-      '$kuid': 'D3dV75x5Z',
       'label': [
         'This household is eligble for One Emergency Shelter kit',
         'Це домогосподарство має право на один набір для домогосподарств'
@@ -1707,7 +1578,6 @@ export const survey = {
       ],
       'name': 'note_eligible_2',
       'type': 'note',
-      '$kuid': 'SThd6cX30',
       'label': [
         'This household is eligble for Two Emergency Shelter Kits',
         'Це домогосподарство має право на два набори для домогосподарств'
@@ -1720,7 +1590,6 @@ export const survey = {
     {
       'name': 'cal_numb_esk_kit',
       'type': 'calculate',
-      '$kuid': 'MhHcZ3p1P',
       'label': [
         'Number of kits esk',
         'Кількість наборів esk'
@@ -1733,7 +1602,6 @@ export const survey = {
     {
       'name': 'add_photo_esk1',
       'type': 'image',
-      '$kuid': '1d2kQyKqx',
       'label': [
         'Additional photos of esk activity',
         'Додаткові фотографії діяльності esk'
@@ -1745,7 +1613,6 @@ export const survey = {
     {
       'name': 'add_photo_esk2',
       'type': 'image',
-      '$kuid': 'Si1PyRQ0q',
       'label': [
         'Additional photos of esk activity',
         'Додаткові фотографії діяльності esk'
@@ -1758,7 +1625,6 @@ export const survey = {
     {
       'name': 'add_photo_esk3',
       'type': 'image',
-      '$kuid': 'nbMinRML1',
       'label': [
         'Additional photos of esk activity',
         'Додаткові фотографії діяльності esk'
@@ -1770,12 +1636,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'hm4fHpksP'
     },
     {
       'name': 'casf_utilities_fuel',
       'type': 'begin_group',
-      '$kuid': 'NykyK44oJ',
       'label': [
         'Section 4.b. Cash for Utilities or Cash for Fuel',
         'Section 4.b. Cash for Utilities or Cash for Fuel'
@@ -1789,7 +1653,6 @@ export const survey = {
     {
       'name': 'current_gov_assist_cff',
       'type': 'select_one',
-      '$kuid': 'NC8YpMDIu',
       'label': [
         'Are you currently receiving or expecting to receive financial assistance to cover your fuel/utilities payment needs?',
         'Чи отримуєте ви зараз або очікуєте отримати фінансову допомогу для покриття ваших потреб в оплаті палива/комунальних послуг?'
@@ -1802,7 +1665,6 @@ export const survey = {
     {
       'name': 'gap_assistance_received',
       'type': 'integer',
-      '$kuid': 'Cydt0G44D',
       'label': [
         'What is the gap (UAH) between assistance received/ expected to receive and the amount to cover needs?',
         'Яка різниця ( у грн) між отриманою/очікуваною допомогою та сумою, необхідною для покриття потреб?'
@@ -1815,7 +1677,6 @@ export const survey = {
     {
       'name': 'type_property_living',
       'type': 'select_one',
-      '$kuid': 'rcp3ERxSv',
       'label': [
         'What type of property are you living in?',
         'В якому стані житла ви живете?'
@@ -1828,7 +1689,6 @@ export const survey = {
     {
       'name': 'utilities_fuel',
       'type': 'select_one',
-      '$kuid': 'sRQ9juhXf',
       'label': [
         'This year, what is your primary source of heating (e.g. Piped gas, electric, community heating) or solid fuel (Wood, pellets, charcoal, coal etc)',
         'Яким було ваше основне джерело опалення в цьому році (наприклад, газ, електрика, централізоване опалення) чи від твердого палива (дрова, пелети, деревне вугілля, кам\'яне вугілля тощо)?'
@@ -1843,7 +1703,6 @@ export const survey = {
     {
       'name': 'utilities_fuel_other',
       'type': 'text',
-      '$kuid': 'BFVlLm9Xw',
       'label': [
         'If "Other", please specify',
         'Якщо "Інше", будь ласка, вкажіть'
@@ -1857,7 +1716,6 @@ export const survey = {
     {
       'name': 'utilities_fuel_portable_plug_heater',
       'type': 'image',
-      '$kuid': 'XoLeMWvQw',
       'label': [
         'Please provide a photo of this portable plug in heater or woodburner',
         'Будь ласка, надайте фото цього портативного обігрівача або дров\'яної печі'
@@ -1870,7 +1728,6 @@ export const survey = {
     {
       'name': 'functioning_fuel_delivery',
       'type': 'select_one',
-      '$kuid': 'kkpajmrxN',
       'label': [
         'Is there a functioning fuel delivery/supplier in your area?',
         'Чи є у вашому регіоні функціонуюча доставка/постачальник пального?'
@@ -1884,7 +1741,6 @@ export const survey = {
     {
       'name': 'mains_utilities',
       'type': 'select_multiple',
-      '$kuid': 'DafvIs5rL',
       'label': [
         'What is your main source of heating from mains utilities?',
         'Яким є ваше основне джерело опалення від комунальних служб?'
@@ -1898,7 +1754,6 @@ export const survey = {
     {
       'name': 'mains_utilities_other',
       'type': 'text',
-      '$kuid': 'Zf9E9v9Ng',
       'label': [
         'If "Other", please specify',
         'Якщо "Інше", будь ласка, вкажіть'
@@ -1911,7 +1766,6 @@ export const survey = {
     {
       'name': 'mains_fuel',
       'type': 'select_multiple',
-      '$kuid': 'm41hud6uv',
       'label': [
         'What is your primary source of solid fuel heating?',
         'Яке ваше основне джерело опалення на твердому паливі?'
@@ -1925,7 +1779,6 @@ export const survey = {
     {
       'name': 'mains_fuel_other',
       'type': 'text',
-      '$kuid': 'I9ouPzkaa',
       'label': [
         'If "Other", please specify',
         'Якщо "Інше", будь ласка, вкажіть'
@@ -1938,7 +1791,6 @@ export const survey = {
     {
       'name': 'cal_scoring_sfu',
       'type': 'calculate',
-      '$kuid': 'h2d9wzaQ6',
       'label': [
         'Calculation Scoring System',
         null
@@ -1950,12 +1802,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'K7Wif4kSW'
     },
     {
       'name': 'cfr',
       'type': 'begin_group',
-      '$kuid': 'd7Kfh7wRF',
       'label': [
         '###5. Cash for Rent',
         '###5. Грошові кошти на оренду'
@@ -1969,7 +1819,6 @@ export const survey = {
     {
       'name': 'cfr_curr_accom',
       'type': 'select_one',
-      '$kuid': 'WO8oNLn1U',
       'label': [
         '5.1 What is your current accommodation status?',
         '5.1 Який Ваш поточний житловий статус?'
@@ -1982,7 +1831,6 @@ export const survey = {
     {
       'name': 'cfr_rent_int',
       'type': 'select_one',
-      '$kuid': 'dQj7N2281',
       'label': [
         '5.2 Do you intend to continue renting your current accommodation?',
         '5.2 Чи маєте Ви намір продовжувати орендувати своє нинішнє житло?'
@@ -1996,7 +1844,6 @@ export const survey = {
     {
       'name': 'cfr_rent_stat',
       'type': 'select_one',
-      '$kuid': 'GKLU7bA89',
       'label': [
         '5.3 What is the status of your current rental accommodation?',
         '5.3 Який статус вашого поточного орендованого житла?'
@@ -2010,7 +1857,6 @@ export const survey = {
     {
       'name': 'cfr_accom_int',
       'type': 'select_one',
-      '$kuid': 'jnyveZbAu',
       'label': [
         '5.4 What is your future accomodation intentions?',
         '5.4 Які Ваші майбутні наміри щодо житла?'
@@ -2024,7 +1870,6 @@ export const survey = {
     {
       'name': 'cfr_prev_ass',
       'type': 'select_one',
-      '$kuid': 'mh5gGVQek',
       'label': [
         '5.5 Are you currently receiving rent support from another organisation?',
         '5.5 Чи отримуєте Ви зараз підтримку на сплату оренди від іншої організації?'
@@ -2037,7 +1882,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond',
       'type': 'begin_group',
-      '$kuid': 'Tt6036YsU',
       'label': [
         '####5.6. Accomodation Conditions',
         '####5.6 Житлові умови'
@@ -2051,7 +1895,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_occ_rat',
       'type': 'integer',
-      '$kuid': 'Sl4RzJNcn',
       'label': [
         '5.6.1 In square metres, what is the total space of your accommodation?',
         '5.6.1 Яка загальна площа Вашого житла у квадратних метрах?'
@@ -2063,7 +1906,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_wat_pr',
       'type': 'select_one',
-      '$kuid': '1sP7r6XbO',
       'label': [
         '5.6.2 Is your dwelling water proof?',
         '5.6.2 Чи захищене Ваше житло від вологи?'
@@ -2076,7 +1918,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_run_wat',
       'type': 'select_one',
-      '$kuid': 'pvFboJeck',
       'label': [
         '5.6.3 Do you have access to running water',
         '5.6.3 Чи є у Вас доступ до проточної води?'
@@ -2089,7 +1930,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_hot_wat',
       'type': 'select_one',
-      '$kuid': 'SL20WpQob',
       'label': [
         '5.6.4 Do you have access to hot water',
         '5.6.4 Чи є у Вас доступ до гарячої води?'
@@ -2102,7 +1942,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_wash',
       'type': 'select_one',
-      '$kuid': 'ttvVA0ZaY',
       'label': [
         '5.6.5 Do you have access to adequate washing facilities?',
         '5.6.5 Чи є у вас доступ до здійснення гігієнічних потреб?'
@@ -2115,7 +1954,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_san',
       'type': 'select_one',
-      '$kuid': 'xQ2FOeGk8',
       'label': [
         '5.6.6 Do you have access to adequate sanitation facilities?',
         '5.6.6 Чи є у вас доступ до санітарних вузлів?'
@@ -2128,7 +1966,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_heat',
       'type': 'select_one',
-      '$kuid': '4oH0aE4ah',
       'label': [
         '5.6.7 Do you have access to adequate heating?',
         '5.6.7 Чи маєте Ви доступ до належного опалення?'
@@ -2141,7 +1978,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_draft',
       'type': 'select_one',
-      '$kuid': '9ZkpmgW61',
       'label': [
         '5.6.8 Does your property have draft proofing?',
         '5.6.8 Чи можлива у Вашому домі герметизація?'
@@ -2154,7 +1990,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_insul',
       'type': 'select_one',
-      '$kuid': 'iqqec1VcY',
       'label': [
         '5.6.9 Is your property adequately insulated?',
         '5.6.9 Ваш будинок достатньо ізольований?'
@@ -2167,7 +2002,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_glaz',
       'type': 'select_one',
-      '$kuid': 'h3q0qPJgG',
       'label': [
         '5.6.10 Does your property have double-glazed windows?',
         '5.6.10 Чи встановлені у Вашому будинку вікна з подвійним склопакетом?'
@@ -2180,7 +2014,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_ten',
       'type': 'select_one',
-      '$kuid': 'Xza2tcdff',
       'label': [
         '5.6.11 Does you have formal written agreement of tenancy with your landlord?',
         '5.6.11 Чи укладена у Вас офіційна письмова угода про оренду з орендодавцем?'
@@ -2193,7 +2026,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_lock_doors',
       'type': 'select_one',
-      '$kuid': 'WLe25bfPT',
       'label': [
         '5.6.12 Do you have access to external locked doors on your property?',
         '5.6.12  Чи маєте ви доступ до зовнішніх замкнених дверей у вашій власності?'
@@ -2206,7 +2038,6 @@ export const survey = {
     {
       'name': 'cfr_accom_cond_pri_sp',
       'type': 'select_one',
-      '$kuid': '1DdSrzT9Q',
       'label': [
         '5.6.13 Does your houeshold have access to private space (space you don’t share with other households)',
         '5.6.13 Чи є з Вашого домогосподарства доступ до приватного простору (простору, який Ви не ділите з іншими домогосподарствами)?'
@@ -2218,16 +2049,13 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': '3WWQjPbNh'
     },
     {
       'type': 'end_group',
-      '$kuid': 'Zj0yFAL9y'
     },
     {
       'name': 'ass_inc',
       'type': 'begin_group',
-      '$kuid': 'ybMGwrY1o',
       'label': [
         '###6. Cash Assistance Inclusion/Exclusion',
         '### 6. Включення/ виключення з програм грошової допомоги'
@@ -2240,7 +2068,6 @@ export const survey = {
     {
       'name': 'ass_inc_note',
       'type': 'note',
-      '$kuid': 'ApWDMXGwe',
       'label': [
         '**Based upon your previous answers you will now be informed of your inclusion/exclusion in any cash based programs you have been assessed for.**',
         '**На основі Ваших попередніх відповідей Ви дізнаєтеся про Ваше включення/ виключення з будь-яких програм грошової допомоги, для включення в які Вас оцінювали.**'
@@ -2252,7 +2079,6 @@ export const survey = {
     {
       'name': 'ass_inc_mpca',
       'type': 'begin_group',
-      '$kuid': 'ytuGx1bW3',
       'label': [
         '**MPCA Assessment**',
         '**Оцінювання на предмет участі у програмі багатоцільової грошової допомоги (MPCA)**'
@@ -2266,7 +2092,6 @@ export const survey = {
     {
       'name': 'calc_vulnerability',
       'type': 'calculate',
-      '$kuid': '3Kz9FMaDI',
       '$xpath': 'ass_inc/ass_inc_mpca/calc_vulnerability',
       'required': false,
       '$autoname': 'calc_vulnerability',
@@ -2275,7 +2100,6 @@ export const survey = {
     {
       'name': 'calc_gen_mpca_inc',
       'type': 'calculate',
-      '$kuid': 'FyILSthSU',
       '$xpath': 'ass_inc/ass_inc_mpca/calc_gen_mpca_inc',
       'required': false,
       '$autoname': 'calc_gen_mpca_inc',
@@ -2284,7 +2108,6 @@ export const survey = {
     {
       'name': 'ass_inc_mpca_inc',
       'type': 'note',
-      '$kuid': 'ccSLn97ES',
       'label': [
         '**You have met the critera for inclusion in the cash assistance programme. We will conduct further internal checks and revert to you with a final result.**\n<span style="color: red">Do not read this out to the household</span>',
         '**Ви відповідаєте критеріям для включення в програму грошової допомоги. Ми проведемо подальші внутрішні перевірки та повідомимо Вам остаточний результат.**'
@@ -2301,7 +2124,6 @@ export const survey = {
       ],
       'name': 'ass_inc_mpca_ben',
       'type': 'note',
-      '$kuid': 'uk32TBEGS',
       'label': [
         'The provisional calculated total benefit for this household (HH Size × UAH 3,600 × 3 Months) will be UAH\n<span style="color: red">Do not read this out to the household</span>',
         '**Попередня розрахована загальна допомога для цього домогосподарства (Розмір домогосподарства × 3600 грн. × 3 місяці) становитиме грн: [Не зачитуйте це домогосподарству]:'
@@ -2315,7 +2137,6 @@ export const survey = {
     {
       'name': 'ass_inc_mpca_not_vul',
       'type': 'note',
-      '$kuid': 'wv5rOqtIW',
       'label': [
         '**Unfortunately based upon our criteria, you do not qualify for the cash assistance program as you do not meet the threshold for vulnerability.**',
         '**На жаль, за нашими критеріями Ви не відповідаєте вимогам для участі у програмі грошової допомоги, оскільки рівень Ваш рівень не відповідає порогу вразливості.**'
@@ -2327,12 +2148,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'nM6vsttpW'
     },
     {
       'name': 'ass_inc_cfe',
       'type': 'begin_group',
-      '$kuid': 't1byOBCiu',
       'label': [
         '**Cash for Education Assessment**',
         '**Гроші на оцінювання освіти**'
@@ -2346,7 +2165,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfe_inc',
       'type': 'note',
-      '$kuid': 'XYZHtdYMm',
       'label': [
         'Based upon your answers above, you are entitled to Cash for Education grant',
         'Виходячи з ваших відповідей, ви маєте право на отримання гранту "Гроші на освіту"'
@@ -2359,7 +2177,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfe_ben',
       'type': 'note',
-      '$kuid': 'apxrilLxX',
       'label': [
         'You are entitled a Cash for Education Grant of UAH:',
         'Ви маєте право на отримання гранту "Гроші на освіту" у розмірі гривні:'
@@ -2373,7 +2190,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfe_not_inc',
       'type': 'note',
-      '$kuid': 'aGxkpktFB',
       'label': [
         'You are not entitled to a Cash for Education Grant.',
         'Ви не можете претендувати на отримання гранту "Гроші на освіту".'
@@ -2385,12 +2201,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'Yz7Zw1ggm'
     },
     {
       'name': 'ass_inc_cfr',
       'type': 'begin_group',
-      '$kuid': 'wYolZQshm',
       'label': [
         '**Cash for Rent Assessment**',
         '**Оцінювання на предмет участі у програмі грошової допомоги на оплату оренди (CFR)**'
@@ -2404,7 +2218,6 @@ export const survey = {
     {
       'name': 'calc_gen_cfr_vul',
       'type': 'calculate',
-      '$kuid': 'wqMA2Sugi',
       '$xpath': 'ass_inc/ass_inc_cfr/calc_gen_cfr_vul',
       'required': false,
       '$autoname': 'calc_gen_cfr_vul',
@@ -2413,7 +2226,6 @@ export const survey = {
     {
       'name': 'calc_gen_cfr_inc',
       'type': 'calculate',
-      '$kuid': '9r80JbAsS',
       '$xpath': 'ass_inc/ass_inc_cfr/calc_gen_cfr_inc',
       'required': false,
       '$autoname': 'calc_gen_cfr_inc',
@@ -2422,7 +2234,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfr_inc',
       'type': 'note',
-      '$kuid': 'btx4Bdb0N',
       'label': [
         'You have met the criteria for inclusion in the cash for rent program',
         'Ви відповідаєте критеріям для включення в програму грошової допомоги на оплату оренди'
@@ -2439,7 +2250,6 @@ export const survey = {
       ],
       'name': 'ass_inc_cfr_ben',
       'type': 'note',
-      '$kuid': 'Tg4gBX8fU',
       'label': [
         'Your provisional cash for rent benefit will be a monthly payment of UAH:',
         'Ваша попередня грошова допомога на оплату оренди становитиме щомісячний платіж у такому розмірі (грн):'
@@ -2457,7 +2267,6 @@ export const survey = {
       ],
       'name': 'ass_inc_cfr_top_up',
       'type': 'note',
-      '$kuid': 'r0DJHNLbl',
       'label': [
         'You will also receive an additional one-off top-up grant of UAH:',
         'Ви також отримаєте додатковий одноразовий грант у такому розмірі (грн):'
@@ -2471,7 +2280,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfr_not_inc',
       'type': 'note',
-      '$kuid': 'u7JHccqRa',
       'label': [
         'Unfortunatley based upon our criteria, you not not meet the requirements for cash for rent support',
         'На жаль, за нашими критеріями Ви не відповідаєте вимогам для отримання грошової допомоги на оплату оренди'
@@ -2483,12 +2291,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'sUM1qHVra'
     },
     {
       'name': 'ass_inc_cff',
       'type': 'begin_group',
-      '$kuid': 'NHQ02nygv',
       'label': [
         '**Cash for Fuel Assessment**',
         '**Оцінювання на предмет участі у програмі грошової допомоги на паливо (CFF)**'
@@ -2502,7 +2308,6 @@ export const survey = {
     {
       'name': 'calc_vulnerability_cff',
       'type': 'calculate',
-      '$kuid': 'oNFZDTEkw',
       '$xpath': 'ass_inc/ass_inc_cff/calc_vulnerability_cff',
       'required': false,
       '$autoname': 'calc_vulnerability_cff',
@@ -2511,7 +2316,6 @@ export const survey = {
     {
       'name': 'calc_gen_cff_inc',
       'type': 'calculate',
-      '$kuid': 'MXc2DLqAl',
       '$xpath': 'ass_inc/ass_inc_cff/calc_gen_cff_inc',
       'required': false,
       '$autoname': 'calc_gen_cff_inc',
@@ -2520,7 +2324,6 @@ export const survey = {
     {
       'name': 'ass_inc_cff_inc',
       'type': 'note',
-      '$kuid': 'AW9oXZDrV',
       'label': [
         '**You have met the critera for inclusion in the cash for fuel assistance programme. We will conduct further internal checks and revert to you with a final result.**\n<span style="color: red">Do not read this out to the household</span>',
         '**Ви відповідаєте критеріям для включення в програму грошової допомоги на паливо. Ми проведемо подальші внутрішні перевірки та повідомимо Вам остаточний результат.**'
@@ -2533,7 +2336,6 @@ export const survey = {
     {
       'name': 'ass_inc_cff_ben',
       'type': 'note',
-      '$kuid': 'Az825n3XH',
       'label': [
         'The provisional calculated total benefit for this household\n<span style="color: red">Do not read this out to the household</span>',
         '**Попередня розрахована загальна допомога для цього домогосподарства: \n<span style="color: red">Не зачитуйте це домогосподарству</span>'
@@ -2547,7 +2349,6 @@ export const survey = {
     {
       'name': 'ass_inc_cff_not_vul',
       'type': 'note',
-      '$kuid': '8H2l22Qw4',
       'label': [
         '**Unfortunately based upon our criteria, you do not qualify for the cash for fuel assistance program as you do not meet the threshold for vulnerability.**',
         '**На жаль, за нашими критеріями Ви не відповідаєте вимогам для участі у програмі грошової допомоги на паливо, оскільки рівень Ваш рівень не відповідає порогу вразливості.**'
@@ -2559,12 +2360,10 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'WYhCVSali'
     },
     {
       'name': 'ass_inc_cfu',
       'type': 'begin_group',
-      '$kuid': 'CzIGhUzfB',
       'label': [
         '**Cash for Utilities**',
         '**Оцінювання на предмет участі у програмі грошової допомоги на комунальні послуги (cfu)**'
@@ -2578,7 +2377,6 @@ export const survey = {
     {
       'name': 'calc_vulnerability_cfu',
       'type': 'calculate',
-      '$kuid': 'NqgLkt5Yn',
       '$xpath': 'ass_inc/ass_inc_cfu/calc_vulnerability_cfu',
       'required': false,
       '$autoname': 'calc_vulnerability_cfu',
@@ -2587,7 +2385,6 @@ export const survey = {
     {
       'name': 'calc_gen_cfu_inc',
       'type': 'calculate',
-      '$kuid': 'y9x9gIaPM',
       '$xpath': 'ass_inc/ass_inc_cfu/calc_gen_cfu_inc',
       'required': false,
       '$autoname': 'calc_gen_cfu_inc',
@@ -2596,7 +2393,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfu_inc',
       'type': 'note',
-      '$kuid': 'ZO3zgVpxb',
       'label': [
         '**You have met the critera for inclusion in the cash for utilities assistance programme. We will conduct further internal checks and revert to you with a final result.**\n<span style="color: red">Do not read this out to the household</span>',
         '**Ви відповідаєте критеріям для включення в програму грошової допомоги на комунальні послуги. Ми проведемо подальші внутрішні перевірки та повідомимо Вам остаточний результат.**'
@@ -2609,7 +2405,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfu_ben',
       'type': 'note',
-      '$kuid': 'ezhcqFmRs',
       'label': [
         'The provisional calculated total benefit for this household\n<span style="color: red">Do not read this out to the household</span>',
         '**Попередня розрахована загальна допомога для цього домогосподарства: \n<span style="color: red">Не зачитуйте це домогосподарству</span>'
@@ -2623,7 +2418,6 @@ export const survey = {
     {
       'name': 'ass_inc_cfu_not_vul',
       'type': 'note',
-      '$kuid': 'fYhHnLsfM',
       'label': [
         '**Unfortunately based upon our criteria, you do not qualify for the cash for utilitie assistance program as you do not meet the threshold for vulnerability.**',
         '**На жаль, за нашими критеріями Ви не відповідаєте вимогам для участі у програмі грошової допомоги на комунальні послуги, оскільки рівень Ваш рівень не відповідає порогу вразливості.**'
@@ -2635,16 +2429,13 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'ZeFMyHHjk'
     },
     {
       'type': 'end_group',
-      '$kuid': 'Q7MVNiEVo'
     },
     {
       'name': 'pay_det',
       'type': 'begin_group',
-      '$kuid': 'ekrQCYKA1',
       'label': [
         '###7. Payment Details',
         '###7. Платіжні реквізити'
@@ -2658,7 +2449,6 @@ export const survey = {
     {
       'name': 'pay_consent',
       'type': 'select_one',
-      '$kuid': 'mvb0b8bb7',
       'label': [
         '7.0 Thank you for answering the questions above, are you willing to provide your payment details?',
         '7.0 Дякуємо за відповіді на вищезазначені питання, чи готові ви надати свої платіжні реквізити?'
@@ -2671,7 +2461,6 @@ export const survey = {
     {
       'name': 'pay_det_s',
       'type': 'begin_group',
-      '$kuid': 'jCxpZaUxP',
       '$xpath': 'pay_det/pay_det_s',
       'relevant': 'selected(${pay_consent},\'yes\')',
       'required': false,
@@ -2681,7 +2470,6 @@ export const survey = {
     {
       'name': 'pay_det_id_type',
       'type': 'select_one',
-      '$kuid': 'yNcmXEsmC',
       'label': [
         '7.1 Form of ID do you have?',
         '7.1 Яка у Вас форма посвідчення особи?'
@@ -2694,7 +2482,6 @@ export const survey = {
     {
       'name': 'pay_det_id_type_oth',
       'type': 'text',
-      '$kuid': 'ViKbj1POB',
       'label': [
         '7.1.1 Other form of ID do you have?',
         '7.1.1 Яка інша форма посвідчення особи у Вас є?'
@@ -2707,7 +2494,6 @@ export const survey = {
     {
       'name': 'pay_det_pass_ser',
       'type': 'text',
-      '$kuid': 'UH8YPFsCx',
       'label': [
         '7.2.1 Input Passport Series',
         '7.2.1 Серія паспорта'
@@ -2729,7 +2515,6 @@ export const survey = {
       ],
       'name': 'pay_det_pass_num',
       'type': 'text',
-      '$kuid': 'v08TSFuZY',
       'label': [
         '7.2.2 Number of ID',
         '7.2.2 Номер ID'
@@ -2742,7 +2527,6 @@ export const survey = {
     {
       'name': 'pay_det_id_ph',
       'type': 'image',
-      '$kuid': '9nzh3mkZJ',
       'label': [
         '7.2.3 Take a photo of the ID',
         '7.2.3 Сфотографуйте посвідчення особи'
@@ -2756,7 +2540,6 @@ export const survey = {
     {
       'name': 'begin_group_vdIM9ogQb',
       'type': 'begin_group',
-      '$kuid': '6XlpUYc8W',
       '$xpath': 'pay_det/pay_det_s/begin_group_vdIM9ogQb',
       'relevant': '${pay_det_id_type} != \'\'',
       'required': false,
@@ -2766,7 +2549,6 @@ export const survey = {
     {
       'name': 'pay_det_tax_id_yn',
       'type': 'select_one',
-      '$kuid': 'eC0lYiSAW',
       'label': [
         '7.3.1 Have individual tax number (TIN)?',
         '7.3.1 Чи має бенефіціар індивідуальний податковий номер (ІПН)?'
@@ -2784,7 +2566,6 @@ export const survey = {
       ],
       'name': 'pay_det_tax_id_num',
       'type': 'text',
-      '$kuid': 'zYkU5zhG6',
       'label': [
         '7.3.2 Individual tax number',
         '7.3.2 Ідентифікаційний номер (ІПН) бенефіціара'
@@ -2804,7 +2585,6 @@ export const survey = {
     {
       'name': 'pay_det_tax_id_ph',
       'type': 'image',
-      '$kuid': 'jf0q0AzC4',
       'label': [
         '7.3.3 Tax ID photo',
         '7.3.3 Сфотографуйте посвідчення платника податків'
@@ -2818,7 +2598,6 @@ export const survey = {
     {
       'name': 'pay_det_tax_exempt',
       'type': 'select_one',
-      '$kuid': 'HCbW6KOiX',
       'label': [
         '7.3.4 Have a tax exemptions?',
         '7.3.4 Підтвердження відсутності ІПН'
@@ -2832,7 +2611,6 @@ export const survey = {
     {
       'name': 'pay_det_tax_exempt_im',
       'type': 'image',
-      '$kuid': 'd6mIgXxWQ',
       'label': [
         '7.3.5 Proof of the tax of exemptions photo',
         '7.3.5 Сфотографуйте пільговий документ'
@@ -2844,7 +2622,6 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'A51aklRxL'
     },
     {
       'hint': [
@@ -2853,7 +2630,6 @@ export const survey = {
       ],
       'name': 'pay_det_pay_meth',
       'type': 'select_one',
-      '$kuid': '292npU6df',
       'label': [
         '7.4.1 Preferred Payment Method',
         '7.4.1 Який у Вас бажаний спосіб оплати?'
@@ -2866,7 +2642,6 @@ export const survey = {
     {
       'name': 'pay_det_iban',
       'type': 'text',
-      '$kuid': 'EcD09c0jh',
       'label': [
         '7.4.2 IBAN Number',
         '7.4.2 Який у Вас IBAN-код?'
@@ -2885,7 +2660,6 @@ export const survey = {
     {
       'name': 'pay_det_iban_im',
       'type': 'image',
-      '$kuid': 'MotQpYgqS',
       'label': [
         '7.4.3 Picture of IBAN Number',
         '7.4.3 Сфотографуйте IBAN-код (якщо такий є)'
@@ -2899,7 +2673,6 @@ export const survey = {
     {
       'name': 'pay_address',
       'type': 'text',
-      '$kuid': 'nPXhUATz4',
       'label': [
         '7.4.4 Address',
         '7.4.4 Яка Ваша адреса?'
@@ -2912,7 +2685,6 @@ export const survey = {
     {
       'name': 'pay_zip',
       'type': 'text',
-      '$kuid': 'rGJurY4e9',
       'label': [
         '7.4.5 ZIP Code',
         '7.4.5 Яким іншим способам оплати Ви віддаєте перевагу?'
@@ -2925,7 +2697,6 @@ export const survey = {
     {
       'name': 'pay_det_add_im',
       'type': 'image',
-      '$kuid': 'F2zO3N68X',
       'label': [
         '7.4.6 Picture of Address Page of Passport',
         '7.4.6 Сфотографуйте сторінку з адресою в паспорті'
@@ -2939,7 +2710,6 @@ export const survey = {
     {
       'name': 'pay_det_pay_meth_oth',
       'type': 'text',
-      '$kuid': 'njDdXpPhi',
       'label': [
         '7.4.7 Other Preferred Payment Methods',
         '7.4.7 Яким іншим способам оплати Ви віддаєте перевагу?'
@@ -2952,7 +2722,6 @@ export const survey = {
     {
       'name': 'pay_det_pay_meth_none',
       'type': 'text',
-      '$kuid': 'EPkHeTWPz',
       'label': [
         '7.4.8 Reason for Unsuitability of Payment Methods',
         '7.4.8 Чи можете Ви навести головну причину того, що жоден із цих способів оплати Вам не підходить?'
@@ -2964,16 +2733,13 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'bF6wXQaby'
     },
     {
       'type': 'end_group',
-      '$kuid': 'vae8SlDIR'
     },
     {
       'name': 'fin_det',
       'type': 'begin_group',
-      '$kuid': '6kMkawmt4',
       'label': [
         '###8. Final Details',
         '###8. Кінцеві відомості'
@@ -2987,7 +2753,6 @@ export const survey = {
     {
       'name': 'not_thank_sfu',
       'type': 'note',
-      '$kuid': 'I88goNxIu',
       'label': [
         '**Thank you for answering our questions.  We will confirm the details of your registration, and confirm you are not receiving assistance from other parties, please note this could take up to 5-working days.  Once successfully registered, we will confirm if we are able to support you and what level of support you may expect to receive**',
         '**Дякуємо, що відповіли на наші запитання.  Ми підтвердимо деталі вашої реєстрації та підтвердимо, що ви не отримуєте допомогу від інших сторін, будь ласка, зверніть увагу, що це може зайняти до 5 робочих днів.  Після успішної реєстрації ми підтвердимо, чи зможемо ми допомогти вам і на який рівень підтримки ви можете розраховувати**'
@@ -3004,7 +2769,6 @@ export const survey = {
       ],
       'name': 'fin_det_res',
       'type': 'text',
-      '$kuid': 'SNu3O25k0',
       'label': [
         '8.1 Other Comments from Respondent',
         '8.1 Інші коментарі респондента'
@@ -3017,7 +2781,6 @@ export const survey = {
     {
       'name': 'fin_det_enum',
       'type': 'text',
-      '$kuid': 'ujOz2D1YV',
       'label': [
         '8.2 Other Comments from Enumerator',
         '8.2 Інші коментарі особи, яка проводила оцінювання'
@@ -3034,7 +2797,6 @@ export const survey = {
       ],
       'name': 'fin_det_oth_doc_im',
       'type': 'image',
-      '$kuid': 'SdhuhY0am',
       'label': [
         '8.3 Please take picture of any other relevant document',
         '8.3 Сфотографуйте будь-який інший відповідний документ'
@@ -3051,7 +2813,6 @@ export const survey = {
       ],
       'name': 'fin_det_oth_doc_im2',
       'type': 'image',
-      '$kuid': 'QBtUVoFgt',
       'label': [
         '8.4 Please take picture of any other relevant document',
         '8.4 Сфотографуйте будь-який інший відповідний документ'
@@ -3064,13 +2825,11 @@ export const survey = {
     },
     {
       'type': 'end_group',
-      '$kuid': 'A2aVUedJg'
     }
   ],
   'choices': [
     {
       'name': 'lwo',
-      '$kuid': 'C3CGTTjh3',
       'label': [
         'Lviv (LWO)',
         'Lviv (LWO)'
@@ -3081,7 +2840,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'chj',
-      '$kuid': 'A4GYK7SXd',
       'label': [
         'Chernihiv (CHJ)',
         'Chernihiv (CHJ)'
@@ -3092,7 +2850,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'dnk',
-      '$kuid': 'PpVoJFB45',
       'label': [
         'Dnipro (DNK)',
         'Dnipro (DNK)'
@@ -3103,7 +2860,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'hrk',
-      '$kuid': 'EBROESkO5',
       'label': [
         'Kharkiv (HRK)',
         'Kharkiv (HRK)'
@@ -3114,7 +2870,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'nlv',
-      '$kuid': 'qn8SZozty',
       'label': [
         'Mykloaiv (NLV)',
         'Mykloaiv (NLV)'
@@ -3125,7 +2880,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'umy',
-      '$kuid': 'dlASCRflJ',
       'label': [
         'Sumy (UMY)',
         'Sumy (UMY)'
@@ -3135,7 +2889,6 @@ export const survey = {
     },
     {
       'name': 'anna_artiukh',
-      '$kuid': 'dqSNDTjbB',
       'label': [
         'Anna Artiukh',
         'Анна Артюх'
@@ -3146,7 +2899,6 @@ export const survey = {
     },
     {
       'name': 'yevhenii_musiienko',
-      '$kuid': 'g6g7va94a',
       'label': [
         'Yevhenii Musiienko',
         'Євгеній Мусієнко'
@@ -3157,7 +2909,6 @@ export const survey = {
     },
     {
       'name': 'veronika_kaliuzhna',
-      '$kuid': 'DZWoTSHCS',
       'label': [
         'Veronika Kaliuzhna',
         'Вероніка Калюжна'
@@ -3168,7 +2919,6 @@ export const survey = {
     },
     {
       'name': 'vitaliy_grinenko',
-      '$kuid': '4E2veZ8dn',
       'label': [
         'Vitaliy Grinenko',
         'Віталій Гриненко'
@@ -3179,7 +2929,6 @@ export const survey = {
     },
     {
       'name': 'halyna_lantukh',
-      '$kuid': 'wZKX3Uums',
       'label': [
         'Halyna Lantukh',
         'Галина Лантух'
@@ -3190,7 +2939,6 @@ export const survey = {
     },
     {
       'name': 'olena_osadcha',
-      '$kuid': 'w4mocFI86',
       'label': [
         'Olena Osadcha',
         'Олена Осадча'
@@ -3201,7 +2949,6 @@ export const survey = {
     },
     {
       'name': 'umy_enum1',
-      '$kuid': 'qRfu2YYAk',
       'label': [
         'Enumerator 1',
         'Переписувач 1'
@@ -3212,7 +2959,6 @@ export const survey = {
     },
     {
       'name': 'umy_enum2',
-      '$kuid': '94LK90Xoa',
       'label': [
         'Enumerator 2',
         'Переписувач 2'
@@ -3223,7 +2969,6 @@ export const survey = {
     },
     {
       'name': 'oleksandr_havrylov',
-      '$kuid': 'mNu1Do9U8',
       'label': [
         'Oleksandr Havrylov',
         'Олександр Гаврилов'
@@ -3234,7 +2979,6 @@ export const survey = {
     },
     {
       'name': 'ievgen_kylymenniy',
-      '$kuid': 'huvs9gEx9',
       'label': [
         'Ievgen Kylymenniy',
         'Євген Килименний'
@@ -3245,7 +2989,6 @@ export const survey = {
     },
     {
       'name': 'oleksandr_shmunk',
-      '$kuid': '2UFH6jgvF',
       'label': [
         'Oleksandr Shmunk',
         'Олександр Шмунк'
@@ -3256,7 +2999,6 @@ export const survey = {
     },
     {
       'name': 'inna_kovalchuk',
-      '$kuid': 'iNE1FiAih',
       'label': [
         'Inna Kovalchuk',
         'Інна Ковальчук'
@@ -3267,7 +3009,6 @@ export const survey = {
     },
     {
       'name': 'anna_pastushenko',
-      '$kuid': 'ZZ0zzfXqg',
       'label': [
         'Anna Pastushenko',
         'Анна Пастушенко'
@@ -3278,7 +3019,6 @@ export const survey = {
     },
     {
       'name': 'maksym_savchenko',
-      '$kuid': 'ClAAArbBL',
       'label': [
         'Maksym Savchenko',
         'Максим Савченко'
@@ -3289,7 +3029,6 @@ export const survey = {
     },
     {
       'name': 'vasyl_voitsikhovskyi',
-      '$kuid': 'rsJUYcVSc',
       'label': [
         'Vasyl Voitsikhovskyi',
         'Василь Войціховський'
@@ -3300,7 +3039,6 @@ export const survey = {
     },
     {
       'name': 'dmytro_tsaruk',
-      '$kuid': 'oQtypS3MY',
       'label': [
         'Dmytro Tsaruk',
         'Дмитро Царук'
@@ -3311,7 +3049,6 @@ export const survey = {
     },
     {
       'name': 'viktoria_ushan',
-      '$kuid': 'y4qrl0eW5',
       'label': [
         'Viktoria Ushan',
         'Вікторія Ушань'
@@ -3322,7 +3059,6 @@ export const survey = {
     },
     {
       'name': 'artem_chernukha_1',
-      '$kuid': '6vQrN7xMI',
       'label': [
         'Artem Chernukha',
         'Чернуха Артем'
@@ -3333,7 +3069,6 @@ export const survey = {
     },
     {
       'name': 'henadii_petrychenko',
-      '$kuid': '073kc4wCd',
       'label': [
         'Henadii Petrychenko',
         'Петриченко Геннадій'
@@ -3344,7 +3079,6 @@ export const survey = {
     },
     {
       'name': 'lwo_ex1',
-      '$kuid': 'fbPeACFIM',
       'label': [
         'Extra 1',
         'Додатковий 1'
@@ -3355,7 +3089,6 @@ export const survey = {
     },
     {
       'name': 'lwo_ex2',
-      '$kuid': 'ukpEwUlWB',
       'label': [
         'Extra 2',
         'Додатковий 1'
@@ -3366,7 +3099,6 @@ export const survey = {
     },
     {
       'name': 'polina_prusakova',
-      '$kuid': 'iYN28bg8h',
       'label': [
         'Polina Prusakova',
         'Поліна Прусакова'
@@ -3377,7 +3109,6 @@ export const survey = {
     },
     {
       'name': 'mykyta_pokynboroda',
-      '$kuid': 'loe7wHySU',
       'label': [
         'Mykyta Pokynboroda',
         'Микита Покиньборода'
@@ -3388,7 +3119,6 @@ export const survey = {
     },
     {
       'name': 'nlv_ex1',
-      '$kuid': 'c6Rzdh275',
       'label': [
         'Extra 1',
         'Додатковий 1'
@@ -3399,7 +3129,6 @@ export const survey = {
     },
     {
       'name': 'nlv_ex2',
-      '$kuid': 'tQl3BBWN4',
       'label': [
         'Extra 2',
         'Додатковий 1'
@@ -3410,7 +3139,6 @@ export const survey = {
     },
     {
       'name': 'oleh_vyshnevskyi',
-      '$kuid': 'q9Pb3PYXg',
       'label': [
         'Oleh Vyshevskyi',
         'Oleh Vyshevskyi'
@@ -3421,7 +3149,6 @@ export const survey = {
     },
     {
       'name': 'alina_bondarenko',
-      '$kuid': 's1ahg7YEm',
       'label': [
         'Alina Bondarenko',
         'Alina Bondarenko'
@@ -3432,7 +3159,6 @@ export const survey = {
     },
     {
       'name': 'serhii_dolzhenko',
-      '$kuid': 'nTZLgRb3J',
       'label': [
         'Serhii Dolzhenko',
         'Serhii Dolzhenko'
@@ -3443,7 +3169,6 @@ export const survey = {
     },
     {
       'name': 'viktoria_klymenko',
-      '$kuid': 'QNIpgY2Jy',
       'label': [
         'Viktoria Klymenko',
         'Viktoria Klymenko'
@@ -3454,7 +3179,6 @@ export const survey = {
     },
     {
       'name': 'andrii_zahoruyev',
-      '$kuid': 'gwnRMulZe',
       'label': [
         'Andrii Zahoruyev',
         'Андрій Загоруєв'
@@ -3465,7 +3189,6 @@ export const survey = {
     },
     {
       'name': 'oleh_Ivanov',
-      '$kuid': '7lJN2beUV',
       'label': [
         'Oleh Ivanov',
         'Олег Іванов'
@@ -3476,7 +3199,6 @@ export const survey = {
     },
     {
       'name': 'karina_korzh',
-      '$kuid': 'LkAwd9T1V',
       'label': [
         'Karina Korzh',
         'Каріна Корж'
@@ -3487,7 +3209,6 @@ export const survey = {
     },
     {
       'name': 'serhii_nevmyvaka',
-      '$kuid': '0G76v2TvD',
       'label': [
         'Serhii Nevmyvaka',
         'Сергій Невмивака'
@@ -3498,7 +3219,6 @@ export const survey = {
     },
     {
       'name': 'olha_osmukha',
-      '$kuid': 'yVm1ez0Rl',
       'label': [
         'Olha Osmukha',
         'Ольга Осьмуха'
@@ -3509,7 +3229,6 @@ export const survey = {
     },
     {
       'name': 'halyna_diachenko',
-      '$kuid': 'jzRIfk6ir',
       'label': [
         'Halyna Diachenko',
         'Галина Дьяченко'
@@ -3520,7 +3239,6 @@ export const survey = {
     },
     {
       'name': 'mariia_kozachko',
-      '$kuid': 'FMAWROxzM',
       'label': [
         'Mariia Kozachko',
         'Марія Козачко'
@@ -3531,7 +3249,6 @@ export const survey = {
     },
     {
       'name': 'oleksandr_narsieiev',
-      '$kuid': 'sQ0Qca41r',
       'label': [
         'Oleksandr Narsieiev',
         'Олександр Нарсєєв'
@@ -3542,7 +3259,6 @@ export const survey = {
     },
     {
       'name': 'dnk_ex1',
-      '$kuid': 'Lxbdhe7lf',
       'label': [
         'Extra 1',
         'Додатковий 1'
@@ -3553,7 +3269,6 @@ export const survey = {
     },
     {
       'name': 'dnk_ex2',
-      '$kuid': 'Jrwf5w9Pc',
       'label': [
         'Extra 2',
         'Додатковий 2'
@@ -3564,7 +3279,6 @@ export const survey = {
     },
     {
       'name': 'dnk_ex3',
-      '$kuid': '4OAn5opxp',
       'label': [
         'Extra 3',
         'Додатковий 3'
@@ -3575,7 +3289,6 @@ export const survey = {
     },
     {
       'name': 'dnk_ex4',
-      '$kuid': 'aFk5wdjDU',
       'label': [
         'Extra 4',
         'Додатковий 4'
@@ -3586,7 +3299,6 @@ export const survey = {
     },
     {
       'name': 'yurii_volkov',
-      '$kuid': 'vqmuTsUQO',
       'label': [
         'Yurii Volkov',
         'Юрій Волков'
@@ -3597,7 +3309,6 @@ export const survey = {
     },
     {
       'name': 'andrii_zagoruiev',
-      '$kuid': '2ztnMKUEL',
       'label': [
         'Andrii Zagoruiev',
         'Андрій Загоруєв'
@@ -3608,7 +3319,6 @@ export const survey = {
     },
     {
       'name': 'olena_sydorenko',
-      '$kuid': 'bo0rnfNlX',
       'label': [
         'Olena Sydorenko',
         'Олена Сидоренко'
@@ -3619,7 +3329,6 @@ export const survey = {
     },
     {
       'name': 'svitlana_smyrnova',
-      '$kuid': 'wRz86tVUs',
       'label': [
         'Svitlana Smyrnova',
         'Світлана Смирнова'
@@ -3630,7 +3339,6 @@ export const survey = {
     },
     {
       'name': 'tetiana_konovshii',
-      '$kuid': 'zbCscP0S2',
       'label': [
         'Tetiana Konovshii',
         'Тетяна Коновшій'
@@ -3641,7 +3349,6 @@ export const survey = {
     },
     {
       'name': 'bohdan_taranushchenko',
-      '$kuid': 'ONSqGcRSF',
       'label': [
         'Bohdan Taranushchenko',
         'Богдан Таранущенко'
@@ -3652,7 +3359,6 @@ export const survey = {
     },
     {
       'name': 'olena_sotnychenko',
-      '$kuid': 'ziOvgZFqq',
       'label': [
         'Olena Sotnychenko',
         'Олена Сотниченко'
@@ -3663,7 +3369,6 @@ export const survey = {
     },
     {
       'name': 'vitalii_shapoval',
-      '$kuid': 'TxKG9IkOc',
       'label': [
         'Vitalii Shapoval',
         'Віталій Шаповал'
@@ -3674,7 +3379,6 @@ export const survey = {
     },
     {
       'name': 'olena_buglo',
-      '$kuid': 'SMf5Y3fIX',
       'label': [
         'Olena Buglo',
         'Олена Бугло'
@@ -3685,7 +3389,6 @@ export const survey = {
     },
     {
       'name': 'nataliia_bykova',
-      '$kuid': 'e134HFbGc',
       'label': [
         'Nataliia Bykova',
         'Наталія Бикова'
@@ -3696,7 +3399,6 @@ export const survey = {
     },
     {
       'name': 'oleksii_pohorielov',
-      '$kuid': 'QyEbupwnL',
       'label': [
         'Oleksii Pohorielov',
         'Олексій Погорєлов'
@@ -3707,7 +3409,6 @@ export const survey = {
     },
     {
       'name': 'nataliia_yermolova',
-      '$kuid': 'z9Y4aQYum',
       'label': [
         'Nataliia Yermolova',
         'Наталія Єрмолова'
@@ -3718,7 +3419,6 @@ export const survey = {
     },
     {
       'name': 'ivan_prokopkin',
-      '$kuid': 'aF5w4xX1Q',
       'label': [
         'Ivan Prokopkin',
         'Іван Прокопкін'
@@ -3729,7 +3429,6 @@ export const survey = {
     },
     {
       'name': 'hrk_ex1',
-      '$kuid': 'r0vY9vzHV',
       'label': [
         'Extra 1',
         'Додатковий 1'
@@ -3740,7 +3439,6 @@ export const survey = {
     },
     {
       'name': 'hrk_ex2',
-      '$kuid': 'STnNagwI2',
       'label': [
         'Extra 2',
         'Додатковий 1'
@@ -3751,7 +3449,6 @@ export const survey = {
     },
     {
       'name': 'dmytro_chernukha',
-      '$kuid': 'ElAZExCw1',
       'label': [
         'Dmytro Chernukha',
         'Дмитро Чернуха'
@@ -3762,7 +3459,6 @@ export const survey = {
     },
     {
       'name': 'anastasiia_reshynska',
-      '$kuid': 'BGmQoAHEx',
       'label': [
         'Anastasiia Reshynska',
         'Анастасія Решинська'
@@ -3773,7 +3469,6 @@ export const survey = {
     },
     {
       'name': 'nataliia_pushenko',
-      '$kuid': 'dkqiQd2Pv',
       'label': [
         'Nataliia Pushenko',
         'Наталія Пушенко'
@@ -3784,7 +3479,6 @@ export const survey = {
     },
     {
       'name': 'tetiana_gorbatiuk',
-      '$kuid': 'UayCTi04L',
       'label': [
         'Tetiana Gorbatiuk',
         'Горбатюк Тетяна'
@@ -3795,7 +3489,6 @@ export const survey = {
     },
     {
       'name': 'oleksandr_lukomets',
-      '$kuid': 'ewrwmMNC5',
       'label': [
         'Oleksandr Lukomets',
         'Лукомець Олександр'
@@ -3806,7 +3499,6 @@ export const survey = {
     },
     {
       'name': 'tetiana_kolot',
-      '$kuid': 'WXxXutLOT',
       'label': [
         'Tetiana Kolot',
         'Колот Тетяна'
@@ -3817,7 +3509,6 @@ export const survey = {
     },
     {
       'name': 'katerina_severin',
-      '$kuid': 'TvHu99P91',
       'label': [
         'Katerina Severin',
         'Северін Катерина'
@@ -3828,7 +3519,6 @@ export const survey = {
     },
     {
       'name': 'maksim_sedun',
-      '$kuid': 'FwDs8ws1o',
       'label': [
         'Maksim Sedun',
         'Седун Максим'
@@ -3839,7 +3529,6 @@ export const survey = {
     },
     {
       'name': 'surzhyk_oleksandr',
-      '$kuid': 'vzWt1fJVX',
       'label': [
         'Surzhyk Oleksandr',
         'Суржик Олександр'
@@ -3850,7 +3539,6 @@ export const survey = {
     },
     {
       'name': 'chj_ex1',
-      '$kuid': 'Abj17k7yk',
       'label': [
         'Extra 1',
         'Додатковий 1'
@@ -3861,7 +3549,6 @@ export const survey = {
     },
     {
       'name': 'chj_ex2',
-      '$kuid': 'J4C1gGZMf',
       'label': [
         'Extra 2',
         'Додатковий 1'
@@ -3872,7 +3559,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum1',
-      '$kuid': 'B1s2VWHHW',
       'label': [
         'Enumerator 1',
         'Переписувач 1'
@@ -3883,7 +3569,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum2',
-      '$kuid': 'FRvyHANAe',
       'label': [
         'Enumerator 2',
         'Переписувач 2'
@@ -3894,7 +3579,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum3',
-      '$kuid': 'iLjECdYu3',
       'label': [
         'Enumerator 3',
         'Переписувач 3'
@@ -3905,7 +3589,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum4',
-      '$kuid': 'vZ8ne9YgX',
       'label': [
         'Enumerator 4',
         'Переписувач 4'
@@ -3916,7 +3599,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum5',
-      '$kuid': 'aHTvhGjGf',
       'label': [
         'Enumerator 5',
         'Переписувач 5'
@@ -3927,7 +3609,6 @@ export const survey = {
     },
     {
       'name': 'chj_enum6',
-      '$kuid': 'F4oYZwbAd',
       'label': [
         'Enumerator 6',
         'Переписувач 6'
@@ -3938,7 +3619,6 @@ export const survey = {
     },
     {
       'name': 'viktoriia_lytvynova',
-      '$kuid': 'ax8vxX0FW',
       'label': [
         'Viktoriia Lytvynova',
         'Вікторія Литвинова'
@@ -3949,7 +3629,6 @@ export const survey = {
     },
     {
       'name': 'valerii_vietrov',
-      '$kuid': 'VZyUha5zO',
       'label': [
         'Valerii Vietrov',
         'Валерій Вєтров'
@@ -3960,7 +3639,6 @@ export const survey = {
     },
     {
       'name': 'lesya_tsaruk',
-      '$kuid': 'Zv63U0qMr',
       'label': [
         'Lesya Tsaruk',
         'Леся Царук'
@@ -3971,7 +3649,6 @@ export const survey = {
     },
     {
       'name': 'irina_gobchuk',
-      '$kuid': 'D6mSzcHMw',
       'label': [
         'Irina Gobchuk',
         'Ірина Гобчук'
@@ -3982,7 +3659,6 @@ export const survey = {
     },
     {
       'name': 'irina_klimashevskaya',
-      '$kuid': 'bSGBcqkpy',
       'label': [
         'Irina Klimashevskaya',
         'Ірина Климашевська'
@@ -3993,7 +3669,6 @@ export const survey = {
     },
     {
       'name': 'julia_bilyansk',
-      '$kuid': 'cvHf4ce8y',
       'label': [
         'Julia Bilyansk',
         'Юлія Біляньска'
@@ -4004,7 +3679,6 @@ export const survey = {
     },
     {
       'name': 'danylo_zyrianov',
-      '$kuid': '2kA603w3a',
       'label': [
         'Danylo Zyrianov',
         'Данило Зирянов'
@@ -4015,7 +3689,6 @@ export const survey = {
     },
     {
       'name': 'oksana_podolianko',
-      '$kuid': 'xwNrWUxRG',
       'label': [
         'Oksana Podolianko',
         'Оксана Подолянко'
@@ -4026,7 +3699,6 @@ export const survey = {
     },
     {
       'name': 'ivan_volynkin',
-      '$kuid': 'Pg3XDNEF5',
       'label': [
         'Ivan Volynkin',
         'Іван Волинкін'
@@ -4037,7 +3709,6 @@ export const survey = {
     },
     {
       'name': 'nadiia_yudaieva',
-      '$kuid': 'EKqENcFE3',
       'label': [
         'Nadiia Yudaieva',
         'Юдаєва Надія'
@@ -4048,7 +3719,6 @@ export const survey = {
     },
     {
       'name': 'dmytro_ivanov',
-      '$kuid': 'KGPC4s4xF',
       'label': [
         'Dmytro Ivanov',
         'Іванов Дмитро'
@@ -4059,7 +3729,6 @@ export const survey = {
     },
     {
       'name': 'kostiantyn_yefimchuk',
-      '$kuid': 'BnOP9meOU',
       'label': [
         'Kostiantyn Yefimchuk',
         'Єфімчук Костянтин'
@@ -4070,7 +3739,6 @@ export const survey = {
     },
     {
       'name': 'daria_kokalia',
-      '$kuid': 'n4FVHb251',
       'label': [
         'Daria Kokalia',
         'Кокаля Дар\'я'
@@ -4086,7 +3754,6 @@ export const survey = {
       'lwo': 'lwo',
       'nlv': 'nlv',
       'name': 'ukr000360_novo2',
-      '$kuid': 'tomGoX3Mq',
       'label': [
         'UKR-000360 Novo Nordisk',
         'UKR-000360 Novo Nordisk'
@@ -4101,7 +3768,6 @@ export const survey = {
       'lwo': 'lwo',
       'nlv': 'nlv',
       'name': 'ukr000314_uhf4',
-      '$kuid': 'SppbvtBBc',
       'label': [
         'UKR-000314 UHF4',
         'UKR-000314 UHF4'
@@ -4111,7 +3777,6 @@ export const survey = {
     },
     {
       'name': 'ukr000284_bha',
-      '$kuid': 'STm6FVdH4',
       'label': [
         'UKR-000284 BHA',
         'UKR-000284 BHA'
@@ -4126,7 +3791,6 @@ export const survey = {
       'lwo': 'lwo',
       'nlv': 'nlv',
       'name': 'ukr000269_echo',
-      '$kuid': 'bXJGUYAtV',
       'label': [
         'UKR-000269 ECHO1',
         'UKR-000269 ECHO1'
@@ -4142,7 +3806,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000322_echo2',
-      '$kuid': '9827peAtX',
       'label': [
         'UKR-000322 ECHO2',
         'UKR-000322 ECHO2'
@@ -4158,7 +3821,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000372_echo3',
-      '$kuid': 'KoAeMp82s',
       'label': [
         'UKR-000372 ECHO3',
         'UKR-000372 ECHO3'
@@ -4169,7 +3831,6 @@ export const survey = {
     {
       'nlv': 'nlv',
       'name': 'ukr000298_novo',
-      '$kuid': 'Mg333fBeq',
       'label': [
         'UKR-000298 Novo Nordisk',
         'UKR-000298 Novo Nordisk'
@@ -4180,7 +3841,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'ukr000309_okf',
-      '$kuid': 'KUWyNgU2u',
       'label': [
         'UKR-000309 OKF',
         'UKR-000309 OKF'
@@ -4196,7 +3856,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000270_pf',
-      '$kuid': 'JDGzPNKqu',
       'label': [
         'UKR-000270 Pooled Funds',
         'UKR-000270 Pooled Funds'
@@ -4211,7 +3870,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000342_pf2',
-      '$kuid': '3GDPhxKmV',
       'label': [
         'UKR-000342 Pooled Funds',
         'UKR-000342 Pooled Funds'
@@ -4227,7 +3885,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000345_bha',
-      '$kuid': 'brqrDdsaX',
       'label': [
         'UKR-000345 BHA﻿',
         'UKR-000345 BHA'
@@ -4240,7 +3897,6 @@ export const survey = {
       'hrk': 'hrk',
       'umy': 'umy',
       'name': 'ukr000330_sdc2',
-      '$kuid': 'N7Li9u1Tt',
       'label': [
         'UKR-000330 SDC2',
         'UKR-000330 SDC2'
@@ -4251,7 +3907,6 @@ export const survey = {
     {
       'umy': 'umy',
       'name': 'ukr000267_danida',
-      '$kuid': 'IR1z5FSTH',
       'label': [
         'UKR-000267 DANIDA',
         'UKR-000267 DANIDA'
@@ -4267,7 +3922,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000336_uhf6',
-      '$kuid': 'fnAv1oBCP',
       'label': [
         'UKR-000336 UHF6',
         'UKR-000336 UHF6'
@@ -4283,7 +3937,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000352_uhf7',
-      '$kuid': '2Vtra1Bc9',
       'label': [
         'UKR-000352 UHF7',
         'UKR-000352 UHF7'
@@ -4299,7 +3952,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000347_danida2',
-      '$kuid': 'i8FehNhlD',
       'label': [
         'UKR-000347 DANIDA',
         'UKR-000347 DANIDA'
@@ -4310,7 +3962,6 @@ export const survey = {
     {
       'hrk': 'hrk',
       'name': 'ukr000341_hoff',
-      '$kuid': 'IqA3ZnXJY',
       'label': [
         'UKR-000341 Hoffmans & Husmans',
         'UKR-000341 Hoffmans & Husmans'
@@ -4321,7 +3972,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'ukr000340_aug',
-      '$kuid': 'sKfV0pnPt',
       'label': [
         'UKR-000340 Augustinus Fonden',
         'UKR-000340 Augustinus Fonden'
@@ -4332,7 +3982,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'ukr000329_sida',
-      '$kuid': '9mQfvONfP',
       'label': [
         'UKR-000329 SIDA H2R',
         'UKR-000329 SIDA H2R'
@@ -4345,7 +3994,6 @@ export const survey = {
       'hrk': 'hrk',
       'umy': 'umy',
       'name': 'ukr000380_danida',
-      '$kuid': 'XAxNqjbNo',
       'label': [
         'UKR-000380 DANIDA',
         'UKR-000380 DANIDA'
@@ -4361,7 +4009,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000390_uhf9',
-      '$kuid': 'NuuqXwYFW',
       'label': [
         'UKR-000390 UHF9',
         'UKR-000390 UHF9'
@@ -4374,7 +4021,6 @@ export const survey = {
       'hrk': 'hrk',
       'umy': 'umy',
       'name': 'ukr000399_sdc3',
-      '$kuid': 'XUfwQwsX8',
       'label': [
         'UKR-000399 SDC3',
         'UKR-000399 SDC3'
@@ -4389,7 +4035,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'ukr000386_pf3',
-      '$kuid': 'XkQSbeukt',
       'label': [
         'UKR-000386 Pooled Funds',
         'UKR-000386 Pooled Funds'
@@ -4399,7 +4044,6 @@ export const survey = {
     },
     {
       'name': 'zero_one',
-      '$kuid': '2e4wsbZpf',
       'label': [
         '0-1 month',
         '0-1 місяць'
@@ -4409,7 +4053,6 @@ export const survey = {
     },
     {
       'name': 'two_three',
-      '$kuid': 'KTafqiRBe',
       'label': [
         '2-3 months',
         '2-3 місяці'
@@ -4419,7 +4062,6 @@ export const survey = {
     },
     {
       'name': 'over_3',
-      '$kuid': 'AUWBaupEu',
       'label': [
         'over 3 mounths',
         'понад 3 місяці'
@@ -4435,7 +4077,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'mpca',
-      '$kuid': 'DdxSRvZGm',
       'label': [
         'MPCA',
         'MPCA'
@@ -4451,7 +4092,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'csf',
-      '$kuid': '3HnAkJlzK',
       'label': [
         'Cash for Fuel',
         'Cash for Fuel'
@@ -4467,7 +4107,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'nfi',
-      '$kuid': 't1VjLo5KD',
       'label': [
         'NFI',
         'NFI'
@@ -4480,7 +4119,6 @@ export const survey = {
       'dnk': 'dnk',
       'lwo': 'lwo',
       'name': 'cfr',
-      '$kuid': '9ErFOXHwT',
       'label': [
         'Cash for Rent',
         'Cash for Rent'
@@ -4491,7 +4129,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'cfe',
-      '$kuid': 'HgO3a4deC',
       'label': [
         'Cash for Education',
         'Cash for Education'
@@ -4502,7 +4139,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'iwk',
-      '$kuid': 'ZofN2yob4',
       'label': [
         'Infant Winterclothing Kit',
         'Infant Winterclothing Kit'
@@ -4513,7 +4149,6 @@ export const survey = {
     {
       'lwo': 'lwo',
       'name': 'ihk',
-      '$kuid': '36B44dkab',
       'label': [
         'Infant Hygiene Kit',
         'Infant Hygiene Kit'
@@ -4528,7 +4163,6 @@ export const survey = {
       'lwo': 'lwo',
       'nlv': 'nlv',
       'name': 'esk',
-      '$kuid': 'jhiV0H9cC',
       'label': [
         'Emergency Shelter Kit',
         'Emergency Shelter Kit'
@@ -4544,7 +4178,6 @@ export const survey = {
       'nlv': 'nlv',
       'umy': 'umy',
       'name': 'cfu',
-      '$kuid': 'PD6djvwlM',
       'label': [
         'Cash for Utilities',
         'Cash for Utilities'
@@ -4554,7 +4187,6 @@ export const survey = {
     },
     {
       'name': 'yes',
-      '$kuid': '24TkuE6s4',
       'label': [
         'Yes',
         'Так'
@@ -4564,7 +4196,6 @@ export const survey = {
     },
     {
       'name': 'no',
-      '$kuid': 'qVqwNtLye',
       'label': [
         'No',
         'Ні'
@@ -4574,7 +4205,6 @@ export const survey = {
     },
     {
       'name': 'prot',
-      '$kuid': 'vFw5M0umi',
       'label': [
         'Protection',
         'Захист'
@@ -4584,7 +4214,6 @@ export const survey = {
     },
     {
       'name': 'legal',
-      '$kuid': 'wSOxNkTcv',
       'label': [
         'Legal',
         'Юридичний'
@@ -4594,7 +4223,6 @@ export const survey = {
     },
     {
       'name': 'shelter',
-      '$kuid': 'QSFa0lCdE',
       'label': [
         'Shelter',
         'Відновлення житла'
@@ -4604,7 +4232,6 @@ export const survey = {
     },
     {
       'name': 'ecrec',
-      '$kuid': '5HADEDx13',
       'label': [
         'Economic Recovery (EcRec)',
         'Економічного розвитку'
@@ -4615,7 +4242,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'mains_piped_gas',
-      '$kuid': 'deUgEpLzE',
       'label': [
         'Mains/piped gas',
         'Мережевий/трубопровідний газ'
@@ -4626,7 +4252,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'community_heating',
-      '$kuid': '00MfnaBZZ',
       'label': [
         'Community heating',
         'Громадське опалення'
@@ -4637,7 +4262,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'portable_plug_heater',
-      '$kuid': 'ICPJ9HfpP',
       'label': [
         'Portable plug-in heater',
         'Портативний обігрівач, що вставляється в розетку'
@@ -4648,7 +4272,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'mains_electricity',
-      '$kuid': 'FdAadRwTE',
       'label': [
         'Mains Electricity',
         'Мережева електрика'
@@ -4659,7 +4282,6 @@ export const survey = {
     {
       'tag': 'yes',
       'name': 'fuel',
-      '$kuid': 'IwUVCm9Db',
       'label': [
         'Solid Fuel',
         'Тверде паливо'
@@ -4669,7 +4291,6 @@ export const survey = {
     },
     {
       'name': 'other',
-      '$kuid': 'IJR2ezb8B',
       'label': [
         'Other',
         'Інше'
@@ -4679,7 +4300,6 @@ export const survey = {
     },
     {
       'name': 'utilities',
-      '$kuid': 'WXGliF7og',
       'label': [
         'Mains utilities',
         'Основні комунальні послуги'
@@ -4689,7 +4309,6 @@ export const survey = {
     },
     {
       'name': 'electric',
-      '$kuid': 'aJBv7ggIS',
       'label': [
         'Electric',
         'Електрика'
@@ -4699,7 +4318,6 @@ export const survey = {
     },
     {
       'name': 'gas',
-      '$kuid': 'FvneseA20',
       'label': [
         'Gas',
         'Газ'
@@ -4709,7 +4327,6 @@ export const survey = {
     },
     {
       'name': 'cohs',
-      '$kuid': 'XFRkEcteK',
       'label': [
         'Community heating system',
         'Система централізованого опалення'
@@ -4719,7 +4336,6 @@ export const survey = {
     },
     {
       'name': 'other',
-      '$kuid': 'hWxvWzyah',
       'label': [
         'Other',
         'Інше'
@@ -4729,7 +4345,6 @@ export const survey = {
     },
     {
       'name': 'wood',
-      '$kuid': 'vG8CNWBpx',
       'label': [
         'Wood',
         'Деревина'
@@ -4739,7 +4354,6 @@ export const survey = {
     },
     {
       'name': 'coal',
-      '$kuid': 'UeeTW00fq',
       'label': [
         'Coal',
         'Вугілля'
@@ -4749,7 +4363,6 @@ export const survey = {
     },
     {
       'name': 'charcoal',
-      '$kuid': '8GsMOgyxc',
       'label': [
         'Charcoal',
         'Деревне вугілля'
@@ -4759,7 +4372,6 @@ export const survey = {
     },
     {
       'name': 'pellets',
-      '$kuid': 'asl4W9fH6',
       'label': [
         'Pellets',
         'Пелети'
@@ -4769,7 +4381,6 @@ export const survey = {
     },
     {
       'name': 'ofmf',
-      '$kuid': 'q7jRDdrZk',
       'label': [
         'Oil fed or multi fuel boiler',
         'Мазутний або багатопаливний котел'
@@ -4779,7 +4390,6 @@ export const survey = {
     },
     {
       'name': 'other',
-      '$kuid': 'EgZjKcufF',
       'label': [
         'Other',
         'Інше'
@@ -4789,7 +4399,6 @@ export const survey = {
     },
     {
       'name': 'yes',
-      '$kuid': 'k8hlv47eq',
       'label': [
         'Yes',
         'Так'
@@ -4799,7 +4408,6 @@ export const survey = {
     },
     {
       'name': 'no',
-      '$kuid': '3pjZp1UWc',
       'label': [
         'No',
         'Ні'
@@ -4809,7 +4417,6 @@ export const survey = {
     },
     {
       'name': 'dk',
-      '$kuid': 'B4EMqFFcD',
       'label': [
         'Don’t know',
         'Не знаю'
@@ -4819,7 +4426,6 @@ export const survey = {
     },
     {
       'name': 'yes',
-      '$kuid': 'lUKPNZOqt',
       'label': [
         'Yes government support',
         'Так, державна підтримка'
@@ -4829,7 +4435,6 @@ export const survey = {
     },
     {
       'name': 'yes_another_agency',
-      '$kuid': 'BgBLTdQzM',
       'label': [
         'Yes, from another humanitarian agency or similar',
         'Так, від іншої гуманітарної організації або подібної'
@@ -4839,7 +4444,6 @@ export const survey = {
     },
     {
       'name': 'yes_but',
-      '$kuid': 'gK2dAoW7Z',
       'label': [
         'Yes but not sufficient to cover needs',
         'Так, але недостатньо для покриття потреб'
@@ -4849,7 +4453,6 @@ export const survey = {
     },
     {
       'name': 'no',
-      '$kuid': 'zYkKk9wq8',
       'label': [
         'No',
         'Ні'
@@ -4859,7 +4462,6 @@ export const survey = {
     },
     {
       'name': 'cherkaska',
-      '$kuid': 'Wq7IfBuG1',
       'label': [
         'Cherkaska',
         'Черкаська'
@@ -4869,7 +4471,6 @@ export const survey = {
     },
     {
       'name': 'chernihivska',
-      '$kuid': 'lqo3YJs6x',
       'label': [
         'Chernihivska',
         'Чернігівська'
@@ -4879,7 +4480,6 @@ export const survey = {
     },
     {
       'name': 'chernivetska',
-      '$kuid': '20XaAv5Rk',
       'label': [
         'Chernivetska',
         'Чернівецька'
@@ -4889,7 +4489,6 @@ export const survey = {
     },
     {
       'name': 'dnipropetrovska',
-      '$kuid': 'CVf7jzBEA',
       'label': [
         'Dnipropetrovska',
         'Дніпропетровська'
@@ -4899,7 +4498,6 @@ export const survey = {
     },
     {
       'name': 'donetska',
-      '$kuid': 'boi2Utlyl',
       'label': [
         'Donetska',
         'Донецька'
@@ -4909,7 +4507,6 @@ export const survey = {
     },
     {
       'name': 'ivano-frankivska',
-      '$kuid': '1WbpKyb5S',
       'label': [
         'Ivano-Frankivska',
         'Івано-Франківська'
@@ -4919,7 +4516,6 @@ export const survey = {
     },
     {
       'name': 'kharkivska',
-      '$kuid': 'Zsm0AiTaz',
       'label': [
         'Kharkivska',
         'Харківська'
@@ -4929,7 +4525,6 @@ export const survey = {
     },
     {
       'name': 'khersonska',
-      '$kuid': 'I0VwPMPt5',
       'label': [
         'Khersonska',
         'Херсонська'
@@ -4939,7 +4534,6 @@ export const survey = {
     },
     {
       'name': 'khmelnytska',
-      '$kuid': 'kBJ52tjJ2',
       'label': [
         'Khmelnytska',
         'Хмельницька'
@@ -4949,7 +4543,6 @@ export const survey = {
     },
     {
       'name': 'kirovohradska',
-      '$kuid': 'AfMJFKjNs',
       'label': [
         'Kirovohradska',
         'Кіровоградська'
@@ -4959,7 +4552,6 @@ export const survey = {
     },
     {
       'name': 'kyivska',
-      '$kuid': 'LtajB3YJh',
       'label': [
         'Kyivska',
         'Київська'
@@ -4969,7 +4561,6 @@ export const survey = {
     },
     {
       'name': 'luhanska',
-      '$kuid': 'O1RmiSw1B',
       'label': [
         'Luhanska',
         'Луганська'
@@ -4979,7 +4570,6 @@ export const survey = {
     },
     {
       'name': 'lvivska',
-      '$kuid': 'BEBWIheo9',
       'label': [
         'Lvivska',
         'Львівська'
@@ -4989,7 +4579,6 @@ export const survey = {
     },
     {
       'name': 'mykolaivska',
-      '$kuid': 'OlPr0e2hM',
       'label': [
         'Mykolaivska',
         'Миколаївська'
@@ -4999,7 +4588,6 @@ export const survey = {
     },
     {
       'name': 'odeska',
-      '$kuid': 'JPJA6iYtf',
       'label': [
         'Odeska',
         'Одеська'
@@ -5009,7 +4597,6 @@ export const survey = {
     },
     {
       'name': 'poltavska',
-      '$kuid': 'rB58AAbby',
       'label': [
         'Poltavska',
         'Полтавська'
@@ -5019,7 +4606,6 @@ export const survey = {
     },
     {
       'name': 'rivnenska',
-      '$kuid': 'BcgwRqEya',
       'label': [
         'Rivnenska',
         'Рівненська'
@@ -5029,7 +4615,6 @@ export const survey = {
     },
     {
       'name': 'sevastopilska',
-      '$kuid': 'IKy2tHjW8',
       'label': [
         'Sevastopilska',
         'Севастопільська'
@@ -5039,7 +4624,6 @@ export const survey = {
     },
     {
       'name': 'sumska',
-      '$kuid': 'JUy2I6c3A',
       'label': [
         'Sumska',
         'Сумська'
@@ -5049,7 +4633,6 @@ export const survey = {
     },
     {
       'name': 'ternopilska',
-      '$kuid': 'GcO1vxQnG',
       'label': [
         'Ternopilska',
         'Тернопільська'
@@ -5059,7 +4642,6 @@ export const survey = {
     },
     {
       'name': 'vinnytska',
-      '$kuid': 'BY4TY8KaR',
       'label': [
         'Vinnytska',
         'Вінницька'
@@ -5069,7 +4651,6 @@ export const survey = {
     },
     {
       'name': 'volynska',
-      '$kuid': '229eJa14o',
       'label': [
         'Volynska',
         'Волинська'
@@ -5079,7 +4660,6 @@ export const survey = {
     },
     {
       'name': 'zakarpatska',
-      '$kuid': 'TwVQT8uwX',
       'label': [
         'Zakarpatska',
         'Закарпатська'
@@ -5089,7 +4669,6 @@ export const survey = {
     },
     {
       'name': 'zaporizka',
-      '$kuid': 'PWgSLY3Y0',
       'label': [
         'Zaporizka',
         'Запорізька'
@@ -5099,7 +4678,6 @@ export const survey = {
     },
     {
       'name': 'zhytomyrska',
-      '$kuid': 'JRVtzzmHl',
       'label': [
         'Zhytomyrska',
         'Житомирська'
@@ -5109,7 +4687,6 @@ export const survey = {
     },
     {
       'name': 'zvenyhorodskyi',
-      '$kuid': 'FHx7H8ZdU',
       'label': [
         'Zvenyhorodskyi',
         'Звенигородський'
@@ -5120,7 +4697,6 @@ export const survey = {
     },
     {
       'name': 'zolotoniskyi',
-      '$kuid': 'JeIKUL4MC',
       'label': [
         'Zolotoniskyi',
         'Золотоніський'
@@ -5131,7 +4707,6 @@ export const survey = {
     },
     {
       'name': 'umanskyi',
-      '$kuid': 'm5UTRuOCv',
       'label': [
         'Umanskyi',
         'Уманський'
@@ -5142,7 +4717,6 @@ export const survey = {
     },
     {
       'name': 'cherkaskyi',
-      '$kuid': 'JKwza2taA',
       'label': [
         'Cherkaskyi',
         'Черкаський'
@@ -5153,7 +4727,6 @@ export const survey = {
     },
     {
       'name': 'koriukivskyi',
-      '$kuid': 'qIWWabmFs',
       'label': [
         'Koriukivskyi',
         'Корюківський'
@@ -5164,7 +4737,6 @@ export const survey = {
     },
     {
       'name': 'nizhynskyi',
-      '$kuid': 'sljX07Nom',
       'label': [
         'Nizhynskyi',
         'Ніжинський'
@@ -5175,7 +4747,6 @@ export const survey = {
     },
     {
       'name': 'novhorod-siverskyi',
-      '$kuid': 'QMAzRiE5G',
       'label': [
         'Novhorod-Siverskyi',
         'Новгород-Сіверський'
@@ -5186,7 +4757,6 @@ export const survey = {
     },
     {
       'name': 'prylutskyi',
-      '$kuid': 'c58QrEHlJ',
       'label': [
         'Prylutskyi',
         'Прилуцький'
@@ -5197,7 +4767,6 @@ export const survey = {
     },
     {
       'name': 'chernihivskyi',
-      '$kuid': 'Ef6N6rq3X',
       'label': [
         'Chernihivskyi',
         'Чернігівський'
@@ -5208,7 +4777,6 @@ export const survey = {
     },
     {
       'name': 'vyzhnytskyi',
-      '$kuid': 'PzlPND29u',
       'label': [
         'Vyzhnytskyi',
         'Вижницький'
@@ -5219,7 +4787,6 @@ export const survey = {
     },
     {
       'name': 'dnistrovskyi',
-      '$kuid': 'I6jm2O8ip',
       'label': [
         'Dnistrovskyi',
         'Дністровський'
@@ -5230,7 +4797,6 @@ export const survey = {
     },
     {
       'name': 'cnernivetskyi',
-      '$kuid': 'zENnqcDEA',
       'label': [
         'Cnernivetskyi',
         'Чернівецький'
@@ -5241,7 +4807,6 @@ export const survey = {
     },
     {
       'name': 'dniprovskyi',
-      '$kuid': 'ePpEjvD9v',
       'label': [
         'Dniprovskyi',
         'Дніпровський'
@@ -5252,7 +4817,6 @@ export const survey = {
     },
     {
       'name': 'kamianskyi',
-      '$kuid': '0vjR8eKUl',
       'label': [
         'Kamianskyi',
         'Кам’янський'
@@ -5263,7 +4827,6 @@ export const survey = {
     },
     {
       'name': 'kryvorizkyi',
-      '$kuid': 'GpAcRZffr',
       'label': [
         'Kryvorizkyi',
         'Криворізький'
@@ -5274,7 +4837,6 @@ export const survey = {
     },
     {
       'name': 'nikopolskyi',
-      '$kuid': 'skADV2rsU',
       'label': [
         'Nikopolskyi',
         'Нікопольський'
@@ -5285,7 +4847,6 @@ export const survey = {
     },
     {
       'name': 'novomoskovskyi',
-      '$kuid': 'CdzdfK7U4',
       'label': [
         'Novomoskovskyi',
         'Новомосковський'
@@ -5296,7 +4857,6 @@ export const survey = {
     },
     {
       'name': 'pavlohradskyi',
-      '$kuid': 'cimUzHpE4',
       'label': [
         'Pavlohradskyi',
         'Павлоградський'
@@ -5307,7 +4867,6 @@ export const survey = {
     },
     {
       'name': 'synelnykivskyi',
-      '$kuid': 'ral79X5WM',
       'label': [
         'Synelnykivskyi',
         'Синельниківський'
@@ -5318,7 +4877,6 @@ export const survey = {
     },
     {
       'name': 'bakhmutskyi',
-      '$kuid': 'Q0ptdXymX',
       'label': [
         'Bakhmutskyi',
         'Бахмутський'
@@ -5329,7 +4887,6 @@ export const survey = {
     },
     {
       'name': 'volnovaskyi',
-      '$kuid': 'YyI0sYQ1x',
       'label': [
         'Volnovaskyi',
         'Волноваський'
@@ -5340,7 +4897,6 @@ export const survey = {
     },
     {
       'name': 'horlivskyi',
-      '$kuid': 'kMQ8yszvh',
       'label': [
         'Horlivskyi',
         'Горлівський'
@@ -5351,7 +4907,6 @@ export const survey = {
     },
     {
       'name': 'donetskyi',
-      '$kuid': 'zJjh7gZEe',
       'label': [
         'Donetskyi',
         'Донецький'
@@ -5362,7 +4917,6 @@ export const survey = {
     },
     {
       'name': 'kalmiuskyi',
-      '$kuid': '00646P4MB',
       'label': [
         'Kalmiuskyi',
         'Кальміуський'
@@ -5373,7 +4927,6 @@ export const survey = {
     },
     {
       'name': 'kramatorskyi',
-      '$kuid': 'i5hYbt3W8',
       'label': [
         'Kramatorskyi',
         'Краматорський'
@@ -5384,7 +4937,6 @@ export const survey = {
     },
     {
       'name': 'mariupolskyi',
-      '$kuid': 'FGqtKovVT',
       'label': [
         'Mariupolskyi',
         'Маріупольський'
@@ -5395,7 +4947,6 @@ export const survey = {
     },
     {
       'name': 'pokrovskyi',
-      '$kuid': 'PxpehBUIz',
       'label': [
         'Pokrovskyi',
         'Покровський'
@@ -5406,7 +4957,6 @@ export const survey = {
     },
     {
       'name': 'verkhovynskyi',
-      '$kuid': 'X7Eu0BjBT',
       'label': [
         'Verkhovynskyi',
         'Верховинський'
@@ -5417,7 +4967,6 @@ export const survey = {
     },
     {
       'name': 'ivano-frankivskyi',
-      '$kuid': 'DqXWTV8uE',
       'label': [
         'Ivano-Frankivskyi',
         'Івано-Франківський'
@@ -5428,7 +4977,6 @@ export const survey = {
     },
     {
       'name': 'kaluskyi',
-      '$kuid': 'syQrPduZL',
       'label': [
         'Kaluskyi',
         'Калуський'
@@ -5439,7 +4987,6 @@ export const survey = {
     },
     {
       'name': 'kolomyiskyi',
-      '$kuid': 'ZIYUjKpPu',
       'label': [
         'Kolomyiskyi',
         'Коломийський'
@@ -5450,7 +4997,6 @@ export const survey = {
     },
     {
       'name': 'kosivskyi',
-      '$kuid': 'uEpFxNxWM',
       'label': [
         'Kosivskyi',
         'Косівський'
@@ -5461,7 +5007,6 @@ export const survey = {
     },
     {
       'name': 'nadvirnianskyi',
-      '$kuid': 'C7fb58rxH',
       'label': [
         'Nadvirnianskyi',
         'Надвірнянський'
@@ -5472,7 +5017,6 @@ export const survey = {
     },
     {
       'name': 'bohodukhivskyi',
-      '$kuid': 'lMhRgxhI5',
       'label': [
         'Bohodukhivskyi',
         'Богодухівський'
@@ -5483,7 +5027,6 @@ export const survey = {
     },
     {
       'name': 'iziumskyi',
-      '$kuid': 'TJJHFuuK8',
       'label': [
         'Iziumskyi',
         'Ізюмський'
@@ -5494,7 +5037,6 @@ export const survey = {
     },
     {
       'name': 'krasnohradskyi',
-      '$kuid': 'Rrck1TqXJ',
       'label': [
         'Krasnohradskyi',
         'Красноградський'
@@ -5505,7 +5047,6 @@ export const survey = {
     },
     {
       'name': 'kupianskyi',
-      '$kuid': '1Yyi0MBFI',
       'label': [
         'Kupianskyi',
         'Куп\'янський'
@@ -5516,7 +5057,6 @@ export const survey = {
     },
     {
       'name': 'lozivskyi',
-      '$kuid': 'ES4WBXhMb',
       'label': [
         'Lozivskyi',
         'Лозівський'
@@ -5527,7 +5067,6 @@ export const survey = {
     },
     {
       'name': 'kharkivskyi',
-      '$kuid': 'WTHWucYU9',
       'label': [
         'Kharkivskyi',
         'Харківський'
@@ -5538,7 +5077,6 @@ export const survey = {
     },
     {
       'name': 'chuhuivskyi',
-      '$kuid': 'SVLAejsid',
       'label': [
         'Chuhuivskyi',
         'Чугуївський'
@@ -5549,7 +5087,6 @@ export const survey = {
     },
     {
       'name': 'beryslavskyi',
-      '$kuid': 'qrsjFDI18',
       'label': [
         'Beryslavskyi',
         'Бериславський'
@@ -5560,7 +5097,6 @@ export const survey = {
     },
     {
       'name': 'henicheskyi',
-      '$kuid': 'CwhwrKjaR',
       'label': [
         'Henicheskyi',
         'Генічеський'
@@ -5571,7 +5107,6 @@ export const survey = {
     },
     {
       'name': 'kakhovskyi',
-      '$kuid': '9NZ3B48Ou',
       'label': [
         'Kakhovskyi',
         'Каховський'
@@ -5582,7 +5117,6 @@ export const survey = {
     },
     {
       'name': 'skadovskyi',
-      '$kuid': 'odd0D5PnA',
       'label': [
         'Skadovskyi',
         'Скадовський'
@@ -5593,7 +5127,6 @@ export const survey = {
     },
     {
       'name': 'khersonskyi',
-      '$kuid': 't0JsRlgZI',
       'label': [
         'Khersonskyi',
         'Херсонський'
@@ -5604,7 +5137,6 @@ export const survey = {
     },
     {
       'name': 'kamianets-podilskyi',
-      '$kuid': '12vd9kjkr',
       'label': [
         'Kamianets-Podilskyi',
         'Кам\'янець-Подільський'
@@ -5615,7 +5147,6 @@ export const survey = {
     },
     {
       'name': 'khmelnytskyi',
-      '$kuid': 'rkj6zBeoh',
       'label': [
         'Khmelnytskyi',
         'Хмельницький'
@@ -5626,7 +5157,6 @@ export const survey = {
     },
     {
       'name': 'shepetivskyi',
-      '$kuid': 'XIXvT0cUo',
       'label': [
         'Shepetivskyi',
         'Шепетівський'
@@ -5637,7 +5167,6 @@ export const survey = {
     },
     {
       'name': 'holovanivskyi',
-      '$kuid': 'Oj915sLbh',
       'label': [
         'Holovanivskyi',
         'Голованівський'
@@ -5648,7 +5177,6 @@ export const survey = {
     },
     {
       'name': 'kropyvnytskyi',
-      '$kuid': 'xil6s9T4w',
       'label': [
         'Kropyvnytskyi',
         'Кропивницький'
@@ -5659,7 +5187,6 @@ export const survey = {
     },
     {
       'name': 'novoukrainskyi',
-      '$kuid': 'AZtd8rMER',
       'label': [
         'Novoukrainskyi',
         'Новоукраїнський'
@@ -5670,7 +5197,6 @@ export const survey = {
     },
     {
       'name': 'oleksandriiskyi',
-      '$kuid': 'vTkKYYeCu',
       'label': [
         'Oleksandriiskyi',
         'Олександрійський'
@@ -5681,7 +5207,6 @@ export const survey = {
     },
     {
       'name': 'chornobylska zona vidchuzhennia',
-      '$kuid': 'ygSgXNuxL',
       'label': [
         'Chornobylska Zona Vidchuzhennia',
         'Чорнобильська зона відчуження'
@@ -5692,7 +5217,6 @@ export const survey = {
     },
     {
       'name': 'bilotserkivskyi',
-      '$kuid': '4d04db3IT',
       'label': [
         'Bilotserkivskyi',
         'Білоцерківський'
@@ -5703,7 +5227,6 @@ export const survey = {
     },
     {
       'name': 'boryspilskyi',
-      '$kuid': 'xd2J32t65',
       'label': [
         'Boryspilskyi',
         'Бориспільський'
@@ -5714,7 +5237,6 @@ export const survey = {
     },
     {
       'name': 'brovarskyi',
-      '$kuid': 'pfqWWb3EQ',
       'label': [
         'Brovarskyi',
         'Броварський'
@@ -5725,7 +5247,6 @@ export const survey = {
     },
     {
       'name': 'buchanskyi',
-      '$kuid': 'pyUhBmqZ0',
       'label': [
         'Buchanskyi',
         'Бучанський'
@@ -5736,7 +5257,6 @@ export const survey = {
     },
     {
       'name': 'vyshhorodskyi',
-      '$kuid': 'VSPfBYwZY',
       'label': [
         'Vyshhorodskyi',
         'Вишгородський'
@@ -5747,7 +5267,6 @@ export const survey = {
     },
     {
       'name': 'obukhivskyi',
-      '$kuid': '4SaAWQClk',
       'label': [
         'Obukhivskyi',
         'Обухівський'
@@ -5758,7 +5277,6 @@ export const survey = {
     },
     {
       'name': 'fastivskyi',
-      '$kuid': 'L7ODNVAWQ',
       'label': [
         'Fastivskyi',
         'Фастівський'
@@ -5769,7 +5287,6 @@ export const survey = {
     },
     {
       'name': 'kyivska',
-      '$kuid': '8ro6Qay2N',
       'label': [
         'Kyivska',
         'Київська'
@@ -5780,7 +5297,6 @@ export const survey = {
     },
     {
       'name': 'alchevskyi',
-      '$kuid': '2OthT1tvm',
       'label': [
         'Alchevskyi',
         'Алчевський'
@@ -5791,7 +5307,6 @@ export const survey = {
     },
     {
       'name': 'dovzhanskyi',
-      '$kuid': 'q1fKQLlLU',
       'label': [
         'Dovzhanskyi',
         'Довжанський'
@@ -5802,7 +5317,6 @@ export const survey = {
     },
     {
       'name': 'luhanskyi',
-      '$kuid': 'KUgDwbBaw',
       'label': [
         'Luhanskyi',
         'Луганський'
@@ -5813,7 +5327,6 @@ export const survey = {
     },
     {
       'name': 'rovenkivskyi',
-      '$kuid': '1IqZANWof',
       'label': [
         'Rovenkivskyi',
         'Ровеньківський'
@@ -5824,7 +5337,6 @@ export const survey = {
     },
     {
       'name': 'svativskyi',
-      '$kuid': 'gczbXM25O',
       'label': [
         'Svativskyi',
         'Сватівський'
@@ -5835,7 +5347,6 @@ export const survey = {
     },
     {
       'name': 'sievierodonetskyi',
-      '$kuid': 'AwPUUBMM5',
       'label': [
         'Sievierodonetskyi',
         'Сєвєродонецький'
@@ -5846,7 +5357,6 @@ export const survey = {
     },
     {
       'name': 'starobilskyi',
-      '$kuid': 'lVsEl3PVO',
       'label': [
         'Starobilskyi',
         'Старобільський'
@@ -5857,7 +5367,6 @@ export const survey = {
     },
     {
       'name': 'shchastynskyi',
-      '$kuid': 'DageCERux',
       'label': [
         'Shchastynskyi',
         'Щастинський'
@@ -5868,7 +5377,6 @@ export const survey = {
     },
     {
       'name': 'drohobytskyi',
-      '$kuid': 'Lx7nGmPrD',
       'label': [
         'Drohobytskyi',
         'Дрогобицький'
@@ -5879,7 +5387,6 @@ export const survey = {
     },
     {
       'name': 'zolochivskyi',
-      '$kuid': 'hMieRJGKh',
       'label': [
         'Zolochivskyi',
         'Золочівський'
@@ -5890,7 +5397,6 @@ export const survey = {
     },
     {
       'name': 'lvivskyi',
-      '$kuid': 'LJ017Ne54',
       'label': [
         'Lvivskyi',
         'Львівський'
@@ -5901,7 +5407,6 @@ export const survey = {
     },
     {
       'name': 'sambirskyi',
-      '$kuid': 'CZCzbyzCQ',
       'label': [
         'Sambirskyi',
         'Самбірський'
@@ -5912,7 +5417,6 @@ export const survey = {
     },
     {
       'name': 'stryiskyi',
-      '$kuid': '5o7vuW7hI',
       'label': [
         'Stryiskyi',
         'Стрийський'
@@ -5923,7 +5427,6 @@ export const survey = {
     },
     {
       'name': 'chervonohradskyi',
-      '$kuid': 'h1Rf0xqYg',
       'label': [
         'Chervonohradskyi',
         'Червоноградський'
@@ -5934,7 +5437,6 @@ export const survey = {
     },
     {
       'name': 'yavorivskyi',
-      '$kuid': 'N3ilhKCXI',
       'label': [
         'Yavorivskyi',
         'Яворівський'
@@ -5945,7 +5447,6 @@ export const survey = {
     },
     {
       'name': 'bashtanskyi',
-      '$kuid': 'UjnYWwdW9',
       'label': [
         'Bashtanskyi',
         'Баштанський'
@@ -5956,7 +5457,6 @@ export const survey = {
     },
     {
       'name': 'voznesenskyi',
-      '$kuid': 'wz3AHcHYk',
       'label': [
         'Voznesenskyi',
         'Вознесенський'
@@ -5967,7 +5467,6 @@ export const survey = {
     },
     {
       'name': 'mykolaivskyi',
-      '$kuid': 'ew48GRkyr',
       'label': [
         'Mykolaivskyi',
         'Миколаївський'
@@ -5978,7 +5477,6 @@ export const survey = {
     },
     {
       'name': 'pervomaiskyi',
-      '$kuid': 'wetrj6OSz',
       'label': [
         'Pervomaiskyi',
         'Первомайський'
@@ -5989,7 +5487,6 @@ export const survey = {
     },
     {
       'name': 'berezivskyi',
-      '$kuid': 'k5iuAfh1c',
       'label': [
         'Berezivskyi',
         'Березівський'
@@ -6000,7 +5497,6 @@ export const survey = {
     },
     {
       'name': 'bilhorod-dnistrovskyi',
-      '$kuid': 'vZKMtaTn0',
       'label': [
         'Bilhorod-Dnistrovskyi',
         'Білгород-Дністровський'
@@ -6011,7 +5507,6 @@ export const survey = {
     },
     {
       'name': 'bolhradskyi',
-      '$kuid': 'hJZ8vMLQe',
       'label': [
         'Bolhradskyi',
         'Болградський'
@@ -6022,7 +5517,6 @@ export const survey = {
     },
     {
       'name': 'izmailskyi',
-      '$kuid': 'ZK6hns1D9',
       'label': [
         'Izmailskyi',
         'Ізмаїльський'
@@ -6033,7 +5527,6 @@ export const survey = {
     },
     {
       'name': 'odeskyi',
-      '$kuid': 'R60AsVexE',
       'label': [
         'Odeskyi',
         'Одеський'
@@ -6044,7 +5537,6 @@ export const survey = {
     },
     {
       'name': 'podilskyi',
-      '$kuid': 'sRWXYwWEe',
       'label': [
         'Podilskyi',
         'Подільський'
@@ -6055,7 +5547,6 @@ export const survey = {
     },
     {
       'name': 'rozdilnianskyi',
-      '$kuid': 'UW0AQyLdV',
       'label': [
         'Rozdilnianskyi',
         'Роздільнянський'
@@ -6066,7 +5557,6 @@ export const survey = {
     },
     {
       'name': 'kremenchutskyi',
-      '$kuid': 'dIPmOaXro',
       'label': [
         'Kremenchutskyi',
         'Кременчуцький'
@@ -6077,7 +5567,6 @@ export const survey = {
     },
     {
       'name': 'lubenskyi',
-      '$kuid': 'XXOJf6eJt',
       'label': [
         'Lubenskyi',
         'Лубенський'
@@ -6088,7 +5577,6 @@ export const survey = {
     },
     {
       'name': 'myrhorodskyi',
-      '$kuid': 'MWgkk812b',
       'label': [
         'Myrhorodskyi',
         'Миргородський'
@@ -6099,7 +5587,6 @@ export const survey = {
     },
     {
       'name': 'poltavskyi',
-      '$kuid': '0VcxWzsdr',
       'label': [
         'Poltavskyi',
         'Полтавський'
@@ -6110,7 +5597,6 @@ export const survey = {
     },
     {
       'name': 'varaskyi',
-      '$kuid': '7O2Vi2J7D',
       'label': [
         'Varaskyi',
         'Вараський'
@@ -6121,7 +5607,6 @@ export const survey = {
     },
     {
       'name': 'dubenskyi',
-      '$kuid': 'dzRogUPQ2',
       'label': [
         'Dubenskyi',
         'Дубенський'
@@ -6132,7 +5617,6 @@ export const survey = {
     },
     {
       'name': 'rivnenskyi',
-      '$kuid': 'uTVR7wtiJ',
       'label': [
         'Rivnenskyi',
         'Рівненський'
@@ -6143,7 +5627,6 @@ export const survey = {
     },
     {
       'name': 'sarnenskyi',
-      '$kuid': 'df5CKvfZI',
       'label': [
         'Sarnenskyi',
         'Сарненський'
@@ -6154,7 +5637,6 @@ export const survey = {
     },
     {
       'name': 'sevastopilska',
-      '$kuid': 'PuE8C1wDu',
       'label': [
         'Sevastopilska',
         'Севастопільська'
@@ -6165,7 +5647,6 @@ export const survey = {
     },
     {
       'name': 'konotopskyi',
-      '$kuid': 'HgQ5PoYXB',
       'label': [
         'Konotopskyi',
         'Конотопський'
@@ -6176,7 +5657,6 @@ export const survey = {
     },
     {
       'name': 'okhtyrskyi',
-      '$kuid': 'U4Ph36PbE',
       'label': [
         'Okhtyrskyi',
         'Охтирський'
@@ -6187,7 +5667,6 @@ export const survey = {
     },
     {
       'name': 'romenskyi',
-      '$kuid': 'EUZSH790p',
       'label': [
         'Romenskyi',
         'Роменський'
@@ -6198,7 +5677,6 @@ export const survey = {
     },
     {
       'name': 'sumskyi',
-      '$kuid': 'VlK28e1KN',
       'label': [
         'Sumskyi',
         'Сумський'
@@ -6209,7 +5687,6 @@ export const survey = {
     },
     {
       'name': 'shostkynskyi',
-      '$kuid': 'rvC3sjQam',
       'label': [
         'Shostkynskyi',
         'Шосткинський'
@@ -6220,7 +5697,6 @@ export const survey = {
     },
     {
       'name': 'kremenetskyi',
-      '$kuid': 'yU5YZWuKH',
       'label': [
         'Kremenetskyi',
         'Кременецький'
@@ -6231,7 +5707,6 @@ export const survey = {
     },
     {
       'name': 'ternopilskyi',
-      '$kuid': 'maQZSepL7',
       'label': [
         'Ternopilskyi',
         'Тернопільський'
@@ -6242,7 +5717,6 @@ export const survey = {
     },
     {
       'name': 'chortkivskyi',
-      '$kuid': 'uc6pzbRKN',
       'label': [
         'Chortkivskyi',
         'Чортківський'
@@ -6253,7 +5727,6 @@ export const survey = {
     },
     {
       'name': 'vinnytskyi',
-      '$kuid': 'X6LG6eqwO',
       'label': [
         'Vinnytskyi',
         'Вінницький'
@@ -6264,7 +5737,6 @@ export const survey = {
     },
     {
       'name': 'haisynskyi',
-      '$kuid': 'uGPdCIvoS',
       'label': [
         'Haisynskyi',
         'Гайсинський'
@@ -6275,7 +5747,6 @@ export const survey = {
     },
     {
       'name': 'zhmerynskyi',
-      '$kuid': 'SBpktt14F',
       'label': [
         'Zhmerynskyi',
         'Жмеринський'
@@ -6286,7 +5757,6 @@ export const survey = {
     },
     {
       'name': 'mohyliv-podilskyi',
-      '$kuid': 'syyKVcmPx',
       'label': [
         'Mohyliv-Podilskyi',
         'Могилів-Подільський'
@@ -6297,7 +5767,6 @@ export const survey = {
     },
     {
       'name': 'tulchynskyi',
-      '$kuid': 'so4bdq4ex',
       'label': [
         'Tulchynskyi',
         'Тульчинський'
@@ -6308,7 +5777,6 @@ export const survey = {
     },
     {
       'name': 'khmilnytskyi',
-      '$kuid': 'ztTlIEMzN',
       'label': [
         'Khmilnytskyi',
         'Хмільницький'
@@ -6319,7 +5787,6 @@ export const survey = {
     },
     {
       'name': 'volodymyr-volynskyi',
-      '$kuid': 'Zsp74gaUe',
       'label': [
         'Volodymyr-Volynskyi',
         'Володимир-Волинський'
@@ -6330,7 +5797,6 @@ export const survey = {
     },
     {
       'name': 'kamin-kashyrskyi',
-      '$kuid': 'KQ5fvQ3jL',
       'label': [
         'Kamin-Kashyrskyi',
         'Камінь-Каширський'
@@ -6341,7 +5807,6 @@ export const survey = {
     },
     {
       'name': 'kovelskyi',
-      '$kuid': 'BTL66pHjJ',
       'label': [
         'Kovelskyi',
         'Ковельський'
@@ -6352,7 +5817,6 @@ export const survey = {
     },
     {
       'name': 'lutskyi',
-      '$kuid': 'tzEcTFOd0',
       'label': [
         'Lutskyi',
         'Луцький'
@@ -6363,7 +5827,6 @@ export const survey = {
     },
     {
       'name': 'berehivskyi',
-      '$kuid': 'QHCGJcwK8',
       'label': [
         'Berehivskyi',
         'Берегівський'
@@ -6374,7 +5837,6 @@ export const survey = {
     },
     {
       'name': 'mukachivskyi',
-      '$kuid': 'QhhfHB18t',
       'label': [
         'Mukachivskyi',
         'Мукачівський'
@@ -6385,7 +5847,6 @@ export const survey = {
     },
     {
       'name': 'rakhivskyi',
-      '$kuid': 'xlpbmfOnr',
       'label': [
         'Rakhivskyi',
         'Рахівський'
@@ -6396,7 +5857,6 @@ export const survey = {
     },
     {
       'name': 'tiachivskyi',
-      '$kuid': 'F24eg1vn9',
       'label': [
         'Tiachivskyi',
         'Тячівський'
@@ -6407,7 +5867,6 @@ export const survey = {
     },
     {
       'name': 'uzhhorodskyi',
-      '$kuid': 'a9dLGKj0c',
       'label': [
         'Uzhhorodskyi',
         'Ужгородський'
@@ -6418,7 +5877,6 @@ export const survey = {
     },
     {
       'name': 'khustskyi',
-      '$kuid': 'kbtqoYrXz',
       'label': [
         'Khustskyi',
         'Хустський'
@@ -6429,7 +5887,6 @@ export const survey = {
     },
     {
       'name': 'berdianskyi',
-      '$kuid': 'RwIjb6vPx',
       'label': [
         'Berdianskyi',
         'Бердянський'
@@ -6440,7 +5897,6 @@ export const survey = {
     },
     {
       'name': 'vasylivskyi',
-      '$kuid': 'GPPzcdj3M',
       'label': [
         'Vasylivskyi',
         'Василівський'
@@ -6451,7 +5907,6 @@ export const survey = {
     },
     {
       'name': 'zaporizkyi',
-      '$kuid': 'gOBeSgota',
       'label': [
         'Zaporizkyi',
         'Запорізький'
@@ -6462,7 +5917,6 @@ export const survey = {
     },
     {
       'name': 'melitopolskyi',
-      '$kuid': 'KfmZpzWhB',
       'label': [
         'Melitopolskyi',
         'Мелітопольський'
@@ -6473,7 +5927,6 @@ export const survey = {
     },
     {
       'name': 'polohivskyi',
-      '$kuid': 'lxu382a5d',
       'label': [
         'Polohivskyi',
         'Пологівський'
@@ -6484,7 +5937,6 @@ export const survey = {
     },
     {
       'name': 'berdychivskyi',
-      '$kuid': 'r7FMG1Y2d',
       'label': [
         'Berdychivskyi',
         'Бердичівський'
@@ -6495,7 +5947,6 @@ export const survey = {
     },
     {
       'name': 'zhytomyrskyi',
-      '$kuid': 'lS21u73zf',
       'label': [
         'Zhytomyrskyi',
         'Житомирський'
@@ -6506,7 +5957,6 @@ export const survey = {
     },
     {
       'name': 'korostenskyi',
-      '$kuid': 'OHd2QN1rf',
       'label': [
         'Korostenskyi',
         'Коростенський'
@@ -6517,7 +5967,6 @@ export const survey = {
     },
     {
       'name': 'novohrad-volynskyi',
-      '$kuid': 'nFo8PPwBV',
       'label': [
         'Novohrad-Volynskyi',
         'Новоград-Волинський'
@@ -6528,7 +5977,6 @@ export const survey = {
     },
     {
       'name': 'abrykosivska',
-      '$kuid': 'bAPL1Uozw',
       'label': [
         'Abrykosivska',
         'Абрикосівська'
@@ -6539,7 +5987,6 @@ export const survey = {
     },
     {
       'name': 'abrykosivska_2',
-      '$kuid': 'DuqvidbSt',
       'label': [
         'Abrykosivska',
         'Абрикосівська'
@@ -6550,7 +5997,6 @@ export const survey = {
     },
     {
       'name': 'adzhamska',
-      '$kuid': '7UKbdvsfu',
       'label': [
         'Adzhamska',
         'Аджамська'
@@ -6561,7 +6007,6 @@ export const survey = {
     },
     {
       'name': 'ahronomichna',
-      '$kuid': 'JsrcCP8NE',
       'label': [
         'Ahronomichna',
         'Агрономічна'
@@ -6572,7 +6017,6 @@ export const survey = {
     },
     {
       'name': 'alchevska',
-      '$kuid': 'KLQQMOM9i',
       'label': [
         'Alchevska',
         'Алчевська'
@@ -6583,7 +6027,6 @@ export const survey = {
     },
     {
       'name': 'alupkynska',
-      '$kuid': 'yTMK3nJji',
       'label': [
         'Alupkynska',
         'Алупкинська'
@@ -6594,7 +6037,6 @@ export const survey = {
     },
     {
       'name': 'alushtynska',
-      '$kuid': 'e57PS7jec',
       'label': [
         'Alushtynska',
         'Алуштинська'
@@ -6605,7 +6047,6 @@ export const survey = {
     },
     {
       'name': 'amurska',
-      '$kuid': 'eHfcKL1Zs',
       'label': [
         'Amurska',
         'Амурська'
@@ -6616,7 +6057,6 @@ export const survey = {
     },
     {
       'name': 'amvrosiivska',
-      '$kuid': 'tF9DkTmHZ',
       'label': [
         'Amvrosiivska',
         'Амвросіївська'
@@ -6627,7 +6067,6 @@ export const survey = {
     },
     {
       'name': 'ananivska',
-      '$kuid': 'LUzjJH9XO',
       'label': [
         'Ananivska',
         'Ананьївська'
@@ -6638,7 +6077,6 @@ export const survey = {
     },
     {
       'name': 'andriiashivska',
-      '$kuid': '1AA3607gn',
       'label': [
         'Andriiashivska',
         'Андріяшівська'
@@ -6649,7 +6087,6 @@ export const survey = {
     },
     {
       'name': 'andriievo-ivanivska',
-      '$kuid': 'EBFq3cQ6e',
       'label': [
         'Andriievo-Ivanivska',
         'Андрієво-Іванівська'
@@ -6660,7 +6097,6 @@ export const survey = {
     },
     {
       'name': 'andriivska',
-      '$kuid': 'yPsIcyXk8',
       'label': [
         'Andriivska',
         'Андріївська'
@@ -6671,7 +6107,6 @@ export const survey = {
     },
     {
       'name': 'andriivska_2',
-      '$kuid': 'wfWDmetij',
       'label': [
         'Andriivska',
         'Андріївська'
@@ -6682,7 +6117,6 @@ export const survey = {
     },
     {
       'name': 'andrivska',
-      '$kuid': 'M6Tu5NYFF',
       'label': [
         'Andrivska',
         'Андрівська'
@@ -6693,7 +6127,6 @@ export const survey = {
     },
     {
       'name': 'andrushivska',
-      '$kuid': 'JVqsVfdmJ',
       'label': [
         'Andrushivska',
         'Андрушівська'
@@ -6704,7 +6137,6 @@ export const survey = {
     },
     {
       'name': 'andrushkivska',
-      '$kuid': 'et1WhoJO0',
       'label': [
         'Andrushkivska',
         'Андрушківська'
@@ -6715,7 +6147,6 @@ export const survey = {
     },
     {
       'name': 'antoninska',
-      '$kuid': 'BFH7OXIAE',
       'label': [
         'Antoninska',
         'Антонінська'
@@ -6726,7 +6157,6 @@ export const survey = {
     },
     {
       'name': 'antonivska',
-      '$kuid': 'BSz1mf1Xk',
       'label': [
         'Antonivska',
         'Антонівська'
@@ -6737,7 +6167,6 @@ export const survey = {
     },
     {
       'name': 'antratsytivska',
-      '$kuid': 'hpO1u1fGW',
       'label': [
         'Antratsytivska',
         'Антрацитівська'
@@ -6748,7 +6177,6 @@ export const survey = {
     },
     {
       'name': 'apostolivska',
-      '$kuid': 'VceBPyEba',
       'label': [
         'Apostolivska',
         'Апостолівська'
@@ -6759,7 +6187,6 @@ export const survey = {
     },
     {
       'name': 'arbuzynska',
-      '$kuid': 'in491pwHT',
       'label': [
         'Arbuzynska',
         'Арбузинська'
@@ -6770,7 +6197,6 @@ export const survey = {
     },
     {
       'name': 'armianska',
-      '$kuid': 'jexIb6Yz8',
       'label': [
         'Armianska',
         'Армянська'
@@ -6781,7 +6207,6 @@ export const survey = {
     },
     {
       'name': 'aromatnenska',
-      '$kuid': 'P96HhQ03n',
       'label': [
         'Aromatnenska',
         'Ароматненська'
@@ -6792,7 +6217,6 @@ export const survey = {
     },
     {
       'name': 'aromatnivska',
-      '$kuid': 'zj9XCyiFE',
       'label': [
         'Aromatnivska',
         'Ароматнівська'
@@ -6803,7 +6227,6 @@ export const survey = {
     },
     {
       'name': 'artsyzka',
-      '$kuid': 'jjI7yQKVN',
       'label': [
         'Artsyzka',
         'Арцизька'
@@ -6814,7 +6237,6 @@ export const survey = {
     },
     {
       'name': 'askaniia-nova',
-      '$kuid': 'Kfbpb6TNT',
       'label': [
         'Askaniia-Nova',
         'Асканія-Нова'
@@ -6825,7 +6247,6 @@ export const survey = {
     },
     {
       'name': 'avanhardivska',
-      '$kuid': 'kP06sGgSE',
       'label': [
         'Avanhardivska',
         'Авангардівська'
@@ -6836,7 +6257,6 @@ export const survey = {
     },
     {
       'name': 'avdiivska',
-      '$kuid': 'NQa0aIEI8',
       'label': [
         'Avdiivska',
         'Авдіївська'
@@ -6847,7 +6267,6 @@ export const survey = {
     },
     {
       'name': 'azovska',
-      '$kuid': 'xDPo6hgLC',
       'label': [
         'Azovska',
         'Азовська'
@@ -6858,7 +6277,6 @@ export const survey = {
     },
     {
       'name': 'babanska',
-      '$kuid': 'XcTGzr2Ph',
       'label': [
         'Babanska',
         'Бабанська'
@@ -6869,7 +6287,6 @@ export const survey = {
     },
     {
       'name': 'babchynetska',
-      '$kuid': 'qzdf5bET1',
       'label': [
         'Babchynetska',
         'Бабчинецька'
@@ -6880,7 +6297,6 @@ export const survey = {
     },
     {
       'name': 'babynska',
-      '$kuid': 'BQRHpDD6x',
       'label': [
         'Babynska',
         'Бабинська'
@@ -6891,7 +6307,6 @@ export const survey = {
     },
     {
       'name': 'bahativska',
-      '$kuid': 'xkvIfgTYN',
       'label': [
         'Bahativska',
         'Багатівська'
@@ -6902,7 +6317,6 @@ export const survey = {
     },
     {
       'name': 'baherivska',
-      '$kuid': 'dP97YYhCT',
       'label': [
         'Baherivska',
         'Багерівська'
@@ -6913,7 +6327,6 @@ export const survey = {
     },
     {
       'name': 'baikovetska',
-      '$kuid': 'jn1JxoQA5',
       'label': [
         'Baikovetska',
         'Байковецька'
@@ -6924,7 +6337,6 @@ export const survey = {
     },
     {
       'name': 'bakhchysaraiska',
-      '$kuid': 'DJsQDT3WK',
       'label': [
         'Bakhchysaraiska',
         'Бахчисарайська'
@@ -6935,7 +6347,6 @@ export const survey = {
     },
     {
       'name': 'bakhmatska',
-      '$kuid': 'Sz8KPOeQd',
       'label': [
         'Bakhmatska',
         'Бахмацька'
@@ -6946,7 +6357,6 @@ export const survey = {
     },
     {
       'name': 'bakhmutska',
-      '$kuid': 'IvqETK6cT',
       'label': [
         'Bakhmutska',
         'Бахмутська'
@@ -6957,7 +6367,6 @@ export const survey = {
     },
     {
       'name': 'balakleivska',
-      '$kuid': 'xX1SRMEtb',
       'label': [
         'Balakleivska',
         'Балаклеївська'
@@ -6968,7 +6377,6 @@ export const survey = {
     },
     {
       'name': 'balakliiska',
-      '$kuid': 'MEdOYBYpS',
       'label': [
         'Balakliiska',
         'Балаклійська'
@@ -6979,7 +6387,6 @@ export const survey = {
     },
     {
       'name': 'baltska',
-      '$kuid': 'X9x9TJWBO',
       'label': [
         'Baltska',
         'Балтська'
@@ -6990,7 +6397,6 @@ export const survey = {
     },
     {
       'name': 'banylivska',
-      '$kuid': 'A5k0DV1d2',
       'label': [
         'Banylivska',
         'Банилівська'
@@ -7001,7 +6407,6 @@ export const survey = {
     },
     {
       'name': 'baranivska',
-      '$kuid': 'ayDN3utCl',
       'label': [
         'Baranivska',
         'Баранівська'
@@ -7012,7 +6417,6 @@ export const survey = {
     },
     {
       'name': 'baranynska',
-      '$kuid': 'qvBPDH4t6',
       'label': [
         'Baranynska',
         'Баранинська'
@@ -7023,7 +6427,6 @@ export const survey = {
     },
     {
       'name': 'barashivska',
-      '$kuid': 'a1r0dcG6Q',
       'label': [
         'Barashivska',
         'Барашівська'
@@ -7034,7 +6437,6 @@ export const survey = {
     },
     {
       'name': 'barska',
-      '$kuid': 'nZduefsfm',
       'label': [
         'Barska',
         'Барська'
@@ -7045,7 +6447,6 @@ export const survey = {
     },
     {
       'name': 'barvinkivska',
-      '$kuid': 'mHRB27xy6',
       'label': [
         'Barvinkivska',
         'Барвінківська'
@@ -7056,7 +6457,6 @@ export const survey = {
     },
     {
       'name': 'baryshivska',
-      '$kuid': 'MPu1GaQij',
       'label': [
         'Baryshivska',
         'Баришівська'
@@ -7067,7 +6467,6 @@ export const survey = {
     },
     {
       'name': 'bashtanska',
-      '$kuid': 'v0lwyAsHb',
       'label': [
         'Bashtanska',
         'Баштанська'
@@ -7078,7 +6477,6 @@ export const survey = {
     },
     {
       'name': 'bashtechkivska',
-      '$kuid': 'RP77kTS0v',
       'label': [
         'Bashtechkivska',
         'Баштечківська'
@@ -7089,7 +6487,6 @@ export const survey = {
     },
     {
       'name': 'batalnenska',
-      '$kuid': '14PsEglCh',
       'label': [
         'Batalnenska',
         'Батальненська'
@@ -7100,7 +6497,6 @@ export const survey = {
     },
     {
       'name': 'bativska',
-      '$kuid': 'tjPKjjnLl',
       'label': [
         'Bativska',
         'Батівська'
@@ -7111,7 +6507,6 @@ export const survey = {
     },
     {
       'name': 'baturynska',
-      '$kuid': 'hCTgSxsQg',
       'label': [
         'Baturynska',
         'Батуринська'
@@ -7122,7 +6517,6 @@ export const survey = {
     },
     {
       'name': 'bedevlianska',
-      '$kuid': 'rQNNQczvs',
       'label': [
         'Bedevlianska',
         'Бедевлянська'
@@ -7133,7 +6527,6 @@ export const survey = {
     },
     {
       'name': 'bekhterska',
-      '$kuid': 'DiOjyQ0Pv',
       'label': [
         'Bekhterska',
         'Бехтерська'
@@ -7144,7 +6537,6 @@ export const survey = {
     },
     {
       'name': 'belzka',
-      '$kuid': 'VS9I1z3TS',
       'label': [
         'Belzka',
         'Белзька'
@@ -7155,7 +6547,6 @@ export const survey = {
     },
     {
       'name': 'berdianska',
-      '$kuid': 'EMZHYxLkq',
       'label': [
         'Berdianska',
         'Бердянська'
@@ -7166,7 +6557,6 @@ export const survey = {
     },
     {
       'name': 'berdychivska',
-      '$kuid': 'W7FqBazku',
       'label': [
         'Berdychivska',
         'Бердичівська'
@@ -7177,7 +6567,6 @@ export const survey = {
     },
     {
       'name': 'berehivska',
-      '$kuid': 'q0heE6IoB',
       'label': [
         'Berehivska',
         'Берегівська'
@@ -7188,7 +6577,6 @@ export const survey = {
     },
     {
       'name': 'berehometska',
-      '$kuid': 'Dhqj7HPzi',
       'label': [
         'Berehometska',
         'Берегометська'
@@ -7199,7 +6587,6 @@ export const survey = {
     },
     {
       'name': 'berehova',
-      '$kuid': 'OBX0dAy1V',
       'label': [
         'Berehova',
         'Берегова'
@@ -7210,7 +6597,6 @@ export const survey = {
     },
     {
       'name': 'berestechkivska',
-      '$kuid': 'fnHAj4mPA',
       'label': [
         'Berestechkivska',
         'Берестечківська'
@@ -7221,7 +6607,6 @@ export const survey = {
     },
     {
       'name': 'berestivska',
-      '$kuid': 'HziayCp8Y',
       'label': [
         'Berestivska',
         'Берестівська'
@@ -7232,7 +6617,6 @@ export const survey = {
     },
     {
       'name': 'berezanska',
-      '$kuid': 'TBGr67iDh',
       'label': [
         'Berezanska',
         'Березанська'
@@ -7243,7 +6627,6 @@ export const survey = {
     },
     {
       'name': 'berezanska_2',
-      '$kuid': 'K5442ypRS',
       'label': [
         'Berezanska',
         'Березанська'
@@ -7254,7 +6637,6 @@ export const survey = {
     },
     {
       'name': 'berezdivska',
-      '$kuid': 'sMk1NdEwC',
       'label': [
         'Berezdivska',
         'Берездівська'
@@ -7265,7 +6647,6 @@ export const survey = {
     },
     {
       'name': 'berezhanska',
-      '$kuid': 'sPpmRCNQ1',
       'label': [
         'Berezhanska',
         'Бережанська'
@@ -7276,7 +6657,6 @@ export const survey = {
     },
     {
       'name': 'berezivska',
-      '$kuid': 'Py4S6hXXm',
       'label': [
         'Berezivska',
         'Березівська'
@@ -7287,7 +6667,6 @@ export const survey = {
     },
     {
       'name': 'berezivska_2',
-      '$kuid': 'QY3vkUyMn',
       'label': [
         'Berezivska',
         'Березівська'
@@ -7298,7 +6677,6 @@ export const survey = {
     },
     {
       'name': 'berezivska_3',
-      '$kuid': 'exLnbC2Fm',
       'label': [
         'Berezivska',
         'Березівська'
@@ -7309,7 +6687,6 @@ export const survey = {
     },
     {
       'name': 'berezivska_4',
-      '$kuid': 'KhrWSdpPp',
       'label': [
         'Berezivska',
         'Березівська'
@@ -7320,7 +6697,6 @@ export const survey = {
     },
     {
       'name': 'berezivska_5',
-      '$kuid': 'uQq4qE2R4',
       'label': [
         'Berezivska',
         'Березівська'
@@ -7331,7 +6707,6 @@ export const survey = {
     },
     {
       'name': 'bereznehuvatska',
-      '$kuid': 'j9gAQ811X',
       'label': [
         'Bereznehuvatska',
         'Березнегуватська'
@@ -7342,7 +6717,6 @@ export const survey = {
     },
     {
       'name': 'berezniakivska',
-      '$kuid': 'Uw4nrInh9',
       'label': [
         'Berezniakivska',
         'Березняківська'
@@ -7353,7 +6727,6 @@ export const survey = {
     },
     {
       'name': 'bereznianska',
-      '$kuid': 'x7ttEaYki',
       'label': [
         'Bereznianska',
         'Березнянська'
@@ -7364,7 +6737,6 @@ export const survey = {
     },
     {
       'name': 'bereznivska',
-      '$kuid': 'iVElp95D6',
       'label': [
         'Bereznivska',
         'Березнівська'
@@ -7375,7 +6747,6 @@ export const survey = {
     },
     {
       'name': 'bershadska',
-      '$kuid': 'rnvnL3vuv',
       'label': [
         'Bershadska',
         'Бершадська'
@@ -7386,7 +6757,6 @@ export const survey = {
     },
     {
       'name': 'beryslavska',
-      '$kuid': 'e5PZlyG3l',
       'label': [
         'Beryslavska',
         'Бериславська'
@@ -7397,7 +6767,6 @@ export const survey = {
     },
     {
       'name': 'bezdrytska',
-      '$kuid': 'vPxjqJHF0',
       'label': [
         'Bezdrytska',
         'Бездрицька'
@@ -7408,7 +6777,6 @@ export const survey = {
     },
     {
       'name': 'zvanivska',
-      '$kuid': 'J7UtT89io',
       'label': [
         'Zvanivska',
         'Званівська'
@@ -7419,7 +6787,6 @@ export const survey = {
     },
     {
       'name': 'zvenyhorodska',
-      '$kuid': 'UXu2zINx1',
       'label': [
         'Zvenyhorodska',
         'Звенигородська'
@@ -7430,7 +6797,6 @@ export const survey = {
     },
     {
       'name': 'zybynska',
-      '$kuid': 'hmwiO4Svo',
       'label': [
         'Zybynska',
         'Зибинська'
@@ -7441,7 +6807,6 @@ export const survey = {
     },
     {
       'name': 'zymnivska',
-      '$kuid': '6N40zVOyA',
       'label': [
         'Zymnivska',
         'Зимнівська'
@@ -7452,7 +6817,6 @@ export const survey = {
     },
     {
       'name': 'zymnovodivska',
-      '$kuid': 'TMzdQy5m6',
       'label': [
         'Zymnovodivska',
         'Зимноводівська'
@@ -7463,7 +6827,6 @@ export const survey = {
     },
     {
       'name': 'zymohirivska',
-      '$kuid': 'nN6znSrMx',
       'label': [
         'Zymohirivska',
         'Зимогір\'ївська'
@@ -7474,7 +6837,6 @@ export const survey = {
     },
     {
       'name': 'zymynska',
-      '$kuid': 'vO7VNy9V8',
       'label': [
         'Zymynska',
         'Зиминська'
@@ -7485,7 +6847,6 @@ export const survey = {
     },
     {
       'name': 'idp',
-      '$kuid': 'HJs99qDaC',
       'label': [
         'A = Internally Displaced Person (IDP)',
         'A = Внутрішньо-переміщена особа (ВПО)'
@@ -7495,7 +6856,6 @@ export const survey = {
     },
     {
       'name': 'long_res',
-      '$kuid': 'JpHP4XWDP',
       'label': [
         'B = Long - Term Resident',
         'B = Довгостроковий мешканець'
@@ -7505,7 +6865,6 @@ export const survey = {
     },
     {
       'name': 'ret',
-      '$kuid': 'hFwAS312K',
       'label': [
         'C = Returnee',
         'C = Особа, яка повернулася'
@@ -7515,7 +6874,6 @@ export const survey = {
     },
     {
       'name': 'ref_asy',
-      '$kuid': 'bvfl2G5zS',
       'label': [
         'D = Refugee/asylum seeker',
         'D = Біженець/особа, що потребує прихистку'
@@ -7525,7 +6883,6 @@ export const survey = {
     },
     {
       'name': 'male',
-      '$kuid': 'ZOQx7j2fe',
       'label': [
         'A = Male',
         'A = Чоловік'
@@ -7535,7 +6892,6 @@ export const survey = {
     },
     {
       'name': 'female',
-      '$kuid': 'z8ZLZPFx1',
       'label': [
         'B = Female',
         'B = Жінка'
@@ -7545,7 +6901,6 @@ export const survey = {
     },
     {
       'name': 'single',
-      '$kuid': 'ti2S9jowt',
       'label': [
         'A = Single (Never Married)',
         'A = Неодружений(-а) (ніколи не був(-ла) одружений(-а))'
@@ -7555,7 +6910,6 @@ export const survey = {
     },
     {
       'name': 'dom_part',
-      '$kuid': 'FQk9SXPNK',
       'label': [
         'B = Not Married but Living in Domestic Partnership',
         'B = Неодружений(-а), але живе у сімейному партнерстві'
@@ -7565,7 +6919,6 @@ export const survey = {
     },
     {
       'name': 'married',
-      '$kuid': '6UUDapQAe',
       'label': [
         'C = Married',
         'C = Одружений(-а)'
@@ -7575,7 +6928,6 @@ export const survey = {
     },
     {
       'name': 'div_sep',
-      '$kuid': 'ecMSlxqiw',
       'label': [
         'D = Divorced/Seperated',
         'D = Розлучений(-а)/ проживає окремо'
@@ -7585,7 +6937,6 @@ export const survey = {
     },
     {
       'name': 'widow',
-      '$kuid': '1V4NeVf1i',
       'label': [
         'E = Widowed',
         'E = Удівець/ вдова'
@@ -7595,7 +6946,6 @@ export const survey = {
     },
     {
       'name': 'abandoned',
-      '$kuid': 'tLZ5qlskY',
       'label': [
         'F = Abandoned',
         'F = Покинутий(-а)'
@@ -7605,7 +6955,6 @@ export const survey = {
     },
     {
       'name': 'diff_see',
-      '$kuid': '0rkTO71bV',
       'label': [
         'A = Have difficulty seeing, even if wearing glasses',
         'A = Маєте труднощі із зором, навіть якщо носите окуляри'
@@ -7615,7 +6964,6 @@ export const survey = {
     },
     {
       'name': 'diff_hear',
-      '$kuid': 'qqk8UAPCg',
       'label': [
         'B = Have difficulty hearing, even if using a hearing aid',
         'B = Маєте проблеми зі слухом, навіть якщо користуєтеся слуховим апаратом'
@@ -7625,7 +6973,6 @@ export const survey = {
     },
     {
       'name': 'diff_walk',
-      '$kuid': '6aH4GXsVB',
       'label': [
         'C = Have difficulty walking or climbing steps',
         'C = Маєте труднощі з ходьбою або підйомом по сходах'
@@ -7635,7 +6982,6 @@ export const survey = {
     },
     {
       'name': 'diff_rem',
-      '$kuid': 'vZPT2ObBd',
       'label': [
         'D = Have difficulty remembering or concentrating',
         'D = Маєте труднощі з запам\'ятовуванням або концентрацією уваги'
@@ -7645,7 +6991,6 @@ export const survey = {
     },
     {
       'name': 'diff_care',
-      '$kuid': 'Tb0XX2kwE',
       'label': [
         'E = Have difficulty with self-care such as washing all over or dressing',
         'E = Мають труднощі з самообслуговуванням, наприклад, з миттям або одяганням'
@@ -7655,7 +7000,6 @@ export const survey = {
     },
     {
       'name': 'diff_comm',
-      '$kuid': 'b3sL6HCj2',
       'label': [
         'F = Have difficulty communicating, for example understanding or being understood',
         'F = Маєте труднощі у спілкуванні, наприклад, у розумінні чи розумінні інших людей'
@@ -7665,7 +7009,6 @@ export const survey = {
     },
     {
       'name': 'diff_none',
-      '$kuid': 'loX0gUT8h',
       'label': [
         'G = None of the above apply',
         'G = Ніщо з перерахованого вище не стосується'
@@ -7675,7 +7018,6 @@ export const survey = {
     },
     {
       'name': 'zero',
-      '$kuid': 'IAn9k7b9Z',
       'label': [
         'A = No, no difficulty',
         'A = Ні, труднощі відсутні'
@@ -7685,7 +7027,6 @@ export const survey = {
     },
     {
       'name': 'one',
-      '$kuid': 'FG2ssdGPx',
       'label': [
         'B = Yes, some difficulty',
         'B = Так, є деякі труднощі'
@@ -7695,7 +7036,6 @@ export const survey = {
     },
     {
       'name': 'two',
-      '$kuid': 'GAa0F1sqt',
       'label': [
         'C = Yes, a lot of difficulty',
         'C = Так, багато труднощів'
@@ -7705,7 +7045,6 @@ export const survey = {
     },
     {
       'name': 'fri',
-      '$kuid': 'E7xJCWrF7',
       'label': [
         'D = Cannot do at all',
         'D = Взагалі не можу(-е) робити'
@@ -7715,7 +7054,6 @@ export const survey = {
     },
     {
       'name': 'no_damage',
-      '$kuid': 'RxMxOJ7wt',
       'label': [
         'No Structural Damage',
         'Відсутність структурних пошкоджень'
@@ -7725,7 +7063,6 @@ export const survey = {
     },
     {
       'name': 'minor_damage',
-      '$kuid': 'aAD9ol3g9',
       'label': [
         'Minor Damage (light or medium damages such as broken windows and doors, minor roof damage)',
         'незначні пошкодження (легкі або середні пошкодження, такі як розбиті вікна та двері, незначні пошкодження даху)'
@@ -7735,7 +7072,6 @@ export const survey = {
     },
     {
       'name': 'heavy_damage',
-      '$kuid': '9zsTf3FKp',
       'label': [
         'Heavy Damage',
         'сильні пошкодження'
@@ -7745,7 +7081,6 @@ export const survey = {
     },
     {
       'name': 'rent',
-      '$kuid': 'jl4v270gw',
       'label': [
         'A = Renting Accommodation',
         'A = Оренда житла'
@@ -7755,7 +7090,6 @@ export const survey = {
     },
     {
       'name': 'host',
-      '$kuid': 'FzEv8rcXL',
       'label': [
         'B = Living with Friends/Family/Host',
         'B = Проживання з друзями/ родиною/ стороною, яка приймає'
@@ -7765,7 +7099,6 @@ export const survey = {
     },
     {
       'name': 'own_prop',
-      '$kuid': 'Q7t42vZ9w',
       'label': [
         'C = Living in Own Property',
         'C = Проживання у власному житлі'
@@ -7775,7 +7108,6 @@ export const survey = {
     },
     {
       'name': 'coll_cen',
-      '$kuid': 'AlaHttjPY',
       'label': [
         'D = Living in Collective Center',
         'D = Проживання у центрі тимчасового розміщення'
@@ -7785,7 +7117,6 @@ export const survey = {
     },
     {
       'name': 'homeless',
-      '$kuid': 'qSra3oheK',
       'label': [
         'E = Homeless',
         'E = Безхатній(-я)'
@@ -7795,7 +7126,6 @@ export const survey = {
     },
     {
       'name': 'other_accom',
-      '$kuid': 'hwe0o7H9k',
       'label': [
         'F = Other',
         'F = Інше'
@@ -7805,7 +7135,6 @@ export const survey = {
     },
     {
       'name': 'secure',
-      '$kuid': 'VjLNFRtF7',
       'label': [
         'A = Secure for Medium/Long Term',
         'A = Забезпечення на середній/ довгий строк'
@@ -7815,7 +7144,6 @@ export const survey = {
     },
     {
       'name': 'unable_pay',
-      '$kuid': 'cUTIrKoow',
       'label': [
         'B = Currently Unable to Pay Rent/Contribute to Collective Costs',
         'B = Зараз не в змозі сплачувати орендну плату/ платити за центр тимчасового розміщення'
@@ -7825,7 +7153,6 @@ export const survey = {
     },
     {
       'name': 'dan_unable_pay',
-      '$kuid': 'PTH4Vfnxx',
       'label': [
         'C = In Danger of Being Unable to Pay Rent/Contribute to Collective Costs',
         'C = Існує небезпека неможливості сплачувати орендну плату/ платити за центр тимчасового розміщення'
@@ -7835,7 +7162,6 @@ export const survey = {
     },
     {
       'name': 'unsuit_accom',
-      '$kuid': 'prx7043sL',
       'label': [
         'D = Accommodation Unsuitable for my needs',
         'D = Житло, яке не відповідає моїм потребам'
@@ -7845,7 +7171,6 @@ export const survey = {
     },
     {
       'name': 'eviction',
-      '$kuid': 'FFu1YKnbu',
       'label': [
         'E = Eviction/Removal for Other Reasons',
         'E = Виселення з інших причин'
@@ -7855,7 +7180,6 @@ export const survey = {
     },
     {
       'name': 'remain',
-      '$kuid': 'IoQG0YOdE',
       'label': [
         'A = Remain in Current Place',
         'A = Залишатися у поточному місці'
@@ -7865,7 +7189,6 @@ export const survey = {
     },
     {
       'name': 'rent',
-      '$kuid': 'RGa7MvuXH',
       'label': [
         'B = Find Rental Accommodation',
         'B = Орендувати житло'
@@ -7875,7 +7198,6 @@ export const survey = {
     },
     {
       'name': 'not_sure',
-      '$kuid': 'hpjCXUWrM',
       'label': [
         'C = Not Sure/Don’t Know',
         'C = Не впевнений(-а)/ не знаю'
@@ -7885,7 +7207,6 @@ export const survey = {
     },
     {
       'name': 'always',
-      '$kuid': 'q9PB5GmAb',
       'label': [
         'A = Always',
         'A = Постійно'
@@ -7895,7 +7216,6 @@ export const survey = {
     },
     {
       'name': 'not_always',
-      '$kuid': 'EsDI1zXUz',
       'label': [
         'B = Not always on but comes daily',
         'B = Не постійно, але щодня приходить'
@@ -7905,7 +7225,6 @@ export const survey = {
     },
     {
       'name': 'intermittent',
-      '$kuid': 'hdRg7bhFk',
       'label': [
         'C = Comes on intermittent days',
         'C = Приходить у різні дні'
@@ -7915,7 +7234,6 @@ export const survey = {
     },
     {
       'name': 'rarely',
-      '$kuid': 'T13cJ5WKX',
       'label': [
         'D = Rarely',
         'D = Рідко'
@@ -7925,7 +7243,6 @@ export const survey = {
     },
     {
       'name': 'never',
-      '$kuid': 'seyM3H0gW',
       'label': [
         'E = Never',
         'E = Ніколи'
@@ -7935,7 +7252,6 @@ export const survey = {
     },
     {
       'name': 'nat_pass_card',
-      '$kuid': 'c6N3NTVxt',
       'label': [
         'A = National Passport (card)',
         'A = Національний паспорт (карта)'
@@ -7945,7 +7261,6 @@ export const survey = {
     },
     {
       'name': 'nat_pass_book',
-      '$kuid': '7Ou9o4z1H',
       'label': [
         'B = National Passport (book)',
         'B = Національний паспорт (книжка)'
@@ -7955,7 +7270,6 @@ export const survey = {
     },
     {
       'name': 'nat_pass_diia',
-      '$kuid': 'wTOqTdaLL',
       'label': [
         'C = National Passport (Diia app)',
         'C = Національний паспорт (додаток Дія)'
@@ -7965,7 +7279,6 @@ export const survey = {
     },
     {
       'name': 'pass_ussr_red',
-      '$kuid': 'fIheox7Xx',
       'label': [
         'D = Passport (USSR red book)',
         'D = Паспорт (Червона книга СРСР)'
@@ -7975,7 +7288,6 @@ export const survey = {
     },
     {
       'name': 'pass_int',
-      '$kuid': 'bj8ANldg8',
       'label': [
         'E = Passport for international travel',
         'E = Закордонний паспорт'
@@ -7985,7 +7297,6 @@ export const survey = {
     },
     {
       'name': 'birth_certificate',
-      '$kuid': 'fhnChMscG',
       'label': [
         'F = Birth certificate',
         'F = Свідоцтво про народження'
@@ -7995,7 +7306,6 @@ export const survey = {
     },
     {
       'name': 'driver_lic',
-      '$kuid': 'wZtiapXw3',
       'label': [
         'G = Driver’s license',
         'G = Водійські права'
@@ -8005,7 +7315,6 @@ export const survey = {
     },
     {
       'name': 'pen_cert',
-      '$kuid': 'FNPNPvWsw',
       'label': [
         'H = Pensioner certificate',
         'H = Посвідчення пенсіонера'
@@ -8015,7 +7324,6 @@ export const survey = {
     },
     {
       'name': 'oth_id',
-      '$kuid': 'BrzAurJCY',
       'label': [
         'I = Other Form of ID',
         'I = Інша форма ідентифікатора'
@@ -8025,7 +7333,6 @@ export const survey = {
     },
     {
       'name': 'no_id',
-      '$kuid': 'XVc9aXmDI',
       'label': [
         'J = No ID',
         'J = Немає іншого типу'
@@ -8035,7 +7342,6 @@ export const survey = {
     },
     {
       'name': 'raiff_trans',
-      '$kuid': 'ReIuA7Dja',
       'label': [
         'A = Remittance Raiffaisen AVAL',
         'A = Переказ через «Райффайзен Банк АВАЛЬ»'
@@ -8045,7 +7351,6 @@ export const survey = {
     },
     {
       'name': 'ukrpost',
-      '$kuid': 'aEbfwui5O',
       'label': [
         'B = Ukrposhta',
         'B = Укрпошта'
@@ -8055,7 +7360,6 @@ export const survey = {
     },
     {
       'name': 'bank_card',
-      '$kuid': 'TbL60aucQ',
       'label': [
         'C = Bank card',
         'C = Банківська картка'
@@ -8065,7 +7369,6 @@ export const survey = {
     },
     {
       'name': 'other_pay',
-      '$kuid': 'vK8pqLocr',
       'label': [
         'D = Other Payment Method',
         'D = Інший спосіб оплати'
@@ -8075,7 +7378,6 @@ export const survey = {
     },
     {
       'name': 'none_pay',
-      '$kuid': '8DvpTCr1O',
       'label': [
         'E = None of the above fit my needs',
         'E = Жодний з перелічених способів мені не підходить'
@@ -8085,7 +7387,6 @@ export const survey = {
     },
     {
       'name': 'cash_fuel',
-      '$kuid': 'nw0JW9sft',
       'label': [
         'Cash for Fuel',
         'Грошова допомога на пальне'
@@ -8095,7 +7396,6 @@ export const survey = {
     },
     {
       'name': 'cash_utilities',
-      '$kuid': 'aff3zrwF2',
       'label': [
         'Cash for Utilities',
         'Грошова допомога для оплати комунальних послуг'
@@ -8105,7 +7405,6 @@ export const survey = {
     },
     {
       'name': 'external_walls',
-      '$kuid': 'SzS9Acxkx',
       'label': [
         'Property with external  walls made of wood or compressed soil block/adobe/wattle houses (may include a combination of these)',
         'Житло із зовнішніми стінами з дерева або спресованих ґрунтових блоків/саман/тин (може включати їх комбінацію)'
@@ -8115,7 +7414,6 @@ export const survey = {
     },
     {
       'name': 'damaged_windows',
-      '$kuid': '7afRphcon',
       'label': [
         'Property with single glazed or damaged windows',
         'Житло з одинарним склінням або пошкодженими вікнами'
@@ -8125,7 +7423,6 @@ export const survey = {
     },
     {
       'name': 'poor_insulation',
-      '$kuid': 'CiRGmDYc7',
       'label': [
         'Property with poor insulation, damaged roof or walls',
         'Житло з поганою ізоляцією, пошкодженим дахом або стінами'
@@ -8135,7 +7432,6 @@ export const survey = {
     },
     {
       'name': 'substantial_repairs',
-      '$kuid': 'S8H1Hr6TC',
       'label': [
         'Property in need of substantial repairs, such as cracked or damaged walls, poor insulation and ineffective thermal envelope.',
         'Житло, що потребує значного ремонту, наприклад, з потрісканими або пошкодженими стінами, поганою ізоляцією та неефективною теплоізоляцією.'
@@ -8145,7 +7441,6 @@ export const survey = {
     },
     {
       'name': 'none',
-      '$kuid': 'ICShkCZvz',
       'label': [
         'None of the above',
         'Нічого з перерахованого вище'
@@ -8166,4 +7461,4 @@ export const survey = {
     'English (en)',
     'Ukrainian (uk)'
   ]
-} as Kobo.Form['content']
+} as unknown as Kobo.Form['content']
