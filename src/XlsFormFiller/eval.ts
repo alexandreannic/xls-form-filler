@@ -1,6 +1,7 @@
 import {Kobo} from 'kobo-sdk'
 import {Path} from './Path.ts'
 import {FormValue} from './Path.ts'
+import get from 'lodash.get'
 
 const today = () => new Date().toISOString().substring(0, 10)
 
@@ -45,9 +46,16 @@ export class XFormEngine {
       }
     }
   }
+
   readonly eval = (formula?: Kobo.Form.Formula) => {
     if (!formula || formula === '') return
+
+    const indexedRepeat = (name: string, groupName: string, index: number) => {
+      return get(this.props.values, [groupName, index - 1, name])
+    }
+
     const processed = formula
+      .replace(/indexed-repeat\(\$\{(.*?)}\s*,\s*\$\{(.*?)}\s*(.*)?\)/g, (_, field, groupName, rest) => `indexedRepeat('${field}', '${groupName}'${rest})`)
       .replace('position(..)', this.props.path.last?.index !== undefined ? '' + (this.props.path.last.index + 1) : 'undefined')
       // Replace ${bar} → barValue
       .replace(/\$\{([^\}]+)\}/g, (_, name) => this.parseValue({name}))

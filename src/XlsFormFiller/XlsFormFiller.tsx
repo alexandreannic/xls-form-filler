@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useContext, useMemo, useState} from 'react'
+import {createContext, useContext, useMemo, useState} from 'react'
 import {seq} from '@axanc/ts-utils'
 import {Box} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
@@ -7,6 +7,7 @@ import {surveyNested} from './assets/surveyNested.ts'
 import {FormValue, LodashPath} from './Path.ts'
 import cloneDeep from 'lodash.clonedeep'
 import set from 'lodash.set'
+import {surveyShort} from './assets/surveyShort.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -21,9 +22,9 @@ const Context = createContext({} as XlsFormFillerContext)
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
 export const XlsFormFiller = ({
+  schema = surveyShort,
   // schema = surveyShort,
-  // schema = surveyShort,
-  schema = surveyNested.content,
+  // schema = surveyNested.content,
 }: {
   schema?: Kobo.Form['content']
 }) => {
@@ -62,11 +63,7 @@ export const XlsFormFiller = ({
             </Box>
           </Box>
           <Box>
-            <Questions
-              survey={schema.survey}
-              questionsMap={questionsMap}
-              langIndex={langIndex}
-            />
+            <Questions survey={schema.survey}/>
           </Box>
         </Box>
       </Box>

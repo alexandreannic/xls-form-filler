@@ -196,20 +196,24 @@ export const surveyShort: Kobo.Form['content'] = {
         'Недійсний податковий номер'
       ]
     },
-    // {
-    //   'name': 'cal_head_tax',
-    //   'type': 'note',
-    //   '$xpath': 'hh_char/cal_head_tax',
-    //   'required': false,
-    //   '$autoname': 'cal_head_tax',
-    //   'calculation': 'indexed-repeat(${hh_char_tax_id_num},${hh_char_hh_det} ,1)'
-    // },
     {
       'type': 'end_repeat',
     },
     {
       'type': 'end_group',
       '$kuid': '6yZhCYq2D'
+    },
+    {
+      'name': 'cal_head_tax',
+      'type': 'note',
+      'label': [
+        'cal_head_tax',
+        'cal_head_tax',
+      ],
+      '$xpath': 'hh_char/cal_head_tax',
+      'required': false,
+      '$autoname': 'cal_head_tax',
+      'calculation': 'indexed-repeat(${hh_char_tax_id_num},${hh_char_hh_det} ,1)'
     },
   ],
   'choices': [
