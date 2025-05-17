@@ -6,6 +6,8 @@ type PathToken = {
   repeatGroupName: string
 }
 
+export type LodashPath = (string | number)[]
+
 export class Path {
   private readonly value: PathToken[]
 
@@ -28,8 +30,7 @@ export class Path {
   searchValueDeeply(values: FormValue, name: string): any | undefined {
     let cursor: Path = this
     for (; ;) {
-      const parentPath = cursor.toString()
-      const fullPath = parentPath + (parentPath.length > 0 ? '.' : '') + name
+      const fullPath = [...cursor.toLodashPath(), name]
       const value = get(values, fullPath)
       if (value !== undefined) return value
       if (cursor.value.length === 0) return
@@ -57,5 +58,9 @@ export class Path {
 
   toString() {
     return this.value.flatMap(_ => `${_.repeatGroupName}[${_.index}]`).join('.')
+  }
+
+  toLodashPath(): LodashPath {
+    return this.value.flatMap(_ => [_.repeatGroupName, _.index])
   }
 }

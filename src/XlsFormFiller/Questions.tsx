@@ -1,13 +1,12 @@
 import {Box, FormControlLabel, Grow, Input, Radio, RadioGroup, Typography, useTheme} from '@mui/material'
 import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
 import {Kobo} from 'kobo-sdk'
-import {ChangeEvent, Dispatch, ReactNode, SetStateAction} from 'react'
+import {ChangeEvent, ReactNode} from 'react'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
-import set from 'lodash.set'
 import {Path} from './Path.ts'
-import {FormValue} from './Path.ts'
 import {XFormEngine} from './eval.ts'
+import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
@@ -16,26 +15,13 @@ const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, que
 }
 
 export const Questions = ({
-  values,
-  setValues,
   survey,
-  langIndex,
-  choicesMap,
-  questionsMap,
   path = new Path()
-  // index,
-  // repeatGroupName,
 }: {
   path?: Path
-  setValues: Dispatch<SetStateAction<FormValue>>
-  choicesMap: Record<string, Kobo.Form.Choice[]>
-  questionsMap: Record<string, Kobo.Form.Question>
-  langIndex: number
   survey: Kobo.Form['content']['survey']
-  values: FormValue
-  // index?: number
-  // repeatGroupName?: string
 }) => {
+  const {values, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
   const t = useTheme()
   const getLabel = (property?: string[]): string => {
     return property?.[langIndex] ?? ''
@@ -52,7 +38,9 @@ export const Questions = ({
     // if (defaultValue && defaultValue !== '' && !(q.name in values)) {
     //   setValues(prev => ({...prev, [q.name]: defaultValue}))
     // }
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => setValues(prev => ({...prev, [q.name]: e.target.value}))
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+      updateValues([...path.toLodashPath(), q.name], e.target.value)
+    }
     const label = getLabel(q.label)
 
     const calculation = engine.eval(q.calculation)
@@ -86,22 +74,9 @@ export const Questions = ({
                   mapFor(repeated, i => (
                     <RepeatLayout index={i}>
                       <Questions
-                        // index={i}
-                        // repeatGroupName={q.name}
                         path={path.add({index: i, repeatGroupName: q.name})}
                         key={i}
-                        questionsMap={questionsMap}
-                        setValues={_ => setValues(prev => {
-                          // console.log('setValues', _())
-                          const copy = {...prev}
-                          set(copy, `${q.name}[${i}]`, _())
-                          // set(copy, [q.name, '' + index], _())
-                          return copy
-                        })}
-                        choicesMap={choicesMap}
-                        langIndex={langIndex}
                         survey={subQuestions}
-                        values={values}
                       />
                     </RepeatLayout>
                   ))

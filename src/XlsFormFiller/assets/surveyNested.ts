@@ -1,3 +1,5 @@
+import {Kobo} from 'kobo-sdk'
+
 export const surveyNested = {
   'url': 'https://kf.kobotoolbox.org/api/v2/assets/aYViKHYGuaPTmHZTNk4qJu/',
   'owner': 'https://kf.kobotoolbox.org/api/v2/users/alexandreannicsandbox/',
@@ -435,4 +437,4 @@ export const surveyNested = {
   'paired_data': 'https://kf.kobotoolbox.org/api/v2/assets/aYViKHYGuaPTmHZTNk4qJu/paired-data/',
   'project_ownership': null,
   'owner_label': 'alexandreannicsandbox'
-}
+} as unknown as Kobo.Form
