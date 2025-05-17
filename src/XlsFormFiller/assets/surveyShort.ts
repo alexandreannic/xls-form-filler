@@ -28,19 +28,19 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'background',
       'appearance': 'field-list'
     },
-    {
-      'name': 'back_un_id',
-      'type': 'note',
-      '$kuid': '44vJlV5qc',
-      'label': [
-        '**1. ID/Case Number**',
-        '**Унікальний персональний код**'
-      ],
-      '$xpath': 'background/back_un_id',
-      'required': false,
-      '$autoname': 'back_un_id',
-      'calculation': 'once(format-date-time(now(), ‘%y%m%d%H%M%S%3’))'
-    },
+    // {
+    //   'name': 'back_un_id',
+    //   'type': 'note',
+    //   '$kuid': '44vJlV5qc',
+    //   'label': [
+    //     '**1. ID/Case Number**',
+    //     '**Унікальний персональний код**'
+    //   ],
+    //   '$xpath': 'background/back_un_id',
+    //   'required': false,
+    //   '$autoname': 'back_un_id',
+    //   'calculation': 'once(format-date-time(now(), ‘%y%m%d%H%M%S%3’))'
+    // },
     {
       'hint': [
         'Hello, my name is ${back_enum} and I am a representative of the Danish Refugee Council. This questionnaire is designed primarily to ascertain your eligibility for the programmes for which you have been pre-selected for. You are free to refuse to answer any question or also stop the process at any time knowing that non-answers may affect the possibility of you not being selected on any programs we are offering. No individual data will be shared outside of the DRC aside from your tax number which we are required by law to share with the government. Tax numbers are also shared anonymously with other organisations to ensure that there is no duplication of assistance. Should you be selected for cash assistance, then your details will also be shared with the selected payment provider in order to process your payment. All other data will be stored safely, in accordance with the Law on protection of personal data, and will not be shared outside of DRC and its partners.',
@@ -109,6 +109,7 @@ export const surveyShort: Kobo.Form['content'] = {
       'name': 'ben_det_hh_size',
       'type': 'integer',
       '$kuid': 'fSyBAGJsw',
+      'default': '3',
       'label': [
         '2.7 Household Size',
         '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
@@ -130,6 +131,7 @@ export const surveyShort: Kobo.Form['content'] = {
       'required': false,
       '$autoname': 'hh_char'
     },
+    /// REPEAT
     {
       'hint': [
         '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
@@ -149,6 +151,18 @@ export const surveyShort: Kobo.Form['content'] = {
       'repeat_count': '${ben_det_hh_size}'
     },
     {
+      'name': 'hh_chart_note_resp',
+      'type': 'note',
+      'label': [
+        '**Should be respondant**',
+        '**Має бути отримувачем допомоги**'
+      ],
+      '$xpath': 'hh_char/hh_char_hh_det/hh_chart_note_resp',
+      'relevant': 'position(..) = 1',
+      'required': false,
+      '$autoname': 'hh_chart_note_resp'
+    },
+    {
       'name': 'hh_char_tax_id_yn',
       'type': 'select_one',
       'label': [
@@ -161,6 +175,35 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'hh_char_tax_id_yn',
       'select_from_list_name': 'yn'
     },
+    {
+      'hint': [
+        'The TIN contains 10 digits',
+        'ІПН містить 10 цифр'
+      ],
+      'name': 'hh_char_tax_id_num',
+      'type': 'text',
+      'label': [
+        'Individual tax number',
+        'Ідентифікаційний номер (ІПН) бенефіціара'
+      ],
+      '$xpath': 'hh_char/hh_char_hh_det/hh_char_tax_id_num',
+      'required': true,
+      '$autoname': 'hh_char_tax_id_num',
+      'appearance': 'numbers',
+      'constraint': 'regex(., \'^[0-9]{10}$\')',
+      'constraint_message': [
+        'Invalid Tax ID',
+        'Недійсний податковий номер'
+      ]
+    },
+    // {
+    //   'name': 'cal_head_tax',
+    //   'type': 'note',
+    //   '$xpath': 'hh_char/cal_head_tax',
+    //   'required': false,
+    //   '$autoname': 'cal_head_tax',
+    //   'calculation': 'indexed-repeat(${hh_char_tax_id_num},${hh_char_hh_det} ,1)'
+    // },
     {
       'type': 'end_repeat',
     },

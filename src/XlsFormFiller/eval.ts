@@ -1,4 +1,6 @@
 import {Kobo} from 'kobo-sdk'
+import {Path} from './Path.ts'
+import {FormValue} from './Path.ts'
 
 const today = () => new Date().toISOString().substring(0, 10)
 
@@ -6,57 +8,66 @@ const selected = (value: string, match: string): boolean => {
   return value?.split(/\s+/).includes(match)
 }
 
-const parseValue = ({
-  value,
-  questionsMap,
-  name
-}: {
-  name: string,
-  value: any,
-  questionsMap: Record<string, Kobo.Form.Question>
-}): any => {
-  const type = questionsMap[name].type
-  switch (type) {
-    case 'decimal':
-    case 'integer': {
-      console.log({name, type: typeof value, value})
-      return isNaN(value) || value === '' ? undefined : `${value}`
-    }
-    default:
-      `'${value}'`
+const regex = (value: string, pattern: string) => new RegExp(pattern).test(value)
+
+export class XFormEngine {
+  constructor(private props: {
+    questionsMap: Record<string, Kobo.Form.Question>
+    thatName?: any
+    values: FormValue,
+    path: Path
+  }) {
   }
-}
 
-export const evalXpath = ({
-  values,
-  formula,
-  thatName,
-  questionsMap,
-}: {
-  questionsMap: Record<string, Kobo.Form.Question>
-  thatName?: any
-  values: Record<string, any>
-  formula?: string
-}): any => {
-  if (!formula || formula === '') return
-  const processed = formula
-    // Replace ${bar} → barValue
-    .replace(/\$\{([^\}]+)\}/g, (_, path) => parseValue({value: values[path], questionsMap, name: path}))
-    // Replace . → currentValue
-    .replace(/\./g, `${parseValue({value: values[thatName], questionsMap, name: thatName})}`)
+  private readonly parseValue = ({
+    name
+  }: {
+    name: string,
+  }): any => {
+    if (!name) {
+      console.error('Nothing to parse?')
+      return 'undefined'
+    }
+    if (!this.props.questionsMap[name]) {
+      console.error(`Missing question ${name} in this form`)
+      return 'undefined'
+    }
+    const value = this.props.path.searchValueDeeply(this.props.values, name)
+    if (value) {
+      const type = this.props.questionsMap[name].type
+      switch (type) {
+        case 'decimal':
+        case 'integer': {
+          return isNaN(value) || value === '' ? undefined : `${value}`
+        }
+        default:
+          return `'${value}'`
+      }
+    }
+  }
+  readonly eval = (formula?: Kobo.Form.Formula) => {
+    if (!formula || formula === '') return
+    const processed = formula
+      .replace('position(..)', this.props.path.last?.index !== undefined ? '' + (this.props.path.last.index + 1) : 'undefined')
+      // Replace ${bar} → barValue
+      .replace(/\$\{([^\}]+)\}/g, (_, name) => this.parseValue({name}))
+      // Replace . → currentValue
+      .replace(/\./g, `${this.parseValue({name: this.props.thatName})}`)
 
-    .replace(/and/g, ' && ')
-    .replace(/or/g, ' || ')
+      .replace(/and/g, ' && ')
+      .replace(/or/g, ' || ')
+      .replace(/[^!]=/g, '==')
 
-    // Replace if(...) → JS ternary
-    .replace(/\bif\s*\(([^,]+),([^,]+),([^)]+)\)/g, '($1 ? $2 : $3)')
+      // Replace if(...) → JS ternary
+      .replace(/\bif\s*\(([^,]+),([^,]+),([^)]+)\)/g, '($1 ? $2 : $3)')
 
-    // Wrap string expression into quotes. Question schema like {..., "default": "yes"} → 'yes'
-    .replace(/([a-zA-Z_][a-zA-Z0-9_]*)(\s*)?$/g, (match, val, space) => {
-      // Skip if val is a known variable or boolean
-      if (['true', 'false'].includes(val) || values.hasOwnProperty(val)) return match
-      return `'${val}'${space ?? ''}`
-    })
-  console.log(formula, processed)
-  return eval(processed)
+      // Wrap string expression into quotes. Question schema like {..., "default": "yes"} → 'yes'
+      .replace(/([a-zA-Z_][a-zA-Z0-9_]*)(\s*)?$/g, (match, val, space) => {
+        // Skip if val is a known variable or boolean
+        if (['true', 'false'].includes(val) /** TODO HARD*/) return match
+        return `'${val}'${space ?? ''}`
+      })
+    console.log(formula, '➡️', processed, '➡️', eval(processed))
+    return eval(processed)
+  }
 }

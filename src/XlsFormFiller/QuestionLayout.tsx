@@ -5,7 +5,7 @@ export type QuestionLayoutProps = {
   label: string
   hint?: string
   error?: string
-  children: ReactNode
+  children?: ReactNode
 }
 
 export const QuestionLayout = ({
@@ -32,7 +32,7 @@ export const QuestionLayout = ({
         borderBottomRightRadius: '2px',
       }
     }}>
-      <Box sx={{mb: 1}}>
+      <Box sx={{mb: children ? 1 : 0}}>
         <Box sx={{fontWeight: t.typography.fontWeightBold}}>{label}</Box>
         {hint && <Box sx={{color: t.palette.text.secondary}}>{hint}</Box>}
       </Box>
