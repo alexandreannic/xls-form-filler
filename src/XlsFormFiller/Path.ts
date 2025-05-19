@@ -1,4 +1,5 @@
-export type FormValue = Record<string, any>
+export type FormValue = any
+export type FormValues = Record<string, FormValue>
 import get from 'lodash.get'
 
 type PathToken = {
@@ -27,7 +28,7 @@ export class Path {
     return new Path(this.value.length > 0 ? this.value.slice(0, -1) : [])
   }
 
-  searchValueDeeply(values: FormValue, name: string): any | undefined {
+  searchValueDeeply(values: FormValues, name: string): any | undefined {
     let cursor: Path = this
     for (; ;) {
       const fullPath = [...cursor.toLodashPath(), name]
@@ -40,11 +41,7 @@ export class Path {
 
   private findPrimitiveKey(obj: any, key: string): string | undefined {
     if (!obj || typeof obj !== 'object') return undefined
-
-    if (key in obj && typeof obj[key] === 'string') {
-      return obj[key]
-    }
-
+    if (key in obj && typeof obj[key] === 'string') return obj[key]
     return undefined
   }
 

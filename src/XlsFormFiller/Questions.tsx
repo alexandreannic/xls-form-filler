@@ -1,17 +1,35 @@
-import {Box, FormControlLabel, Grow, Input, Radio, RadioGroup, Typography, useTheme} from '@mui/material'
+import {Box, Checkbox, FormControlLabel, FormGroup, Grow, Input, Radio, RadioGroup, Typography, useTheme} from '@mui/material'
 import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
 import {Kobo} from 'kobo-sdk'
 import {ChangeEvent, ReactNode} from 'react'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
-import {Path} from './Path.ts'
+import {FormValue, Path} from './Path.ts'
 import {XFormEngine} from './eval.ts'
 import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
+
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
   const [, key, questionName] = q.choice_filter.match(/([^=]*)=\$\{(.*?)}/) ?? []
   return {key, questionName}
+}
+
+const getFilteredList = ({
+  q,
+  choicesMap,
+  value,
+}: {
+  value: FormValue
+  q: Kobo.Form.Question
+  choicesMap: Record<string, Kobo.Form.Choice[]>
+}) => {
+  const choiceFilter = parseChoiceFilter(q)
+  let choices = choicesMap[q.select_from_list_name!] ?? []
+  if (choiceFilter) {
+    choices = choices.filter(_ => (_ as any)[choiceFilter.key] === value)
+  }
+  return choices
 }
 
 export const Questions = ({
@@ -21,7 +39,7 @@ export const Questions = ({
   path?: Path
   survey: Kobo.Form['content']['survey']
 }) => {
-  const {values, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
+  const {values, getValue, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
   const t = useTheme()
   const getLabel = (property?: string[]): string => {
     return property?.[langIndex] ?? ''
@@ -38,8 +56,9 @@ export const Questions = ({
     // if (defaultValue && defaultValue !== '' && !(q.name in values)) {
     //   setValues(prev => ({...prev, [q.name]: defaultValue}))
     // }
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      updateValues([...path.toLodashPath(), q.name], e.target.value)
+    //ChangeEvent<HTMLInputElement>
+    const onChange = (value: FormValue) => {
+      updateValues([...path.toLodashPath(), q.name], value)
     }
     const label = getLabel(q.label)
 
@@ -53,7 +72,7 @@ export const Questions = ({
       hint: getLabel(q.hint),
       error: valid ? undefined : getLabel(q.constraint_message)
     }
-    const choiceFilter = parseChoiceFilter(q)
+    const value = getValue(path, q.name)
     res.push(
       <Grow key={q.$xpath} in={relevant} mountOnEnter unmountOnExit>
         <Box>
@@ -102,7 +121,7 @@ export const Questions = ({
                       required={q.required}
                       fullWidth
                       type="date"
-                      onChange={onChange}
+                      onChange={e => onChange(e.target.value)}
                     />
                   </QuestionLayout>
                 )
@@ -113,7 +132,7 @@ export const Questions = ({
                     <Input
                       required={q.required}
                       fullWidth
-                      onChange={onChange}
+                      onChange={e => onChange(e.target.value)}
                     />
                   </QuestionLayout>
                 )
@@ -125,20 +144,18 @@ export const Questions = ({
                       required={q.required}
                       fullWidth
                       type="number"
-                      onChange={onChange}
+                      onChange={e => onChange(e.target.value)}
                     />
                   </QuestionLayout>
                 )
               }
               case 'select_one': {
-                let choices = choicesMap[q.select_from_list_name!] ?? []
-                if (choiceFilter) {
-                  choices = choices.filter(_ => (_ as any)[choiceFilter.key] === values[choiceFilter.questionName])
-                }
+                const choices = getFilteredList({choicesMap, q, value})
                 return (
                   <QuestionLayout {...questionLayoutProps}>
                     <RadioGroup
-                      onChange={onChange}
+                      value={getValue(path, q.name) ?? ''}
+                      onChange={e => onChange(e.target.value)}
                     >
                       {choices.map(c => {
                         return (
@@ -146,6 +163,39 @@ export const Questions = ({
                         )
                       })}
                     </RadioGroup>
+                  </QuestionLayout>
+                )
+              }
+              case 'select_multiple': {
+                const choices = getFilteredList({choicesMap, q, value})
+                const selectedValues: string[] = getValue(path, q.name)?.split(' ') ?? []
+                return (
+                  <QuestionLayout {...questionLayoutProps}>
+                    <FormGroup>
+                      {choices.map(c => {
+                        const value = c.name
+                        const label = c.label?.[langIndex] ?? ''
+                        const checked = selectedValues.includes(value)
+
+                        return (
+                          <FormControlLabel
+                            key={value}
+                            label={label}
+                            control={
+                              <Checkbox
+                                checked={checked}
+                                onChange={(e) => {
+                                  if (e.target.checked)
+                                    onChange([...selectedValues, value].join(' '))
+                                  else
+                                    onChange(selectedValues.filter(v => v !== value).join(' '))
+                                }}
+                              />
+                            }
+                          />
+                        )
+                      })}
+                    </FormGroup>
                   </QuestionLayout>
                 )
               }

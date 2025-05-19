@@ -79,6 +79,28 @@ export const surveyShort: Kobo.Form['content'] = {
       ]
     },
     {
+      'hint': [
+        'Please read all options',
+        'Translation Missing'
+      ],
+      'name': 'hh_char_dis_select',
+      'type': 'select_multiple',
+      'label': [
+        '3.4.1 Activities Difficulty',
+        '3.4.1 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються вас або члена вашого домогосподарства'
+      ],
+      '$xpath': 'hh_char/hh_char_dis_select',
+      'relevant': 'FALSE',
+      'required': false,
+      '$autoname': 'hh_char_dis_select',
+      'constraint': 'not(selected(.,\'diff_none\') and count-selected(.)>1)',
+      'constraint_message': [
+        'None of the above\' option may not be slected alongisde other options',
+        'Варіант "жоден з вищезазначених" не може бути обраний поряд з іншими варіантами'
+      ],
+      'select_from_list_name': 'dis'
+    },
+    {
       'name': 'ben_det_oblast',
       'type': 'select_one',
       'label': [
@@ -2025,226 +2047,6 @@ export const surveyShort: Kobo.Form['content'] = {
       ],
       'list_name': 'oblast',
       '$autovalue': 'chernihivska'
-    },
-    {
-      'name': 'chernivetska',
-      '$kuid': '20XaAv5Rk',
-      'label': [
-        'Chernivetska',
-        'Чернівецька'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'chernivetska'
-    },
-    {
-      'name': 'dnipropetrovska',
-      '$kuid': 'CVf7jzBEA',
-      'label': [
-        'Dnipropetrovska',
-        'Дніпропетровська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'dnipropetrovska'
-    },
-    {
-      'name': 'donetska',
-      '$kuid': 'boi2Utlyl',
-      'label': [
-        'Donetska',
-        'Донецька'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'donetska'
-    },
-    {
-      'name': 'ivano-frankivska',
-      '$kuid': '1WbpKyb5S',
-      'label': [
-        'Ivano-Frankivska',
-        'Івано-Франківська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'ivano-frankivska'
-    },
-    {
-      'name': 'kharkivska',
-      '$kuid': 'Zsm0AiTaz',
-      'label': [
-        'Kharkivska',
-        'Харківська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'kharkivska'
-    },
-    {
-      'name': 'khersonska',
-      '$kuid': 'I0VwPMPt5',
-      'label': [
-        'Khersonska',
-        'Херсонська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'khersonska'
-    },
-    {
-      'name': 'khmelnytska',
-      '$kuid': 'kBJ52tjJ2',
-      'label': [
-        'Khmelnytska',
-        'Хмельницька'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'khmelnytska'
-    },
-    {
-      'name': 'kirovohradska',
-      '$kuid': 'AfMJFKjNs',
-      'label': [
-        'Kirovohradska',
-        'Кіровоградська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'kirovohradska'
-    },
-    {
-      'name': 'kyivska',
-      '$kuid': 'LtajB3YJh',
-      'label': [
-        'Kyivska',
-        'Київська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'kyivska'
-    },
-    {
-      'name': 'luhanska',
-      '$kuid': 'O1RmiSw1B',
-      'label': [
-        'Luhanska',
-        'Луганська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'luhanska'
-    },
-    {
-      'name': 'lvivska',
-      '$kuid': 'BEBWIheo9',
-      'label': [
-        'Lvivska',
-        'Львівська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'lvivska'
-    },
-    {
-      'name': 'mykolaivska',
-      '$kuid': 'OlPr0e2hM',
-      'label': [
-        'Mykolaivska',
-        'Миколаївська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'mykolaivska'
-    },
-    {
-      'name': 'odeska',
-      '$kuid': 'JPJA6iYtf',
-      'label': [
-        'Odeska',
-        'Одеська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'odeska'
-    },
-    {
-      'name': 'poltavska',
-      '$kuid': 'rB58AAbby',
-      'label': [
-        'Poltavska',
-        'Полтавська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'poltavska'
-    },
-    {
-      'name': 'rivnenska',
-      '$kuid': 'BcgwRqEya',
-      'label': [
-        'Rivnenska',
-        'Рівненська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'rivnenska'
-    },
-    {
-      'name': 'sevastopilska',
-      '$kuid': 'IKy2tHjW8',
-      'label': [
-        'Sevastopilska',
-        'Севастопільська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'sevastopilska'
-    },
-    {
-      'name': 'sumska',
-      '$kuid': 'JUy2I6c3A',
-      'label': [
-        'Sumska',
-        'Сумська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'sumska'
-    },
-    {
-      'name': 'ternopilska',
-      '$kuid': 'GcO1vxQnG',
-      'label': [
-        'Ternopilska',
-        'Тернопільська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'ternopilska'
-    },
-    {
-      'name': 'vinnytska',
-      '$kuid': 'BY4TY8KaR',
-      'label': [
-        'Vinnytska',
-        'Вінницька'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'vinnytska'
-    },
-    {
-      'name': 'volynska',
-      '$kuid': '229eJa14o',
-      'label': [
-        'Volynska',
-        'Волинська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'volynska'
-    },
-    {
-      'name': 'zakarpatska',
-      '$kuid': 'TwVQT8uwX',
-      'label': [
-        'Zakarpatska',
-        'Закарпатська'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'zakarpatska'
-    },
-    {
-      'name': 'zaporizka',
-      '$kuid': 'PWgSLY3Y0',
-      'label': [
-        'Zaporizka',
-        'Запорізька'
-      ],
-      'list_name': 'oblast',
-      '$autovalue': 'zaporizka'
     },
     {
       'name': 'zhytomyrska',
