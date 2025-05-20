@@ -4,9 +4,11 @@ import {Kobo} from 'kobo-sdk'
 import {ChangeEvent, ReactNode} from 'react'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
-import {FormValue, Path} from './Path.ts'
-import {XFormEngine} from './eval.ts'
+import {FormValue, Path} from '../engine/path/Path.ts'
+// import {XFormEngine} from './eval.ts'
 import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
+import {AstFormEvaluator} from '../engine/ast/astEval.ts'
+import {XFormEngine} from '../engine/eval.ts'
 
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
@@ -47,17 +49,14 @@ export const Questions = ({
   const res: ReactNode[] = []
   for (let i = 0; i < survey.length; i++) {
     const q = survey[i]
-    const engine = new XFormEngine({
+    const engine = new AstFormEvaluator({
       values,
       path,
+      thatName: q.name,
       questionsMap,
-      thatName: q.name
     })
-    // if (defaultValue && defaultValue !== '' && !(q.name in values)) {
-    //   setValues(prev => ({...prev, [q.name]: defaultValue}))
-    // }
-    //ChangeEvent<HTMLInputElement>
     const onChange = (value: FormValue) => {
+      //ChangeEvent<HTMLInputElement>
       updateValues([...path.toLodashPath(), q.name], value)
     }
     const label = getLabel(q.label)
@@ -66,13 +65,16 @@ export const Questions = ({
     const defaultValue = engine.eval(q.default)
     const relevant = q.relevant ? engine.eval(q.relevant) ?? false : true
     const valid = engine.eval(q.constraint) ?? true
+    const value = calculation ?? getValue(path, q.name)
+    if ((value === undefined || value === null) && defaultValue !== undefined) {
+      onChange(defaultValue)
+    }
 
     const questionLayoutProps: Omit<QuestionLayoutProps, 'children'> = {
       label,
       hint: getLabel(q.hint),
       error: valid ? undefined : getLabel(q.constraint_message)
     }
-    const value = getValue(path, q.name)
     res.push(
       <Grow key={q.$xpath} in={relevant} mountOnEnter unmountOnExit>
         <Box>
@@ -91,7 +93,7 @@ export const Questions = ({
                 }
                 return repeated === 0 ? <></> :
                   mapFor(repeated, i => (
-                    <RepeatLayout index={i}>
+                    <RepeatLayout index={i} key={i}>
                       <Questions
                         path={path.add({index: i, repeatGroupName: q.name})}
                         key={i}
@@ -109,7 +111,7 @@ export const Questions = ({
                 return (
                   <QuestionLayout {...questionLayoutProps}>
                     {calculation && (
-                      <Input value={calculation} disabled/>
+                      <Input value={value} disabled/>
                     )}
                   </QuestionLayout>
                 )
@@ -118,6 +120,7 @@ export const Questions = ({
                 return (
                   <QuestionLayout {...questionLayoutProps}>
                     <Input
+                      value={value}
                       required={q.required}
                       fullWidth
                       type="date"
@@ -130,6 +133,7 @@ export const Questions = ({
                 return (
                   <QuestionLayout {...questionLayoutProps}>
                     <Input
+                      value={value}
                       required={q.required}
                       fullWidth
                       onChange={e => onChange(e.target.value)}
@@ -141,6 +145,7 @@ export const Questions = ({
                 return (
                   <QuestionLayout {...questionLayoutProps}>
                     <Input
+                      value={value}
                       required={q.required}
                       fullWidth
                       type="number"
@@ -186,9 +191,9 @@ export const Questions = ({
                                 checked={checked}
                                 onChange={(e) => {
                                   if (e.target.checked)
-                                    onChange([...selectedValues, value].join(' '))
+                                    onChange([...selectedValues, value].join(' ').trim())
                                   else
-                                    onChange(selectedValues.filter(v => v !== value).join(' '))
+                                    onChange(selectedValues.filter(v => v !== value).join(' ').trim())
                                 }}
                               />
                             }

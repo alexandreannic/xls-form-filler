@@ -3,13 +3,13 @@ import {seq} from '@axanc/ts-utils'
 import {Box} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
 import {Questions} from './Questions.tsx'
-import {surveyNested} from './assets/surveyNested.ts'
-import {FormValues, LodashPath, Path} from './Path.ts'
+import {surveyNested} from '../assets/surveyNested.ts'
+import {FormValues, LodashPath, Path} from '../engine/path/Path.ts'
 import cloneDeep from 'lodash.clonedeep'
 import set from 'lodash.set'
-import {surveyShort} from './assets/surveyShort.ts'
+import {surveyShort} from '../assets/surveyShort.ts'
 import get from 'lodash.get'
-import { survey } from './assets/survey.ts'
+import {survey} from '../assets/survey.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -43,6 +43,7 @@ export const XlsFormFiller = ({
   }, [schema])
 
   const getValue = (path: Path, name: string): any => {
+    console.log('>> get value', [...path.toLodashPath(), name], values, get(values, [...path.toLodashPath(), name]))
     return get(values, [...path.toLodashPath(), name])
   }
 

@@ -1,6 +1,6 @@
 import {Kobo} from 'kobo-sdk'
-import {Path} from './Path.ts'
-import {FormValues} from './Path.ts'
+import {Path} from './path/Path.ts'
+import {FormValues} from './path/Path.ts'
 import get from 'lodash.get'
 
 const today = () => new Date().toISOString().substring(0, 10)

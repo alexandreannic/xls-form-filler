@@ -734,6 +734,7 @@ export const survey = {
       '$autoname': 'cal_head_tax',
       'calculation': 'indexed-repeat(${hh_char_tax_id_num},${hh_char_hh_det} ,1)'
     },
+    // REPEAT
     {
       'hint': [
         '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
@@ -981,6 +982,7 @@ export const survey = {
       '$autoname': 'cal_scoring_difficulty_level',
       'calculation': 'if(selected(${hh_char_hh_det_dis_level},\'one\'),1, if(selected(${hh_char_hh_det_dis_level},\'two\'),2, if(selected(${hh_char_hh_det_dis_level},\'fri\'),3,0)))'
     },
+    ///END
     {
       'type': 'end_repeat',
     },

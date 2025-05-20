@@ -6,7 +6,6 @@ export const surveyShort: Kobo.Form['content'] = {
     {
       'name': 'date',
       'type': 'date',
-      '$kuid': '0SbqyRdjz',
       'label': [
         'Date',
         'Дата'
@@ -16,122 +15,8 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'date'
     },
     {
-      'name': 'background',
-      'type': 'begin_group',
-      '$kuid': 'BWQ6NOflx',
-      'label': [
-        '###1. Background',
-        '###1. Фон'
-      ],
-      '$xpath': 'background',
-      'required': false,
-      '$autoname': 'background',
-      'appearance': 'field-list'
-    },
-    // {
-    //   'name': 'back_un_id',
-    //   'type': 'note',
-    //   '$kuid': '44vJlV5qc',
-    //   'label': [
-    //     '**1. ID/Case Number**',
-    //     '**Унікальний персональний код**'
-    //   ],
-    //   '$xpath': 'background/back_un_id',
-    //   'required': false,
-    //   '$autoname': 'back_un_id',
-    //   'calculation': 'once(format-date-time(now(), ‘%y%m%d%H%M%S%3’))'
-    // },
-    {
-      'hint': [
-        'Hello, my name is ${back_enum} and I am a representative of the Danish Refugee Council. This questionnaire is designed primarily to ascertain your eligibility for the programmes for which you have been pre-selected for. You are free to refuse to answer any question or also stop the process at any time knowing that non-answers may affect the possibility of you not being selected on any programs we are offering. No individual data will be shared outside of the DRC aside from your tax number which we are required by law to share with the government. Tax numbers are also shared anonymously with other organisations to ensure that there is no duplication of assistance. Should you be selected for cash assistance, then your details will also be shared with the selected payment provider in order to process your payment. All other data will be stored safely, in accordance with the Law on protection of personal data, and will not be shared outside of DRC and its partners.',
-        'Щоб зареєструвати вашу заявку, нам потрібно поставити вам кілька запитань, щоб зрозуміти склад вашої сім\'ї та як найкраще перерахувати вам фінансову допомогу, якщо ви маєте на це право. Ці запитання займуть 10-15 хвилин. Якщо ви відповідаєте вимогам, нам потрібно буде надати банку деякі основні дані, щоб здійснити платіж. Ми також зобов\'язані надавати ідентифікаційні номери платника податків людей, яким ми надаємо допомогу, іншим гуманітарним організаціям, які впроваджують програми фінансової допомоги, щоб гарантувати, що ми не дублюємо допомогу. Вся інша інформація зберігатиметься в безпеці відповідно до Закону про захист персональних даних і не буде передана за межі DRC та його партнерів.'
-      ],
-      'name': 'back_consent',
-      'type': 'select_one',
-      '$kuid': 'We6B356tk',
-      'label': [
-        '1.6.1 Consent',
-        '1.6.1 Згода'
-      ],
-      '$xpath': 'background/back_consent',
-      'required': true,
-      '$autoname': 'back_consent',
-      'select_from_list_name': 'yn'
-    },
-    {
-      'hint': [
-        'Do not inlcude +380 prefix. Number must contain 9 digits',
-        'Не вводьте префікс +380. Номер повинен складатися з 9 цифр'
-      ],
-      'name': 'ben_det_ph_number',
-      'type': 'integer',
-      'label': [
-        '2.4 Phone Number',
-        '2.4 Ваш контактний номер телефону?'
-      ],
-      '$xpath': 'ben_det/ben_det_ph_number',
-      'required': true,
-      '$autoname': 'ben_det_ph_number',
-      'constraint': '. > 100000000 and . < 1000000000',
-      'constraint_message': [
-        'Phone number must be nine digits',
-        'Номер телефону повинен складатися з дев\'яти цифр'
-      ]
-    },
-    {
-      'hint': [
-        'Please read all options',
-        'Translation Missing'
-      ],
-      'name': 'hh_char_dis_select',
-      'type': 'select_multiple',
-      'label': [
-        '3.4.1 Activities Difficulty',
-        '3.4.1 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються вас або члена вашого домогосподарства'
-      ],
-      '$xpath': 'hh_char/hh_char_dis_select',
-      'relevant': 'FALSE',
-      'required': false,
-      '$autoname': 'hh_char_dis_select',
-      'constraint': 'not(selected(.,\'diff_none\') and count-selected(.)>1)',
-      'constraint_message': [
-        'None of the above\' option may not be slected alongisde other options',
-        'Варіант "жоден з вищезазначених" не може бути обраний поряд з іншими варіантами'
-      ],
-      'select_from_list_name': 'dis'
-    },
-    {
-      'name': 'ben_det_oblast',
-      'type': 'select_one',
-      'label': [
-        '2.5.1 Registration Oblast',
-        '2.5.1 Виберіть область, де буде проходити реєстрація'
-      ],
-      'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
-      '$xpath': 'ben_det/ben_det_oblast',
-      'required': true,
-      '$autoname': 'ben_det_oblast',
-      'select_from_list_name': 'oblast'
-    },
-    {
-      'name': 'ben_det_raion',
-      'type': 'select_one',
-      'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
-      'label': [
-        '2.5.2 Registration Raion',
-        '2.5.2 Виберіть район, де буде проходити реєстрація'
-      ],
-      '$xpath': 'ben_det/ben_det_raion',
-      'required': true,
-      '$autoname': 'ben_det_raion',
-      'choice_filter': 'oblast=${ben_det_oblast}',
-      'select_from_list_name': 'raion'
-    },
-    {
       'name': 'ben_det_hh_size',
       'type': 'integer',
-      '$kuid': 'fSyBAGJsw',
-      'default': '3',
       'label': [
         '2.7 Household Size',
         '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
@@ -140,20 +25,6 @@ export const surveyShort: Kobo.Form['content'] = {
       'required': true,
       '$autoname': 'ben_det_hh_size'
     },
-    {
-      'name': 'hh_char',
-      'type': 'begin_group',
-      '$kuid': 'Vxawdkq8z',
-      'label': [
-        '###3. Household Characteristics & Vulnerability Assessment',
-        '###3. Характеристика домогосподарства та оцінка вразливостей'
-      ],
-      '$xpath': 'hh_char',
-      'relevant': 'selected(${back_consent},\'yes\') and ${ben_det_hh_size}>0',
-      'required': false,
-      '$autoname': 'hh_char'
-    },
-    /// REPEAT
     {
       'hint': [
         '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
@@ -166,77 +37,120 @@ export const surveyShort: Kobo.Form['content'] = {
         '3.2  Члени домогосподарства'
       ],
       '$xpath': 'hh_char/hh_char_hh_det',
-      'relevant': '${ben_det_hh_size} !=\'\'',
       'required': false,
       '$autoname': 'hh_char_hh_det',
       'appearance': 'field-list',
       'repeat_count': '${ben_det_hh_size}'
     },
+    // {
+    //   'name': 'hh_chart_note_resp',
+    //   'type': 'note',
+    //   'label': [
+    //     '**Should be respondant**',
+    //     '**Має бути отримувачем допомоги**'
+    //   ],
+    //   '$xpath': 'hh_char/hh_char_hh_det/hh_chart_note_resp',
+    //   'relevant': 'position(..) = 1',
+    //   'required': false,
+    //   '$autoname': 'hh_chart_note_resp'
+    // },
     {
-      'name': 'hh_chart_note_resp',
-      'type': 'note',
+      'name': 'hh_char_date_birth',
+      'type': 'date',
       'label': [
-        '**Should be respondant**',
-        '**Має бути отримувачем допомоги**'
+        'Date of birth',
+        'Дата народження члена домогосподарства'
       ],
-      '$xpath': 'hh_char/hh_char_hh_det/hh_chart_note_resp',
-      'relevant': 'position(..) = 1',
+      '$xpath': 'hh_char/hh_char_hh_det/hh_char_date_birth',
       'required': false,
-      '$autoname': 'hh_chart_note_resp'
+      '$autoname': 'hh_char_date_birth'
     },
     {
-      'name': 'hh_char_tax_id_yn',
-      'type': 'select_one',
+      'name': 'hh_char_hh_det_age',
+      'type': 'integer',
       'label': [
-        'Have individual tax number (TIN)?',
-        'Чи має член домогосподарства індивідуальний податковий номер (ІПН)?'
+        'Age',
+        'ВІК члена домогосподарства'
       ],
-      '$xpath': 'hh_char/hh_char_hh_det/hh_char_tax_id_yn',
-      'default': 'yes',
-      'required': true,
-      '$autoname': 'hh_char_tax_id_yn',
-      'select_from_list_name': 'yn'
+      '$xpath': 'hh_char/hh_char_hh_det/hh_char_hh_det_age',
+      'required': false,
+      '$autoname': 'hh_char_hh_det_age',
+      'calculation': 'if(${hh_char_date_birth} != \'\', int((${date} - ${hh_char_date_birth}) div 365.25), \'\')'
     },
-    {
-      'hint': [
-        'The TIN contains 10 digits',
-        'ІПН містить 10 цифр'
-      ],
-      'name': 'hh_char_tax_id_num',
-      'type': 'text',
-      'label': [
-        'Individual tax number',
-        'Ідентифікаційний номер (ІПН) бенефіціара'
-      ],
-      '$xpath': 'hh_char/hh_char_hh_det/hh_char_tax_id_num',
-      'required': true,
-      '$autoname': 'hh_char_tax_id_num',
-      'appearance': 'numbers',
-      'constraint': 'regex(., \'^[0-9]{10}$\')',
-      'constraint_message': [
-        'Invalid Tax ID',
-        'Недійсний податковий номер'
-      ]
-    },
+    ///END
     {
       'type': 'end_repeat',
     },
-    {
-      'type': 'end_group',
-      '$kuid': '6yZhCYq2D'
-    },
-    {
-      'name': 'cal_head_tax',
-      'type': 'note',
-      'label': [
-        'cal_head_tax',
-        'cal_head_tax',
-      ],
-      '$xpath': 'hh_char/cal_head_tax',
-      'required': false,
-      '$autoname': 'cal_head_tax',
-      'calculation': 'indexed-repeat(${hh_char_tax_id_num},${hh_char_hh_det} ,1)'
-    },
+    // {
+    //   'name': 'hh_char_chh',
+    //   'type': 'note',
+    //   'label': [
+    //     'This is a child headed household (high risk protection case), please refer immediately to a DRC Protection colleague and complete internal referral form.',
+    //     'Це домогосподарство, яке очолює дитина (ситуація з високим рівнем ризику у сфері соціального захисту), будь ласка, негайно зверніться до колеги з відділу соцыально-правового захисту ДРБ та заповніть внутрішню форму перенаправлення .'
+    //   ],
+    //   '$xpath': 'hh_char/hh_char_chh',
+    //   'relevant': 'indexed-repeat(${hh_char_hh_det_age},${hh_char_hh_det} ,1) <18',
+    //   'required': false,
+    //   '$autoname': 'hh_char_chh'
+    // },
+    // {
+    //   'hint': [
+    //     'Please read all options',
+    //     'Будь ласка, прочитайте всі варіанти'
+    //   ],
+    //   'name': 'hh_char_res_dis_select',
+    //   'type': 'select_multiple',
+    //   'label': [
+    //     '3.1.3 Respondent Characteristics',
+    //     '3.1.3 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються респондента'
+    //   ],
+    //   '$xpath': 'hh_char/hh_char_res_dis_select',
+    //   'required': false,
+    //   '$autoname': 'hh_char_res_dis_select',
+    //   'constraint': 'not(selected(.,\'diff_none\') and count-selected(.)>1)',
+    //   'constraint_message': [
+    //     'Cannot have these options checked together',
+    //     'Ці параметри не можна перевіряти разом'
+    //   ],
+    //   'select_from_list_name': 'dis'
+    // },
+    // {
+    //   'name': 'pay_det_id_type',
+    //   'type': 'select_one',
+    //   'label': [
+    //     '7.1 Form of ID do you have?',
+    //     '7.1 Яка у Вас форма посвідчення особи?'
+    //   ],
+    //   '$xpath': 'pay_det/pay_det_s/pay_det_id_type',
+    //   'required': true,
+    //   '$autoname': 'pay_det_id_type',
+    //   'select_from_list_name': 'id_type'
+    // },
+    // {
+    //   'name': 'pay_det_pass_ser',
+    //   'type': 'text',
+    //   'label': [
+    //     '7.2.1 Input Passport Series',
+    //     '7.2.1 Серія паспорта'
+    //   ],
+    //   '$xpath': 'pay_det/pay_det_s/pay_det_pass_ser',
+    //   'relevant': 'selected(${pay_det_id_type},\'nat_pass_book\')',
+    //   'required': true,
+    //   '$autoname': 'pay_det_pass_ser',
+    //   'constraint': 'regex(., \'^[а-яА-Яa-zA-Z]{2}$\')',
+    //   'constraint_message': [
+    //     'Passport series must contain two letters only',
+    //     'Серія паспорта має містити лише дві букви'
+    //   ]
+    // },
+    // {
+    //   'name': 'calc_u5',
+    //   'type': 'note',
+    //   '$xpath': 'hh_char/hh_char_hh_det/calc_u5',
+    //   'required': false,
+    //   '$autoname': 'calc_u5',
+    //   'calculation': 'if(${pay_det_pass_ser}=\'\',1,0)'
+    // },
   ],
   'choices': [
     {
