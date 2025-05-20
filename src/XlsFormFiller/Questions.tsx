@@ -1,14 +1,14 @@
-import {Box, Checkbox, FormControlLabel, FormGroup, Grow, Input, Radio, RadioGroup, Typography, useTheme} from '@mui/material'
+import {Box, Checkbox, Collapse, FormControlLabel, FormGroup, Grow, Input, Radio, RadioGroup, useTheme} from '@mui/material'
 import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
 import {Kobo} from 'kobo-sdk'
-import {ChangeEvent, ReactNode} from 'react'
+import {ReactNode, useMemo} from 'react'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
 import {FormValue, Path} from '../engine/path/Path.ts'
-// import {XFormEngine} from './eval.ts'
 import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
 import {AstFormEvaluator} from '../engine/ast/astEval.ts'
-import {XFormEngine} from '../engine/eval.ts'
+import {nestGroups, QuestionGrouped} from '../utils/helpers.ts'
+import {GroupLayout} from './GroupLayout.tsx'
 
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
@@ -39,13 +39,15 @@ export const Questions = ({
   path = new Path()
 }: {
   path?: Path
-  survey: Kobo.Form['content']['survey']
+  survey: QuestionGrouped[]
 }) => {
-  const {values, getValue, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
   const t = useTheme()
+  const {values, getValue, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
+
   const getLabel = (property?: string[]): string => {
     return property?.[langIndex] ?? ''
   }
+
   const res: ReactNode[] = []
   for (let i = 0; i < survey.length; i++) {
     const q = survey[i]
@@ -59,31 +61,36 @@ export const Questions = ({
       //ChangeEvent<HTMLInputElement>
       updateValues([...path.toLodashPath(), q.name], value)
     }
-    const label = getLabel(q.label)
-
+    const relevant = q.relevant ? engine.eval(q.relevant) ?? false : true
     const calculation = engine.eval(q.calculation)
     const defaultValue = engine.eval(q.default)
-    const relevant = q.relevant ? engine.eval(q.relevant) ?? false : true
     const valid = engine.eval(q.constraint) ?? true
     const value = calculation ?? getValue(path, q.name)
     if ((value === undefined || value === null) && defaultValue !== undefined) {
       onChange(defaultValue)
     }
 
-    const questionLayoutProps: Omit<QuestionLayoutProps, 'children'> = {
-      label,
+    const layoutProps: Omit<QuestionLayoutProps, 'children'> = {
+      label: getLabel(q.label),
       hint: getLabel(q.hint),
       error: valid ? undefined : getLabel(q.constraint_message)
     }
     res.push(
-      <Grow key={q.$xpath} in={relevant} mountOnEnter unmountOnExit>
+      <Collapse key={q.$xpath} in={relevant} unmountOnExit>
         <Box>
           {(() => {
             switch (q.type) {
+              case 'begin_group': {
+                return (
+                  <GroupLayout {...layoutProps}>
+                    <Questions survey={q.children} path={path}/>
+                  </GroupLayout>
+                )
+              }
               case 'begin_repeat': {
                 const repeated = engine.eval(q.repeat_count)
                 let depth = 1
-                const subQuestions: Kobo.Form.Question[] = []
+                const subQuestions: QuestionGrouped[] = []
                 i++
                 while (depth > 0) {
                   subQuestions.push(survey[i])
@@ -93,7 +100,7 @@ export const Questions = ({
                 }
                 return repeated === 0 ? <></> :
                   mapFor(repeated, i => (
-                    <RepeatLayout index={i} key={i}>
+                    <RepeatLayout index={i} key={i} {...layoutProps}>
                       <Questions
                         path={path.add({index: i, repeatGroupName: q.name})}
                         key={i}
@@ -102,14 +109,9 @@ export const Questions = ({
                     </RepeatLayout>
                   ))
               }
-              case 'begin_group': {
-                return (
-                  <Typography variant="h5">{label}</Typography>
-                )
-              }
               case 'note': {
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     {calculation && (
                       <Input value={value} disabled/>
                     )}
@@ -118,7 +120,7 @@ export const Questions = ({
               }
               case 'date': {
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     <Input
                       value={value}
                       required={q.required}
@@ -131,7 +133,7 @@ export const Questions = ({
               }
               case 'text': {
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     <Input
                       value={value}
                       required={q.required}
@@ -143,7 +145,7 @@ export const Questions = ({
               }
               case 'integer': {
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     <Input
                       value={value}
                       required={q.required}
@@ -157,7 +159,7 @@ export const Questions = ({
               case 'select_one': {
                 const choices = getFilteredList({choicesMap, q, value})
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     <RadioGroup
                       value={getValue(path, q.name) ?? ''}
                       onChange={e => onChange(e.target.value)}
@@ -175,7 +177,7 @@ export const Questions = ({
                 const choices = getFilteredList({choicesMap, q, value})
                 const selectedValues: string[] = getValue(path, q.name)?.split(' ') ?? []
                 return (
-                  <QuestionLayout {...questionLayoutProps}>
+                  <QuestionLayout {...layoutProps}>
                     <FormGroup>
                       {choices.map(c => {
                         const value = c.name
@@ -207,7 +209,7 @@ export const Questions = ({
             }
           })()}
         </Box>
-      </Grow>
+      </Collapse>
     )
   }
   return res

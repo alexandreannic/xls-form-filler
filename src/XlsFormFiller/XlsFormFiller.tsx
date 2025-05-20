@@ -3,13 +3,14 @@ import {seq} from '@axanc/ts-utils'
 import {Box} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
 import {Questions} from './Questions.tsx'
-import {surveyNested} from '../assets/surveyNested.ts'
+import {surveyNested} from '../../test/survey/surveyNested.ts'
 import {FormValues, LodashPath, Path} from '../engine/path/Path.ts'
 import cloneDeep from 'lodash.clonedeep'
 import set from 'lodash.set'
-import {surveyShort} from '../assets/surveyShort.ts'
+import {surveyShort} from '../../test/survey/surveyShort.ts'
 import get from 'lodash.get'
-import {survey} from '../assets/survey.ts'
+import {survey} from '../../test/survey/survey.ts'
+import {nestGroups} from '../utils/helpers.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -34,6 +35,10 @@ export const XlsFormFiller = ({
   const langIndex = 0
   const [values, setValues] = useState<Record<any, FormValues>>({})
 
+  const groupedSurvey = useMemo(() => {
+    return nestGroups(schema.survey)
+  }, [survey])
+
   const choicesMap = useMemo(() => {
     return seq(schema.choices).groupBy(_ => _.list_name)
   }, [schema])
@@ -43,7 +48,6 @@ export const XlsFormFiller = ({
   }, [schema])
 
   const getValue = (path: Path, name: string): any => {
-    console.log('>> get value', [...path.toLodashPath(), name], values, get(values, [...path.toLodashPath(), name]))
     return get(values, [...path.toLodashPath(), name])
   }
 
@@ -79,7 +83,7 @@ export const XlsFormFiller = ({
             </Box>
           </Box>
           <Box>
-            <Questions survey={schema.survey}/>
+            <Questions survey={groupedSurvey}/>
           </Box>
         </Box>
       </Box>

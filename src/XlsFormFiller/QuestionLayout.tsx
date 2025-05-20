@@ -21,7 +21,8 @@ export const QuestionLayout = ({
       background: error ? alpha(t.palette.error.light, .15) : t.palette.background.paper,
       // border: error ? `2px solid ${t.palette.error.main}` : undefined,
       borderLeft: error ? `2px solid ${t.palette.error.main}` : undefined,
-      p: 2,
+      py: 1,
+      px: 2,
       mb: .5,
       '&:not(:first-of-type)': {
         borderTopLeftRadius: '2px',

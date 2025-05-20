@@ -4,6 +4,41 @@ export const surveyShort: Kobo.Form['content'] = {
   'schema': '1',
   'survey': [
     {
+      'name': 'ben_det',
+      'type': 'begin_group',
+      'label': [
+        '###2. Beneficiary Details',
+        '###2. Відомості про одержувача'
+      ],
+      '$xpath': 'ben_det',
+      'required': false,
+      '$autoname': 'ben_det',
+      'appearance': 'field-list'
+    },
+    {
+      'name': 'back_consen_no_reas',
+      'type': 'text',
+      'label': [
+        '1.6.2 Reason for No Consent',
+        '1.6.2 Зазначте, будь ласка, причину, з якої Ви не погоджуєтеся заповнити анкету?'
+      ],
+      '$xpath': 'background/back_consen_no_reas',
+      'required': false,
+      '$autoname': 'back_consen_no_reas'
+    },
+    {
+      'name': 'ben_det2',
+      'type': 'begin_group',
+      'label': [
+        '###2. Beneficiary Details',
+        '###2. Відомості про одержувача'
+      ],
+      '$xpath': 'ben_det',
+      'required': false,
+      '$autoname': 'ben_det',
+      'appearance': 'field-list'
+    },
+    {
       'name': 'date',
       'type': 'date',
       'label': [
@@ -15,142 +50,11 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'date'
     },
     {
-      'name': 'ben_det_hh_size',
-      'type': 'integer',
-      'label': [
-        '2.7 Household Size',
-        '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
-      ],
-      '$xpath': 'ben_det/ben_det_hh_size',
-      'required': true,
-      '$autoname': 'ben_det_hh_size'
+      type: 'end_group',
     },
     {
-      'hint': [
-        '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
-        '**НЕ ЗАЗНАЧАЙТЕ ЧЛЕНІВ ДОМОГОСПОДАРСТВА, ПРО ЯКИХ УЖЕ ЙШЛОСЯ ВИЩЕ**'
-      ],
-      'name': 'hh_char_hh_det',
-      'type': 'begin_repeat',
-      'label': [
-        '3.2 HH Members',
-        '3.2  Члени домогосподарства'
-      ],
-      '$xpath': 'hh_char/hh_char_hh_det',
-      'required': false,
-      '$autoname': 'hh_char_hh_det',
-      'appearance': 'field-list',
-      'repeat_count': '${ben_det_hh_size}'
-    },
-    // {
-    //   'name': 'hh_chart_note_resp',
-    //   'type': 'note',
-    //   'label': [
-    //     '**Should be respondant**',
-    //     '**Має бути отримувачем допомоги**'
-    //   ],
-    //   '$xpath': 'hh_char/hh_char_hh_det/hh_chart_note_resp',
-    //   'relevant': 'position(..) = 1',
-    //   'required': false,
-    //   '$autoname': 'hh_chart_note_resp'
-    // },
-    {
-      'name': 'hh_char_date_birth',
-      'type': 'date',
-      'label': [
-        'Date of birth',
-        'Дата народження члена домогосподарства'
-      ],
-      '$xpath': 'hh_char/hh_char_hh_det/hh_char_date_birth',
-      'required': false,
-      '$autoname': 'hh_char_date_birth'
-    },
-    {
-      'name': 'hh_char_hh_det_age',
-      'type': 'integer',
-      'label': [
-        'Age',
-        'ВІК члена домогосподарства'
-      ],
-      '$xpath': 'hh_char/hh_char_hh_det/hh_char_hh_det_age',
-      'required': false,
-      '$autoname': 'hh_char_hh_det_age',
-      'calculation': 'if(${hh_char_date_birth} != \'\', int((${date} - ${hh_char_date_birth}) div 365.25), \'\')'
-    },
-    ///END
-    {
-      'type': 'end_repeat',
-    },
-    // {
-    //   'name': 'hh_char_chh',
-    //   'type': 'note',
-    //   'label': [
-    //     'This is a child headed household (high risk protection case), please refer immediately to a DRC Protection colleague and complete internal referral form.',
-    //     'Це домогосподарство, яке очолює дитина (ситуація з високим рівнем ризику у сфері соціального захисту), будь ласка, негайно зверніться до колеги з відділу соцыально-правового захисту ДРБ та заповніть внутрішню форму перенаправлення .'
-    //   ],
-    //   '$xpath': 'hh_char/hh_char_chh',
-    //   'relevant': 'indexed-repeat(${hh_char_hh_det_age},${hh_char_hh_det} ,1) <18',
-    //   'required': false,
-    //   '$autoname': 'hh_char_chh'
-    // },
-    // {
-    //   'hint': [
-    //     'Please read all options',
-    //     'Будь ласка, прочитайте всі варіанти'
-    //   ],
-    //   'name': 'hh_char_res_dis_select',
-    //   'type': 'select_multiple',
-    //   'label': [
-    //     '3.1.3 Respondent Characteristics',
-    //     '3.1.3 Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються респондента'
-    //   ],
-    //   '$xpath': 'hh_char/hh_char_res_dis_select',
-    //   'required': false,
-    //   '$autoname': 'hh_char_res_dis_select',
-    //   'constraint': 'not(selected(.,\'diff_none\') and count-selected(.)>1)',
-    //   'constraint_message': [
-    //     'Cannot have these options checked together',
-    //     'Ці параметри не можна перевіряти разом'
-    //   ],
-    //   'select_from_list_name': 'dis'
-    // },
-    // {
-    //   'name': 'pay_det_id_type',
-    //   'type': 'select_one',
-    //   'label': [
-    //     '7.1 Form of ID do you have?',
-    //     '7.1 Яка у Вас форма посвідчення особи?'
-    //   ],
-    //   '$xpath': 'pay_det/pay_det_s/pay_det_id_type',
-    //   'required': true,
-    //   '$autoname': 'pay_det_id_type',
-    //   'select_from_list_name': 'id_type'
-    // },
-    // {
-    //   'name': 'pay_det_pass_ser',
-    //   'type': 'text',
-    //   'label': [
-    //     '7.2.1 Input Passport Series',
-    //     '7.2.1 Серія паспорта'
-    //   ],
-    //   '$xpath': 'pay_det/pay_det_s/pay_det_pass_ser',
-    //   'relevant': 'selected(${pay_det_id_type},\'nat_pass_book\')',
-    //   'required': true,
-    //   '$autoname': 'pay_det_pass_ser',
-    //   'constraint': 'regex(., \'^[а-яА-Яa-zA-Z]{2}$\')',
-    //   'constraint_message': [
-    //     'Passport series must contain two letters only',
-    //     'Серія паспорта має містити лише дві букви'
-    //   ]
-    // },
-    // {
-    //   'name': 'calc_u5',
-    //   'type': 'note',
-    //   '$xpath': 'hh_char/hh_char_hh_det/calc_u5',
-    //   'required': false,
-    //   '$autoname': 'calc_u5',
-    //   'calculation': 'if(${pay_det_pass_ser}=\'\',1,0)'
-    // },
+      type: 'end_group',
+    }
   ],
   'choices': [
     {

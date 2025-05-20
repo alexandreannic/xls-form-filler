@@ -176,4 +176,19 @@ export const functions = {
       return needleIndex === -1 ? '' : haystack.slice(0, needleIndex)
     }
   }),
+
+  formatDateTime: new Function({
+    localName: 'format-date-time',
+    signature: [
+      {arityType: 'required', type: 'string'},
+      {arityType: 'required', type: 'string'},
+    ],
+    call: (env, [value, format]) => {
+    //   const dateTime = dateTimeFromString(context.timeZone, value)
+    //   if (dateTime == null) {
+    //     return ''
+    //   }
+    //   return dateTimeFormatter(format, dateTime)
+    }
+  }),
 }
