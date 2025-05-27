@@ -25,12 +25,12 @@ export const QuestionLayout = ({
       px: 2,
       mb: .5,
       '&:not(:first-of-type)': {
-        borderTopLeftRadius: '2px',
-        borderTopRightRadius: '2px',
+        borderTopLeftRadius: '4px',
+        borderTopRightRadius: '4px',
       },
       '&:not(:last-of-type)': {
-        borderBottomLeftRadius: '2px',
-        borderBottomRightRadius: '2px',
+        borderBottomLeftRadius: '4px',
+        borderBottomRightRadius: '4px',
       }
     }}>
       <Box sx={{mb: children ? 1 : 0}}>

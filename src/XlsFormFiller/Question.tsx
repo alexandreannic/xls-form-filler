@@ -6,6 +6,10 @@ import {Checkbox, FormControlLabel, FormGroup, Input, Radio, RadioGroup} from '@
 import {Kobo} from 'kobo-sdk'
 import {QuestionLayout} from './QuestionLayout.tsx'
 import {QuestionImage} from './QuestionImage.tsx'
+import {GroupLayout} from './GroupLayout.tsx'
+import {mapFor} from '@axanc/ts-utils'
+import {RepeatLayout} from './RepeatLayout.tsx'
+import {AstFormEvaluator} from '../engine/ast/astEval.ts'
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
@@ -30,55 +34,88 @@ const getFilteredList = ({
   return choices
 }
 
-export type QuestionCalculations = {
-  relevant?: boolean
-  valid?: boolean
-  calculation?: FormValue
-  defaultValue?: FormValue
-}
-
-export type LayoutProps = {
-  label: string
-  hint?: string
-  error?: string
-}
-
 export const Question = memo(({
   q,
   path,
-  calculations,
-  layout,
 }: {
   path: Path
   q: QuestionGrouped
-  layout: LayoutProps
-  calculations: QuestionCalculations
 }) => {
-  const {values, getValue, updateValues, questionsMap, langIndex, choicesMap} = useXlsFormFillerContext()
+  const ctx = useXlsFormFillerContext()
+
+  const logic = useMemo(() => {
+    const engine = new AstFormEvaluator({
+      values: ctx.values,
+      path,
+      thatName: q.name,
+      questionsMap: ctx.questionsMap,
+    })
+    const relevant = q.relevant ? engine.eval(q.relevant) ?? false : true
+    return relevant ? {
+      relevant,
+      calculation: engine.eval(q.calculation),
+      defaultValue: engine.eval(q.default),
+      valid: engine.eval(q.constraint) ?? true,
+      repeated: engine.eval(q.repeat_count),
+    } : {relevant}
+  }, [ctx.values])
 
   const onChange = (value: FormValue) => {
     //ChangeEvent<HTMLInputElement>
-    updateValues([...path.toLodashPath(), q.name], value)
+    ctx.updateValues([...path.toLodashPath(), q.name], value)
+  }
+
+  const getLabel = (property?: string[]): string => {
+    return property?.[ctx.langIndex] ?? ''
+  }
+
+  const layout = {
+    label: getLabel(q.label),
+    hint: getLabel(q.hint),
+    error: logic.valid ? undefined : getLabel(q.constraint_message)
   }
 
   const value = useMemo(() => {
-    return getValue(path, q.name)
+    return ctx.getValue(path, q.name)
   }, [path, q.name])
 
   useEffect(() => {
-    if (calculations.defaultValue !== undefined && value !== calculations.defaultValue) {
-      onChange(calculations.defaultValue)
+    if (logic.defaultValue !== undefined && value !== logic.defaultValue) {
+      onChange(logic.defaultValue)
     }
-    if (calculations.calculation !== undefined && value !== calculations.calculation) {
-      onChange(calculations.calculation)
+    if (logic.calculation !== undefined && value !== logic.calculation) {
+      onChange(logic.calculation)
     }
-  }, [calculations.defaultValue, value, calculations.calculation])
+  }, [logic.defaultValue, value, logic.calculation])
 
   switch (q.type) {
+    case 'begin_group': {
+      return (
+        <GroupLayout {...layout}>
+          {q.children.map(q =>
+            <Question key={q.name} q={q} path={path}/>
+          )}
+        </GroupLayout>
+      )
+    }
+    case 'begin_repeat': {
+      return logic.repeated === 0 ? <></> :
+        mapFor(logic.repeated, i => (
+          <RepeatLayout index={i} key={i} {...layout}>
+            {q.children.map(_ =>
+              <Question
+                key={i}
+                path={path.add({index: i, repeatGroupName: q.name})}
+                q={_}
+              />
+            )}
+          </RepeatLayout>
+        ))
+    }
     case 'note': {
       return (
         <QuestionLayout {...layout}>
-          {calculations.calculation && (
+          {logic.calculation && (
             <Input value={value} disabled/>
           )}
         </QuestionLayout>
@@ -123,16 +160,16 @@ export const Question = memo(({
       )
     }
     case 'select_one': {
-      const choices = getFilteredList({choicesMap, q, value})
+      const choices = getFilteredList({choicesMap: ctx.choicesMap, q, value})
       return (
         <QuestionLayout {...layout}>
           <RadioGroup
-            value={getValue(path, q.name) ?? ''}
+            value={ctx.getValue(path, q.name) ?? ''}
             onChange={e => onChange(e.target.value)}
           >
             {choices.map(c => {
               return (
-                <FormControlLabel label={c.label?.[langIndex] ?? ''} control={<Radio/>} value={c.name} key={c.name}/>
+                <FormControlLabel label={c.label?.[ctx.langIndex] ?? ''} control={<Radio/>} value={c.name} key={c.name}/>
               )
             })}
           </RadioGroup>
@@ -140,14 +177,14 @@ export const Question = memo(({
       )
     }
     case 'select_multiple': {
-      const choices = getFilteredList({choicesMap, q, value})
-      const selectedValues: string[] = getValue(path, q.name)?.split(' ') ?? []
+      const choices = getFilteredList({choicesMap: ctx.choicesMap, q, value})
+      const selectedValues: string[] = ctx.getValue(path, q.name)?.split(' ') ?? []
       return (
         <QuestionLayout {...layout}>
           <FormGroup>
             {choices.map(c => {
               const value = c.name
-              const label = c.label?.[langIndex] ?? ''
+              const label = c.label?.[ctx.langIndex] ?? ''
               const checked = selectedValues.includes(value)
 
               return (
@@ -177,6 +214,14 @@ export const Question = memo(({
         <QuestionLayout {...layout}>
           <QuestionImage value={value} onChange={onChange}/>
         </QuestionLayout>
+      )
+    }
+    case 'calculate': {
+      return <></>
+    }
+    default: {
+      return (
+        <div>TODO {q.type} {q.name}</div>
       )
     }
   }

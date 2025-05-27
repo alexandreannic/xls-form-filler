@@ -2,7 +2,6 @@ import {createContext, useContext, useMemo, useState} from 'react'
 import {seq} from '@axanc/ts-utils'
 import {Box} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
-import {Questions} from './Questions.tsx'
 import {FormValues, LodashPath, Path} from '../engine/path/Path.ts'
 import cloneDeep from 'lodash.clonedeep'
 import set from 'lodash.set'
@@ -10,6 +9,7 @@ import {surveyShort} from '../../test/survey/surveyShort.ts'
 import get from 'lodash.get'
 import {survey} from '../../test/survey/survey.ts'
 import {nestGroups} from '../utils/helpers.ts'
+import {Question} from './Question.tsx'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -71,7 +71,7 @@ export const XlsFormFiller = ({
       <Box sx={{maxWidth: 1000, minWidth: 1000, margin: 'auto'}}>
         <Box sx={{display: 'flex'}}>
           <Box component="pre" sx={{minWidth: 400}}>
-            <Box component="pre" sx={{width: 400, position: 'fixed'}}>
+            <Box component="pre" sx={{width: 400, fontSize: '0.75em', maxHeight: '80vh', overflow: 'auto', position: 'fixed'}}>
               {(() => {
                 try {
                   return JSON.stringify(values, null, 2)
@@ -83,7 +83,9 @@ export const XlsFormFiller = ({
             </Box>
           </Box>
           <Box>
-            <Questions survey={groupedSurvey}/>
+            {groupedSurvey.map(q =>
+              <Question key={q.name} q={q} path={new Path()}/>
+            )}
           </Box>
         </Box>
       </Box>

@@ -32,6 +32,7 @@ export const surveyShort: Kobo.Form['content'] = {
       ],
       'required': true,
     },
+    // START
     {
       'hint': [
         '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',

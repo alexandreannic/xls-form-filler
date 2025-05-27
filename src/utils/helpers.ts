@@ -5,12 +5,12 @@ export const isValidDateString = (d: any): boolean => {
 }
 
 export type Group = Omit<Kobo.Form.Question, 'type'> & {
-  type: 'begin_group'
+  type: 'begin_group' | 'begin_repeat'
   children: QuestionGrouped[]
 }
 
 export type Question = Omit<Kobo.Form.Question, 'type'> & {
-  type: Exclude<Kobo.Form.QuestionType, 'begin_group'>
+  type: Exclude<Kobo.Form.QuestionType, 'begin_repeat' | 'begin_group'>
 }
 
 export type QuestionGrouped = Group | Question
@@ -20,10 +20,10 @@ export function nestGroups(flat: Kobo.Form.Question[]): QuestionGrouped[] {
   const result: QuestionGrouped[] = []
 
   for (const item of flat) {
-    if (item.type === 'begin_group') {
+    if (item.type === 'begin_group' || item.type === 'begin_repeat') {
       const group: Group = {...item as Group, children: []}
       stack.push(group)
-    } else if (item.type === 'end_group') {
+    } else if (item.type === 'end_group' || item.type === 'end_repeat') {
       const completed = stack.pop()
       if (!completed) {
         throw new Error('Unmatched end_group found')
