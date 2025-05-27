@@ -26,8 +26,8 @@ const Context = createContext({} as XlsFormFillerContext)
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
 export const XlsFormFiller = ({
-  // schema = surveyShort,
-  schema = survey,
+  schema = surveyShort,
+  // schema = survey,
   // schema = surveyNested.content,
 }: {
   schema?: Kobo.Form['content']

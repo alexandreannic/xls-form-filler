@@ -4,57 +4,247 @@ export const surveyShort: Kobo.Form['content'] = {
   'schema': '1',
   'survey': [
     {
-      'name': 'ben_det',
-      'type': 'begin_group',
-      'label': [
-        '###2. Beneficiary Details',
-        '###2. Відомості про одержувача'
-      ],
-      '$xpath': 'ben_det',
-      'required': false,
-      '$autoname': 'ben_det',
-      'appearance': 'field-list'
-    },
-    {
-      'name': 'back_consen_no_reas',
-      'type': 'text',
-      'label': [
-        '1.6.2 Reason for No Consent',
-        '1.6.2 Зазначте, будь ласка, причину, з якої Ви не погоджуєтеся заповнити анкету?'
-      ],
-      '$xpath': 'background/back_consen_no_reas',
-      'required': false,
-      '$autoname': 'back_consen_no_reas'
-    },
-    {
-      'name': 'ben_det2',
-      'type': 'begin_group',
-      'label': [
-        '###2. Beneficiary Details',
-        '###2. Відомості про одержувача'
-      ],
-      '$xpath': 'ben_det',
-      'required': false,
-      '$autoname': 'ben_det',
-      'appearance': 'field-list'
-    },
-    {
       'name': 'date',
       'type': 'date',
       'label': [
         'Date',
         'Дата'
       ],
-      '$xpath': 'date',
       'default': 'today()',
-      '$autoname': 'date'
     },
     {
-      type: 'end_group',
+      'name': 'ben_det_hh_size',
+      'type': 'integer',
+      'label': [
+        '2.7 Household Size',
+        '2.7.1 Кількість членів домогосподарства (включно з головою домогосподарства)'
+      ],
+      'required': true,
     },
     {
-      type: 'end_group',
-    }
+      'hint': [
+        '**DO NOT INCLUDE HH MEMBERS ALREADY REFERRED TO ABOVE**',
+        '**НЕ ЗАЗНАЧАЙТЕ ЧЛЕНІВ ДОМОГОСПОДАРСТВА, ПРО ЯКИХ УЖЕ ЙШЛОСЯ ВИЩЕ**'
+      ],
+      'name': 'hh_char_hh_det',
+      'type': 'begin_repeat',
+      'label': [
+        '3.2 HH Members',
+        '3.2  Члени домогосподарства'
+      ],
+      'relevant': '${ben_det_hh_size} !=\'\'',
+      'required': false,
+      'repeat_count': '${ben_det_hh_size}'
+    },
+    {
+      'name': 'hh_chart_note_resp',
+      'type': 'note',
+      'label': [
+        '**Should be respondant**',
+        '**Має бути отримувачем допомоги**'
+      ],
+      'relevant': 'position(..) = 1',
+      'required': false,
+    },
+    {
+      'name': 'hh_char_tax_id_yn',
+      'type': 'select_one',
+      'label': [
+        'Have individual tax number (TIN)?',
+        'Чи має член домогосподарства індивідуальний податковий номер (ІПН)?'
+      ],
+      'default': 'yes',
+      'required': true,
+      'select_from_list_name': 'yn'
+    },
+    {
+      'name': 'head_tax_id',
+      'type': 'calculate',
+      'label': [
+        'Individual tax number respondant',
+        'Ідентифікаційний номер отримувача допомоги'
+      ],
+      'required': false,
+      'calculation': '${cal_head_tax}'
+    },
+    {
+      'hint': [
+        'The TIN contains 10 digits',
+        'ІПН містить 10 цифр'
+      ],
+      'name': 'hh_char_tax_id_num',
+      'type': 'text',
+      'label': [
+        'Individual tax number',
+        'Ідентифікаційний номер (ІПН) бенефіціара'
+      ],
+      'relevant': 'selected(${hh_char_tax_id_yn},\'yes\')',
+      'required': true,
+      'constraint': 'regex(., \'^[0-9]{10}$\') and (${taxid_weightedsum} - ${taxid_roundedsum} = substr(${hh_char_tax_id_num}, 9, 10) or ${taxid_weightedsum} - ${taxid_roundedsum} - 10 = substr(${hh_char_tax_id_num}, 9, 10))',
+      'constraint_message': [
+        'Invalid Tax ID',
+        'Недійсний податковий номер'
+      ]
+    },
+    {
+      'name': 'hh_char_date_birth',
+      'type': 'date',
+      'label': [
+        'Date of birth',
+        'Дата народження члена домогосподарства'
+      ],
+      'required': false,
+    },
+    {
+      'name': 'taxid_weightedsum',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'substr(${hh_char_tax_id_num}, 0, 1) * (-1) + substr(${hh_char_tax_id_num}, 1, 2) * 5 + substr(${hh_char_tax_id_num}, 2, 3) * 7 + substr(${hh_char_tax_id_num}, 3, 4) * 9 + substr(${hh_char_tax_id_num}, 4, 5) * 4 + substr(${hh_char_tax_id_num}, 5, 6) * 6 + substr(${hh_char_tax_id_num}, 6, 7) * 10 + substr(${hh_char_tax_id_num}, 7, 8) * 5 + substr(${hh_char_tax_id_num}, 8, 9) * 7 + substr(${hh_char_tax_id_num}, 9, 10) * 0'
+    },
+    {
+      'name': 'taxid_roundedsum',
+      'type': 'calculate',
+      'required': false,
+      'calculation': '(${taxid_weightedsum} div 11 - ((${taxid_weightedsum} div 11) mod 1)) * 11'
+    },
+    {
+      'name': 'hh_char_hh_det_gender',
+      'type': 'select_one',
+      'label': [
+        'Gender',
+        'Будь ласка, вкажіть СТАТЬ члена домогосподарства'
+      ],
+      'required': true,
+      'select_from_list_name': 'gender'
+    },
+    {
+      'name': 'hh_char_hh_det_age',
+      'type': 'integer',
+      'label': [
+        'Age',
+        'ВІК члена домогосподарства'
+      ],
+      'required': false,
+      'calculation': 'if(${hh_char_date_birth} != \'\', int((${date} - ${hh_char_date_birth}) div 365.25), \'\')'
+    },
+    {
+      'name': 'hh_char_student',
+      'type': 'select_one',
+      'label': [
+        'Are you a student?',
+        'Чи ви студент?'
+      ],
+      'relevant': '${hh_char_hh_det_age} >17 and ${hh_char_hh_det_age} <23',
+      'required': false,
+      'select_from_list_name': 'yn'
+    },
+    {
+      'hint': [
+        'Please read all options',
+        'Будь ласка, прочитайте всі варіанти'
+      ],
+      'name': 'hh_char_hh_det_dis_select',
+      'type': 'select_multiple',
+      'label': [
+        'Member Characteristics',
+        'Будь ласка, оберіть будь-який з наведених нижче пунктів, які стосуються члена вашого домогосподарства'
+      ],
+      'required': false,
+      'constraint': 'not(selected(.,\'diff_none\') and count-selected(.)>1)',
+      'constraint_message': [
+        'Cannot have these options checked together',
+        'Ці параметри не можна перевіряти разом'
+      ],
+      'select_from_list_name': 'dis'
+    },
+    {
+      'name': 'hh_char_hh_det_dis_level',
+      'type': 'select_one',
+      'label': [
+        'Difficulty Level of Member Characteristics',
+        'Який рівень складності обраних варіантів відповідей на попередні запитання?'
+      ],
+      'relevant': 'not(selected(${hh_char_hh_det_dis_select}, \'diff_none\'))',
+      'required': false,
+      'select_from_list_name': 'dis_level'
+    },
+    {
+      'name': 'calc_u5',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_age}<5,1,0)'
+    },
+    {
+      'name': 'calc_u18',
+      'label': ['calc_u18'],
+      'type': 'note',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_age}<18,1,0)'
+    },
+    {
+      'name': 'calc_o60',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_age}>59,1,0)'
+    },
+    {
+      'name': 'calc_ed_age',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_age} > 5 and ${hh_char_hh_det_age} < 18,1,0)'
+    },
+    {
+      'name': 'calc_baby_age',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_age} < 3, 1, 0)'
+    },
+    {
+      'name': 'calc_preg',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(${hh_char_hh_det_gender} = \'female\' and ${hh_char_hh_det_age}>15 and ${hh_char_hh_det_age}<46,1,0)'
+    },
+    {
+      'name': 'calc_det_dis_level',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(selected(${hh_char_hh_det_dis_level},\'one\') or selected(${hh_char_hh_det_dis_level},\'two\') or selected(${hh_char_hh_det_dis_level},\'fri\'),1,0)'
+    },
+    {
+      'name': 'cal_student',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(selected(${hh_char_student},\'yes\'),1,0)'
+    },
+    {
+      'name': 'cal_scoring_difficulty_level',
+      'type': 'calculate',
+      'required': false,
+      'calculation': 'if(selected(${hh_char_hh_det_dis_level},\'one\'),1, if(selected(${hh_char_hh_det_dis_level},\'two\'),2, if(selected(${hh_char_hh_det_dis_level},\'fri\'),3,0)))'
+    },
+    ///END
+    {
+      'type': 'end_repeat',
+    },
+    {
+      'name': 'hh_char_chh',
+      'type': 'note',
+      'label': [
+        'This is a child headed household (high risk protection case), please refer immediately to a DRC Protection colleague and complete internal referral form.',
+        'Це домогосподарство, яке очолює дитина (ситуація з високим рівнем ризику у сфері соціального захисту), будь ласка, негайно зверніться до колеги з відділу соцыально-правового захисту ДРБ та заповніть внутрішню форму перенаправлення .'
+      ],
+      'relevant': 'indexed-repeat(${hh_char_hh_det_age},${hh_char_hh_det} ,1) <18',
+      'required': false,
+    },
+    {
+      label: ['sum(${calc_u18})'],
+      'name': 'calc_tot_chi',
+      'type': 'note',
+      'required': false,
+      'calculation': 'sum(${calc_u18})'
+      // 'calculation': 'sum(${calc_u18}) + (if(${hh_char_res_age}<18,1,0)) + (if(${hh_char_hhh_age}<18,1,0))'
+    },
   ],
   'choices': [
     {

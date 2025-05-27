@@ -28,7 +28,29 @@ export class Path {
     return new Path(this.value.length > 0 ? this.value.slice(0, -1) : [])
   }
 
-  searchValueDeeply(values: FormValues, name: string): any | undefined {
+  collectDeeply(values: FormValues, name: string): any | undefined {
+    const results: any[] = []
+    console.log('collectDeeply', values, name)
+    const traverse = (node: any): void => {
+      if (Array.isArray(node)) {
+        for (const item of node) {
+          traverse(item)
+        }
+      } else if (typeof node === 'object' && node !== null) {
+        for (const key in node) {
+          if (key === name) {
+            results.push(node[key])
+          } else {
+            traverse(node[key])
+          }
+        }
+      }
+    }
+    traverse(values)
+    return results.length > 0 ? results : undefined
+  }
+
+  searchInBranch(values: FormValues, name: string): any | undefined {
     let cursor: Path = this
     for (; ;) {
       const fullPath = [...cursor.toLodashPath(), name]
@@ -39,11 +61,11 @@ export class Path {
     }
   }
 
-  private findPrimitiveKey(obj: any, key: string): string | undefined {
-    if (!obj || typeof obj !== 'object') return undefined
-    if (key in obj && typeof obj[key] === 'string') return obj[key]
-    return undefined
-  }
+  // private findPrimitiveKey(obj: any, key: string): string | undefined {
+  //   if (!obj || typeof obj !== 'object') return undefined
+  //   if (key in obj && typeof obj[key] === 'string') return obj[key]
+  //   return undefined
+  // }
 
   get last(): PathToken | undefined {
     return this.value[this.value.length - 1]

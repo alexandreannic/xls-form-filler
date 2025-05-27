@@ -1,5 +1,7 @@
-import {EvalEnvironment, InvalidInteger} from '../astEval.ts'
+import {AstError, EvalEnvironment} from '../astEval.ts'
 import {seq} from '@axanc/ts-utils'
+
+const now = new Date()
 
 class Function {
   constructor(private params: {
@@ -50,8 +52,11 @@ export const functions = {
 
   sum: new Function({
     localName: 'sum',
-    call: (env: EvalEnvironment, args: any[]) => {
-      return new RegExp(args[1]).test(args[0])
+    call: (env: EvalEnvironment, [args]: any[]) => {
+      return args.reduce((sum: number, _: any) => {
+        if (isNaN(_)) return sum
+        return sum + +_
+      }, 0)
     }
   }),
 
@@ -62,133 +67,149 @@ export const functions = {
     }
   }),
 
-  indexedRepeat: new Function({
-    localName: 'indexed-repeat',
-    call: (env: EvalEnvironment, args: any[]) => {
-      return new RegExp(args[1]).test(args[0])
-    }
-  }),
-
-  position: new Function({
-    localName: 'position',
-    call: (env: EvalEnvironment, args: any[]) => {
-      console.log('position', args)
-      return args[0]
-      // if (typeof args[0] !== 'number') throw new InvalidInteger()
-      // return args[0] === args[1]
-    }
-  }),
-
-  int: new Function({
-    localName: 'int',
-    call: (env: EvalEnvironment, [int]: any[]) => {
-      if (typeof int !== 'number') throw new InvalidInteger()
-      return int > 0 ? Math.floor(int) : Math.ceil(int)
-    }
-  }),
-
-  substr: new Function({
-    localName: 'substr',
-    signature: [
-      {arityType: 'required'},
-      {arityType: 'required', type: 'number'},
-      {arityType: 'optional', type: 'number'},
-    ],
-    call: (env, [string, start, end]): string => {
-      const {length} = string
-      if (length === 0) {
-        return ''
-      }
-      end = end ?? length
-      if (start < 0) {
-        start = length + start
-      }
-      if (end < 0) {
-        end = length + end
-      }
-      end = Math.min(Math.max(0, end), length)
-      start = Math.min(Math.max(0, start), length)
-      return start <= end ? string.substring(start, end) : ''
-    }
-  }),
-  ...seq([
-    'abs',
-    'acos',
-    'asin',
-    'atan',
-    'ceil',
-    'cos',
-    'exp',
-    'floor',
-    'log',
-    'log10',
-    'round',
-    'sin',
-    'sqrt',
-    'tan'
-  ] as const).reduceObject(method => [
-    method,
+  indexedRepeat:
     new Function({
-      localName: method,
-      call: (env, [number]) => {
-        if (Number.isNaN(number)) {
-          return number
+      localName: 'indexed-repeat',
+      call: (env: EvalEnvironment, args: any[]) => {
+        return new RegExp(args[1]).test(args[0])
+      }
+    }),
+
+  position:
+    new Function({
+      localName: 'position',
+      call: (env: EvalEnvironment, args: any[]) => {
+        console.log('position', args)
+        return args[0]
+        // if (typeof args[0] !== 'number') throw new InvalidInteger()
+        // return args[0] === args[1]
+      }
+    }),
+
+  today: new Function({
+    localName: 'today',
+    call: (env: EvalEnvironment, args: any[]) => {
+      return now.toISOString().substring(0, 10)
+    }
+  }),
+
+  int:
+    new Function({
+      localName: 'int',
+      call: (env: EvalEnvironment, [int]: any[]) => {
+        if (typeof int !== 'number') throw new AstError.InvalidInteger()
+        return int > 0 ? Math.floor(int) : Math.ceil(int)
+      }
+    }),
+
+  substr:
+    new Function({
+      localName: 'substr',
+      signature: [
+        {arityType: 'required'},
+        {arityType: 'required', type: 'number'},
+        {arityType: 'optional', type: 'number'},
+      ],
+      call: (env, [string, start, end]): string => {
+        const {length} = string ?? ''
+        if (length === 0) {
+          return ''
         }
-        return Math[method](number)
+        end = end ?? length
+        if (start < 0) {
+          start = length + start
+        }
+        if (end < 0) {
+          end = length + end
+        }
+        end = Math.min(Math.max(0, end), length)
+        start = Math.min(Math.max(0, start), length)
+        return start <= end ? string.substring(start, end) : ''
       }
-    })
-  ]),
+    }),
+  ...
+    seq([
+      'abs',
+      'acos',
+      'asin',
+      'atan',
+      'ceil',
+      'cos',
+      'exp',
+      'floor',
+      'log',
+      'log10',
+      'round',
+      'sin',
+      'sqrt',
+      'tan'
+    ] as const).reduceObject(method => [
+      method,
+      new Function({
+        localName: method,
+        call: (env, [number]) => {
+          if (Number.isNaN(number)) {
+            return number
+          }
+          return Math[method](number)
+        }
+      })
+    ]),
 
-  stringLength: new Function({
-    localName: 'string-length',
-    signature: [{arityType: 'optional', type: 'string'}],
-    call: (env, [expression]): number => {
-      return expression?.toString().length
-    }
-  }),
-
-  substringAfter: new Function({
-    localName: 'substring-after',
-    signature: [
-      {arityType: 'required', type: 'string'},
-      {arityType: 'required', type: 'string'},
-    ],
-    call: (env, [haystack, needle]): string => {
-      if (haystack === '') {
-        return ''
+  stringLength:
+    new Function({
+      localName: 'string-length',
+      signature: [{arityType: 'optional', type: 'string'}],
+      call: (env, [expression]): number => {
+        return expression?.toString().length
       }
-      if (needle === '') {
-        return haystack
-      }
-      const needleIndex = haystack.indexOf(needle)
-      return needleIndex === -1 ? '' : haystack.slice(needleIndex + 1)
-    }
-  }),
+    }),
 
-  substringBefore: new Function({
-    localName: 'substring-before',
-    signature: [{arityType: 'required'}, {arityType: 'required', type: 'string'}],
-    call: (env, [haystack, needle]): string => {
-      if (haystack === '') {
-        return ''
+  substringAfter:
+    new Function({
+      localName: 'substring-after',
+      signature: [
+        {arityType: 'required', type: 'string'},
+        {arityType: 'required', type: 'string'},
+      ],
+      call: (env, [haystack, needle]): string => {
+        if (haystack === '') {
+          return ''
+        }
+        if (needle === '') {
+          return haystack
+        }
+        const needleIndex = haystack.indexOf(needle)
+        return needleIndex === -1 ? '' : haystack.slice(needleIndex + 1)
       }
-      const needleIndex = haystack.indexOf(needle)
-      return needleIndex === -1 ? '' : haystack.slice(0, needleIndex)
-    }
-  }),
+    }),
 
-  formatDateTime: new Function({
-    localName: 'format-date-time',
-    signature: [
-      {arityType: 'required', type: 'string'},
-      {arityType: 'required', type: 'string'},
-    ],
-    call: (env, [value, format]) => {
-    //   const dateTime = dateTimeFromString(context.timeZone, value)
-    //   if (dateTime == null) {
-    //     return ''
-    //   }
-    //   return dateTimeFormatter(format, dateTime)
-    }
-  }),
+  substringBefore:
+    new Function({
+      localName: 'substring-before',
+      signature: [{arityType: 'required'}, {arityType: 'required', type: 'string'}],
+      call: (env, [haystack, needle]): string => {
+        if (haystack === '') {
+          return ''
+        }
+        const needleIndex = haystack.indexOf(needle)
+        return needleIndex === -1 ? '' : haystack.slice(0, needleIndex)
+      }
+    }),
+
+  formatDateTime:
+    new Function({
+      localName: 'format-date-time',
+      signature: [
+        {arityType: 'required', type: 'string'},
+        {arityType: 'required', type: 'string'},
+      ],
+      call: (env, [value, format]) => {
+        //   const dateTime = dateTimeFromString(context.timeZone, value)
+        //   if (dateTime == null) {
+        //     return ''
+        //   }
+        //   return dateTimeFormatter(format, dateTime)
+      }
+    }),
 }

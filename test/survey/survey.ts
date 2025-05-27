@@ -728,7 +728,8 @@ export const survey = {
     },
     {
       'name': 'cal_head_tax',
-      'type': 'calculate',
+      'label': ['cal_head_tax'],
+      'type': 'note',
       '$xpath': 'hh_char/cal_head_tax',
       'required': false,
       '$autoname': 'cal_head_tax',
@@ -920,7 +921,8 @@ export const survey = {
     },
     {
       'name': 'calc_u18',
-      'type': 'calculate',
+      'label': ['calc_u18'],
+      'type': 'note',
       '$xpath': 'hh_char/hh_char_hh_det/calc_u18',
       'required': false,
       '$autoname': 'calc_u18',
@@ -1015,8 +1017,9 @@ export const survey = {
       'calculation': 'sum(${calc_u5})'
     },
     {
+      label: ['sum(${calc_u18}) + (if(${hh_char_res_age}<18,1,0)) + (if(${hh_char_hhh_age}<18,1,0))'],
       'name': 'calc_tot_chi',
-      'type': 'calculate',
+      'type': 'note',
       '$xpath': 'hh_char/calc_tot_chi',
       'required': false,
       '$autoname': 'calc_tot_chi',

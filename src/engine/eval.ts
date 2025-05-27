@@ -37,7 +37,7 @@ export class XFormEngine {
       console.error(`Missing question ${name} in this form`)
       return 'undefined'
     }
-    const value = this.props.path.searchValueDeeply(this.props.values, name)
+    const value = this.props.path.searchInBranch(this.props.values, name)
     if (value) {
       const type = this.props.questionsMap[name].type
       switch (type) {

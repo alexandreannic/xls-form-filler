@@ -5,20 +5,23 @@ import {functions} from './functions/functions.ts'
 import {isValidDateString} from '../../utils/helpers.ts'
 import {duration} from '@axanc/ts-utils'
 
-export class AstError extends Error {
-}
+export namespace AstError {
+  export class Base extends Error {
+  }
 
-export class UndefinedParentIndexAstError extends AstError {
-}
+  export class UndefinedParentIndex extends Base {
+  }
 
-export class InvalidInteger extends AstError {
-}
+  export class InvalidInteger extends Base {
+  }
 
-export class FunctionNotImplemented extends AstError {
-  constructor(fnName: string) {
-    super(fnName)
+  export class FunctionNotImplemented extends Base {
+    constructor(fnName: string) {
+      super(fnName)
+    }
   }
 }
+
 
 const dateTypes: Set<Kobo.Form.QuestionType> = new Set([
   'date',
@@ -51,13 +54,14 @@ export class AstFormEvaluator {
     let parsed = formula
       .replace(/position\(\.\.\)/g, () => {
         const index = this.env.path?.last?.index
-        if (index === undefined) throw new UndefinedParentIndexAstError()
+        if (index === undefined) throw new AstError.UndefinedParentIndex()
         return (index + 1) + ''
       })
       .replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName) // replace . → thatName
       .replace(/\bnot\(/g, '!(')
       .replace(/[^<>!]=/g, '==')
       .replace(/\bdiv\b/g, ' / ')
+      .replace(/\bmod\b/g, ' % ')
       .replace(/\band\b/g, ' && ')
       .replace(/\bor\b/g, ' || ')
       .replace(/\$\{([^}]+)}/g, (_, name) => name) // replace ${foo} → foo
@@ -73,9 +77,9 @@ export class AstFormEvaluator {
     const cleanFormula = this.preprocessedFormula(formula)
     try {
       const ast = jsep(cleanFormula)
-      console.log('ast', ast)
+      // console.log('ast', ast)
       const result = this.evaluate(ast)
-      console.log(formula, '➡️', cleanFormula, '➡️', result)
+      // console.log(formula, '➡️', cleanFormula, '➡️', result)
       return result
     } catch (e) {
       console.error('Eval error:', cleanFormula, e)
@@ -90,7 +94,7 @@ export class AstFormEvaluator {
       return node.value
     }
     if (is.identifier(node)) {
-      return this.resolveVar(node.name)
+      return this.resolveVar(node.name, context)
     }
     if (is.binary(node)) {
       return this.applyBinary(node.operator, this.evaluate(node.left), this.evaluate(node.right))
@@ -106,10 +110,16 @@ export class AstFormEvaluator {
     throw new Error(`Unknown node type: ${node.type}`)
   }
 
-  private resolveVar = (name: string): any => {
+  private resolveVar = (name: string, context?: {inFunction?: string}): any => {
     // if (name === '.') name = this.env.thatName
     // console.log('resolveVar', this.env.values, name)
-    return this.env.path?.searchValueDeeply(this.env.values, name)
+    const fnResolvingDeeply: (keyof typeof functions)[] = [
+      'sum',
+    ]
+    const resolveDeeply = fnResolvingDeeply.includes(context?.inFunction as any)
+    if (resolveDeeply)
+      return this.env.path?.collectDeeply(this.env.values, name)
+    return this.env.path?.searchInBranch(this.env.values, name)
     // if (name === '.') return this.parseValue(this.env.thatName)
     // if (this.env.currentScope?.[name] !== undefined) return this.env.currentScope[name]
     // if (this.env.values?.[name] !== undefined) return this.env.values[name]
@@ -178,7 +188,7 @@ export class AstFormEvaluator {
   private callFunction = (name: string, args: any[]): any => {
     const fn = functions[name as keyof typeof functions]
     if (!fn) {
-      throw new FunctionNotImplemented(name)
+      throw new AstError.FunctionNotImplemented(name)
     }
     return fn.call(this.env, args)
     // switch (name) {

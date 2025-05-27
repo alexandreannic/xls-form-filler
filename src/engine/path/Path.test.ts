@@ -62,7 +62,7 @@ describe('Path', () => {
       {repeatGroupName: 'pets', index: 1}
     ])
 
-    expect(path.searchValueDeeply(values, 'name')).toBe('Rex')
+    expect(path.searchInBranch(values, 'name')).toBe('Rex')
   })
 
   it('searchValueDeeply finds value at intermediate level', () => {
@@ -72,7 +72,7 @@ describe('Path', () => {
       {repeatGroupName: 'pets', index: 0}
     ])
 
-    expect(path.searchValueDeeply(values, 'age')).toBe('30')
+    expect(path.searchInBranch(values, 'age')).toBe('30')
   })
 
   it('searchValueDeeply finds value at root level', () => {
@@ -80,7 +80,7 @@ describe('Path', () => {
       {repeatGroupName: 'household', index: 0}
     ])
 
-    expect(path.searchValueDeeply(values, 'name')).toBe('household A')
+    expect(path.searchInBranch(values, 'name')).toBe('household A')
   })
 
   it('searchValueDeeply returns undefined if not found', () => {
@@ -89,6 +89,6 @@ describe('Path', () => {
       {repeatGroupName: 'members', index: 0}
     ])
 
-    expect(path.searchValueDeeply(values, 'nonexistent')).toBeUndefined()
+    expect(path.searchInBranch(values, 'nonexistent')).toBeUndefined()
   })
 })
