@@ -1,10 +1,11 @@
-import {useEffect, useMemo} from 'react'
+import {memo, useEffect, useMemo} from 'react'
 import {FormValue, Path} from '../engine/path/Path.ts'
 import {QuestionGrouped} from '../utils/helpers.ts'
 import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
 import {Checkbox, FormControlLabel, FormGroup, Input, Radio, RadioGroup} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
-import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
+import {QuestionLayout} from './QuestionLayout.tsx'
+import {QuestionImage} from './QuestionImage.tsx'
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
@@ -42,7 +43,7 @@ export type LayoutProps = {
   error?: string
 }
 
-export const Question = ({
+export const Question = memo(({
   q,
   path,
   calculations,
@@ -171,5 +172,12 @@ export const Question = ({
         </QuestionLayout>
       )
     }
+    case 'image': {
+      return (
+        <QuestionLayout {...layout}>
+          <QuestionImage value={value} onChange={onChange}/>
+        </QuestionLayout>
+      )
+    }
   }
-}
+})

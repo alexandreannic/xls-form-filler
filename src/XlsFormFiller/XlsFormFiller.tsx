@@ -3,7 +3,6 @@ import {seq} from '@axanc/ts-utils'
 import {Box} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
 import {Questions} from './Questions.tsx'
-import {surveyNested} from '../../test/survey/surveyNested.ts'
 import {FormValues, LodashPath, Path} from '../engine/path/Path.ts'
 import cloneDeep from 'lodash.clonedeep'
 import set from 'lodash.set'
@@ -34,6 +33,7 @@ export const XlsFormFiller = ({
 }) => {
   const langIndex = 0
   const [values, setValues] = useState<Record<any, FormValues>>({})
+  const [attachments, setAttachments] = useState()
 
   const groupedSurvey = useMemo(() => {
     return nestGroups(schema.survey)
