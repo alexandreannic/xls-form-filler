@@ -4,6 +4,17 @@ export const surveyShort: Kobo.Form['content'] = {
   'schema': '1',
   'survey': [
     {
+      'name': 'geopoint',
+      'type': 'geopoint',
+      'label': [
+        'Geopoint',
+        'Додаткові фотографії діяльності esk'
+      ],
+      '$xpath': 'Section_4a_ESK/add_photo_esk1',
+      'required': false,
+      '$autoname': 'add_photo_esk1'
+    },
+    {
       'name': 'add_photo_esk1',
       'type': 'image',
       'label': [

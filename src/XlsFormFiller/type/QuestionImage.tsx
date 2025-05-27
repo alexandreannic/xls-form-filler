@@ -1,5 +1,6 @@
 import {Button, Icon, IconButton, styled, useTheme} from '@mui/material'
 import {useEffect, useMemo, useRef, useState} from 'react'
+import {useXlsFormFillerContext} from '../XlsFormFiller.tsx'
 
 const ImageContainer = styled('div')(({theme}) => ({
   mt: 1,
@@ -35,8 +36,8 @@ export const QuestionImage = ({value, onChange}: {
   value: string | File | undefined
   onChange: (val: string) => void
 }) => {
+  const ctx = useXlsFormFillerContext()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const t = useTheme()
   const [previewUrl, setPreviewUrl] = useState<string | undefined>()
 
   const fileUrl = useMemo(() => {
@@ -84,7 +85,7 @@ export const QuestionImage = ({value, onChange}: {
         startIcon={<Icon>image</Icon>}
         onClick={() => fileInputRef.current?.click()}
       >
-        {value ? 'Change image' : 'Select image'}
+        {value ? ctx.labels.selectImage : ctx.labels.changeImage}
       </Button>
 
       {previewUrl && (

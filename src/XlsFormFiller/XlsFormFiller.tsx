@@ -18,6 +18,11 @@ export interface XlsFormFillerContext {
   getValue: (path: Path, name: string) => any
   updateValues: (path: LodashPath, value: any) => void
   langIndex: number
+  labels: {
+    getMyLocation?: string
+    selectImage?: string
+    changeImage?: string
+  }
 }
 
 const Context = createContext({} as XlsFormFillerContext)
@@ -26,9 +31,15 @@ export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Co
 
 export const XlsFormFiller = ({
   schema = surveyShort,
+  labels = {
+    getMyLocation: 'Get my location',
+    selectImage: 'Select Image',
+    changeImage: 'Change Image',
+  },
   // schema = survey,
   // schema = surveyNested.content,
 }: {
+  labels?: XlsFormFillerContext['labels']
   schema?: Kobo.Form['content']
 }) => {
   const langIndex = 0
@@ -61,6 +72,7 @@ export const XlsFormFiller = ({
 
   return (
     <Context.Provider value={{
+      labels,
       values,
       getValue,
       updateValues,

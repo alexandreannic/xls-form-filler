@@ -4,12 +4,13 @@ import {QuestionGrouped} from '../utils/helpers.ts'
 import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
 import {Checkbox, FormControlLabel, FormGroup, Input, Radio, RadioGroup} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
-import {QuestionLayout} from './QuestionLayout.tsx'
-import {QuestionImage} from './QuestionImage.tsx'
+import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
+import {QuestionImage} from './type/QuestionImage.tsx'
 import {GroupLayout} from './GroupLayout.tsx'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
 import {AstFormEvaluator} from '../engine/ast/astEval.ts'
+import {QuestionLocation} from './type/QuestionLocation.tsx'
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
@@ -69,7 +70,8 @@ export const Question = memo(({
     return property?.[ctx.langIndex] ?? ''
   }
 
-  const layout = {
+  const layout: QuestionLayoutProps = {
+    visible: logic.relevant,
     label: getLabel(q.label),
     hint: getLabel(q.hint),
     error: logic.valid ? undefined : getLabel(q.constraint_message)
@@ -206,6 +208,13 @@ export const Question = memo(({
               )
             })}
           </FormGroup>
+        </QuestionLayout>
+      )
+    }
+    case 'geopoint': {
+      return (
+        <QuestionLayout {...layout}>
+          <QuestionLocation value={value} onChange={onChange}/>
         </QuestionLayout>
       )
     }
