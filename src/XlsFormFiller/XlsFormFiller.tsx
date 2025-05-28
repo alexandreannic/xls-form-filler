@@ -1,6 +1,6 @@
-import {createContext, useContext, useMemo, useState} from 'react'
+import {createContext, useContext, useEffect, useMemo, useState} from 'react'
 import {seq} from '@axanc/ts-utils'
-import {Box} from '@mui/material'
+import {Box, MenuItem, Select} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
 import {FormValues, LodashPath, Path} from '../engine/path/Path.ts'
 import cloneDeep from 'lodash.clonedeep'
@@ -10,6 +10,7 @@ import get from 'lodash.get'
 import {survey} from '../../test/survey/survey.ts'
 import {nestGroups} from '../utils/helpers.ts'
 import {Question} from './Question.tsx'
+import {surveyMsme} from '../../test/survey/surveyMsme.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -30,7 +31,8 @@ const Context = createContext({} as XlsFormFillerContext)
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
 export const XlsFormFiller = ({
-  schema = surveyShort,
+  // schema = surveyShort,
+  schema = surveyMsme,
   labels = {
     getMyLocation: 'Get my location',
     selectImage: 'Select Image',
@@ -42,20 +44,25 @@ export const XlsFormFiller = ({
   labels?: XlsFormFillerContext['labels']
   schema?: Kobo.Form['content']
 }) => {
-  const langIndex = 0
+  const [langIndex, setLangIndex] = useState(0)
   const [values, setValues] = useState<Record<any, FormValues>>({})
   const [attachments, setAttachments] = useState()
 
-  const groupedSurvey = useMemo(() => {
-    return nestGroups(schema.survey)
-  }, [survey])
-
-  const choicesMap = useMemo(() => {
-    return seq(schema.choices).groupBy(_ => _.list_name)
+  useEffect(() => {
+    console.log('default', schema.translations.indexOf(schema.settings.default_language))
+    setLangIndex(schema.translations.indexOf(schema.settings.default_language))
   }, [schema])
 
-  const questionsMap = useMemo(() => {
-    return seq(schema.survey).groupByFirst(_ => _.name)
+  const {
+    groupedSurvey,
+    choicesMap,
+    questionsMap,
+  } = useMemo(() => {
+    return {
+      groupedSurvey: nestGroups(schema.survey),
+      choicesMap: seq(schema.choices).groupBy(_ => _.list_name),
+      questionsMap: seq(schema.survey).groupByFirst(_ => _.name),
+    }
   }, [schema])
 
   const getValue = (path: Path, name: string): any => {
@@ -95,6 +102,11 @@ export const XlsFormFiller = ({
             </Box>
           </Box>
           <Box>
+            <Select value={langIndex} onChange={e => setLangIndex(+e.target.value)} variant="outlined">
+              {schema.translations.map((_, i) =>
+                <MenuItem key={i} value={i}>{_}</MenuItem>
+              )}
+            </Select>
             {groupedSurvey.map(q =>
               <Question key={q.name} q={q} path={new Path()}/>
             )}
