@@ -1,4 +1,4 @@
-import {AstError, EvalEnvironment} from '../astEval.ts'
+import {AstError, EvalEnvironment} from './astEval.ts'
 import {seq} from '@axanc/ts-utils'
 
 export const now = new Date()

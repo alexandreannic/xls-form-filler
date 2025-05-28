@@ -12,7 +12,7 @@ import {formatDateTime, nestGroups} from '../utils/helpers.ts'
 import {Question} from './Question.tsx'
 import {surveyMsme} from '../../test/survey/surveyMsme.ts'
 import {useAttachments} from './useAttachments.ts'
-import {now} from '../engine/ast/functions/functions.ts'
+import {now} from '../engine/ast/functions.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>

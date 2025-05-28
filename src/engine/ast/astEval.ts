@@ -1,7 +1,7 @@
 import jsep, {BinaryExpression, CallExpression, Expression, Identifier, Literal, UnaryExpression} from 'jsep'
 import {Kobo} from 'kobo-sdk'
 import {Path} from '../path/Path.ts'
-import {functions} from './functions/functions.ts'
+import {functions} from './functions.ts'
 import {isValidDateString} from '../../utils/helpers.ts'
 import {duration} from '@axanc/ts-utils'
 

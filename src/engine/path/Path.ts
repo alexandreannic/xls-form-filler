@@ -30,7 +30,6 @@ export class Path {
 
   collectDeeply(values: FormValues, name: string): any | undefined {
     const results: any[] = []
-    console.log('collectDeeply', values, name)
     const traverse = (node: any): void => {
       if (Array.isArray(node)) {
         for (const item of node) {
