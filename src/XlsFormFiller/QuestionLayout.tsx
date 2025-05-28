@@ -1,6 +1,27 @@
 import {ReactNode} from 'react'
-import {alpha, Box, Collapse, useTheme} from '@mui/material'
+import {alpha, Box, Collapse, styled, useTheme} from '@mui/material'
 import ReactMarkdown from 'react-markdown'
+
+const Root = styled(Box)<{error?: boolean}>(({theme, error}) => ({
+  background: error ? alpha(theme.palette.error.light, .15) : theme.palette.background.paper,
+  // border: `1px solid ${theme.palette.divider}`,
+  borderRadius: theme.shape.borderRadius + 'px',
+  // border: error ? `2px solid ${theme.palette.error.main}` : undefined,
+  borderLeft: error ? `2px solid ${theme.palette.error.main}` : undefined,
+  padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
+  marginBottom: theme.spacing(.5),
+  // py: 1,
+  // px: 2,
+  // mb: .5,
+  '&:not(:first-of-type)': {
+    borderTopLeftRadius: '4px',
+    borderTopRightRadius: '4px',
+  },
+  '&:not(:last-of-type)': {
+    borderBottomLeftRadius: '4px',
+    borderBottomRightRadius: '4px',
+  }
+}))
 
 export type QuestionLayoutProps = {
   label: string
@@ -20,24 +41,7 @@ export const QuestionLayout = ({
   const t = useTheme()
   return (
     <Collapse in={visible} unmountOnExit>
-      <Box sx={{
-        // background: error ? alpha(t.palette.error.light, .15) : t.palette.background.paper,
-        border: `1px solid ${t.palette.divider}`,
-        borderRadius: t.shape.borderRadius + 'px',
-        // border: error ? `2px solid ${t.palette.error.main}` : undefined,
-        borderLeft: error ? `2px solid ${t.palette.error.main}` : undefined,
-        py: 1,
-        px: 2,
-        mb: .5,
-        '&:not(:first-of-type)': {
-          borderTopLeftRadius: '4px',
-          borderTopRightRadius: '4px',
-        },
-        '&:not(:last-of-type)': {
-          borderBottomLeftRadius: '4px',
-          borderBottomRightRadius: '4px',
-        }
-      }}>
+      <Root error={!!error}>
         <Box sx={{mb: children ? 1 : 0}}>
           <Box sx={{fontWeight: t.typography.fontWeightBold}}>
             <ReactMarkdown components={{p: ({children}) => <>{children}</>}}>
@@ -54,7 +58,7 @@ export const QuestionLayout = ({
         </Box>
         {children}
         <Box sx={{color: t.palette.error.main}}>{error}</Box>
-      </Box>
+      </Root>
     </Collapse>
   )
 }

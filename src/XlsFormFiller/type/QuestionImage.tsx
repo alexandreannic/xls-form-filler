@@ -101,7 +101,7 @@ export const QuestionImage = ({
             }}>
               {file!.name}
             </div>
-            
+
             <DeleteBtn
               aria-label="delete"
               color="primary"

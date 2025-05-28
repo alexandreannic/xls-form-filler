@@ -32,7 +32,7 @@ export const RepeatLayout = ({
         alignItems: 'center',
         justifyContent: 'center'
       }}
-      >{index}</Box>
+      >{index + 1}</Box>
       {children}
     </Box>
   )

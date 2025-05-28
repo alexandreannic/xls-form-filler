@@ -101,18 +101,18 @@ export const Question = memo(({
       )
     }
     case 'begin_repeat': {
-      return logic.repeated === 0 ? <></> :
-        mapFor(logic.repeated, i => (
-          <RepeatLayout index={i} key={i} {...layout}>
-            {q.children.map(_ =>
-              <Question
-                key={i}
-                path={path.add({index: i, repeatGroupName: q.name})}
-                q={_}
-              />
-            )}
-          </RepeatLayout>
-        ))
+      if (logic.repeated <= 0) return <></>
+      return mapFor(logic.repeated, i => (
+        <RepeatLayout index={i} key={i} {...layout}>
+          {q.children.map(_ =>
+            <Question
+              key={i}
+              path={path.add({index: i, repeatGroupName: q.name})}
+              q={_}
+            />
+          )}
+        </RepeatLayout>
+      ))
     }
     case 'note': {
       return (
