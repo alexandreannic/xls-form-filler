@@ -14,6 +14,19 @@ import {surveyMsme} from '../../test/survey/surveyMsme.ts'
 import {useAttachments} from './useAttachments.ts'
 import {now} from '../engine/ast/functions.ts'
 
+export type XlsFormProps = {
+  onSubmit: (_: {attachments: File[], answers: FormValues}) => void
+  labels?: {
+    submit?: string
+    getMyLocation?: string
+    selectImage?: string
+    changeImage?: string
+    selectFile?: string
+    changeFile?: string
+  }
+  survey: Kobo.Form['content']
+}
+
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
   questionsMap: Record<string, Kobo.Form.Question>
@@ -22,14 +35,7 @@ export interface XlsFormFillerContext {
   updateValues: (path: LodashPath, value: any) => void
   langIndex: number
   attachments: ReturnType<typeof useAttachments>
-  labels: {
-    submit?: string
-    getMyLocation?: string
-    selectImage?: string
-    changeImage?: string
-    selectFile?: string
-    changeFile?: string
-  }
+  labels: XlsFormProps['labels']
 }
 
 const Context = createContext({} as XlsFormFillerContext)
@@ -47,11 +53,7 @@ export const XlsFormFiller = ({
     selectFile: 'Click to select an file...',
     changeFile: 'Click to change the file...',
   },
-}: {
-  onSubmit: (_: {attachments: File[], answers: FormValues}) => void
-  labels?: XlsFormFillerContext['labels']
-  survey: Kobo.Form['content']
-}) => {
+}: XlsFormProps) => {
   const [langIndex, setLangIndex] = useState(0)
   const [values, setValues] = useState<FormValues>({})
   const attachments = useAttachments()
