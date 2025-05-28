@@ -221,10 +221,22 @@ export const Question = memo(({
     case 'image': {
       return (
         <QuestionLayout {...layout}>
-          <QuestionImage value={value} onChange={onChange}/>
+          <QuestionImage
+            file={ctx.attachments.get(value)}
+            onClear={() => {
+              onChange(undefined)
+              ctx.attachments.clearAttachmentByName(value)
+            }}
+            onChange={file => {
+              ctx.attachments.saveAttachment(file)
+              onChange(file.name)
+            }}
+          />
         </QuestionLayout>
       )
     }
+    case 'start':
+    case 'end':
     case 'calculate': {
       return <></>
     }

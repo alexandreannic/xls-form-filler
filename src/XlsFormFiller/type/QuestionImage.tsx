@@ -1,21 +1,38 @@
-import {Button, Icon, IconButton, styled, useTheme} from '@mui/material'
-import {useEffect, useMemo, useRef, useState} from 'react'
+import {alpha, Button, Icon, IconButton, styled} from '@mui/material'
+import {useMemo, useRef} from 'react'
 import {useXlsFormFillerContext} from '../XlsFormFiller.tsx'
+import {cssMixins} from '../../theme.ts'
 
 const ImageContainer = styled('div')(({theme}) => ({
-  mt: 1,
-  overflow: 'hidden',
+  marginTop: theme.spacing(2),
+  marginBottom: theme.spacing(1),
+  fontWeight: theme.typography.fontWeightBold,
   position: 'relative',
   width: '100%',
-  marginBottom: 1,
   border: `1px solid ${theme.palette.divider}`,
   maxWidth: '100%',
   maxHeight: 200,
   objectFit: 'contain',
-  borderRadius: theme.shape.borderRadius + 'px',
-  mb: 1,
+  borderRadius: (theme.shape.borderRadius - 4) + 'px',
   display: 'flex',
   justifyContent: 'center',
+}))
+
+const ImageHeader = styled('div')(({theme}) => ({
+  borderRadius: theme.shape.borderRadius + 'px',
+  position: 'absolute',
+  height: 30,
+  paddingRight: theme.spacing(2),
+  paddingLeft: theme.spacing(2),
+  display: 'flex',
+  alignItems: 'center',
+  top: -15,
+  backdropFilter: 'blur(6px)',
+  background: alpha(theme.palette.background.paper, .7),
+  boxShadow: theme.shadows[1],
+  // ...cssMixins.truncate,
+  // minWidth: 0,
+  maxWidth: '80%',
 }))
 
 const Image = styled('img')(({theme}) => ({
@@ -25,45 +42,33 @@ const Image = styled('img')(({theme}) => ({
 }))
 
 const DeleteBtn = styled(IconButton)(({theme}) => ({
-  position: 'absolute',
-  top: 4,
-  right: 4,
-  backgroundColor: 'rgba(255,255,255,0.8)',
-  '&:hover': {backgroundColor: 'white'},
+  marginRight: theme.spacing(-1),
+  marginLeft: theme.spacing(1),
 }))
 
-export const QuestionImage = ({value, onChange}: {
-  value: string | File | undefined
-  onChange: (val: string) => void
+export const QuestionImage = ({
+  onClear,
+  file,
+  onChange
+}: {
+  file?: File
+  onClear: () => void
+  onChange: (_: File) => void
 }) => {
   const ctx = useXlsFormFillerContext()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const [previewUrl, setPreviewUrl] = useState<string | undefined>()
 
-  const fileUrl = useMemo(() => {
-    if (typeof value === 'string') return value
-    if (value instanceof File) return URL.createObjectURL(value)
-    return undefined
-  }, [value])
-
-  useEffect(() => {
-    setPreviewUrl(fileUrl)
-    return () => {
-      if (fileUrl?.startsWith('blob:')) URL.revokeObjectURL(fileUrl)
-    }
-  }, [fileUrl])
+  const previewUrl = useMemo(() => {
+    if (!file) return
+    return URL.createObjectURL(file)
+  }, [file])
 
   const handleFile = (file: File) => {
-    const reader = new FileReader()
-    reader.onload = () => {
-      onChange(reader.result as string) // base64 string
-    }
-    reader.readAsDataURL(file)
+    onChange(file)
   }
 
   const handleDelete = () => {
-    onChange('')
-    setPreviewUrl(undefined)
+    onClear()
     fileInputRef.current!.value = ''
   }
 
@@ -85,22 +90,31 @@ export const QuestionImage = ({value, onChange}: {
         startIcon={<Icon>image</Icon>}
         onClick={() => fileInputRef.current?.click()}
       >
-        {value ? ctx.labels.selectImage : ctx.labels.changeImage}
+        {file ? ctx.labels.selectImage : ctx.labels.changeImage}
       </Button>
 
       {previewUrl && (
         <ImageContainer>
+          <ImageHeader>
+            <div style={{
+              ...cssMixins.truncate,
+            }}>
+              {file!.name}
+            </div>
+            
+            <DeleteBtn
+              aria-label="delete"
+              color="primary"
+              onClick={handleDelete}
+              size="small"
+            >
+              <Icon fontSize="small">delete</Icon>
+            </DeleteBtn>
+          </ImageHeader>
           <Image
             src={previewUrl}
             alt="Preview"
           />
-          <DeleteBtn
-            aria-label="delete"
-            onClick={handleDelete}
-            size="small"
-          >
-            <Icon fontSize="small">delete</Icon>
-          </DeleteBtn>
         </ImageContainer>
       )}
     </>

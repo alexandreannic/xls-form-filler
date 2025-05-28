@@ -1,5 +1,16 @@
 import {createTheme} from '@mui/material/styles'
 import {darken, lighten} from '@mui/material'
+import {CSSProperties} from 'react'
+
+const make = <T extends Record<string, CSSProperties>>(_: T): T => _
+
+export const cssMixins = make({
+  truncate: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+  }
+})
 
 export const makeTheme = ({fontSize = 14, spacing = 8}: {spacing?: number, fontSize?: number} = {}) => {
   const fontFamily = '"Open Sans", sans-serif'

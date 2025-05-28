@@ -11,6 +11,7 @@ import {survey} from '../../test/survey/survey.ts'
 import {nestGroups} from '../utils/helpers.ts'
 import {Question} from './Question.tsx'
 import {surveyMsme} from '../../test/survey/surveyMsme.ts'
+import {useAttachments} from './useAttachments.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -19,6 +20,7 @@ export interface XlsFormFillerContext {
   getValue: (path: Path, name: string) => any
   updateValues: (path: LodashPath, value: any) => void
   langIndex: number
+  attachments: ReturnType<typeof useAttachments>
   labels: {
     getMyLocation?: string
     selectImage?: string
@@ -31,8 +33,8 @@ const Context = createContext({} as XlsFormFillerContext)
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
 export const XlsFormFiller = ({
-  // schema = surveyShort,
-  schema = surveyMsme,
+  schema = surveyShort,
+  // schema = surveyMsme,
   labels = {
     getMyLocation: 'Get my location',
     selectImage: 'Select Image',
@@ -46,8 +48,7 @@ export const XlsFormFiller = ({
 }) => {
   const [langIndex, setLangIndex] = useState(0)
   const [values, setValues] = useState<Record<any, FormValues>>({})
-  const [attachments, setAttachments] = useState()
-
+  const attachments = useAttachments()
   useEffect(() => {
     console.log('default', schema.translations.indexOf(schema.settings.default_language))
     setLangIndex(schema.translations.indexOf(schema.settings.default_language))
@@ -86,6 +87,7 @@ export const XlsFormFiller = ({
       langIndex,
       choicesMap,
       questionsMap,
+      attachments,
     }}>
       <Box sx={{maxWidth: 1000, minWidth: 1000, margin: 'auto'}}>
         <Box sx={{display: 'flex'}}>
@@ -102,7 +104,7 @@ export const XlsFormFiller = ({
             </Box>
           </Box>
           <Box>
-            <Select value={langIndex} onChange={e => setLangIndex(+e.target.value)} variant="outlined">
+            <Select size="small" value={langIndex} onChange={e => setLangIndex(+e.target.value)} variant="outlined">
               {schema.translations.map((_, i) =>
                 <MenuItem key={i} value={i}>{_}</MenuItem>
               )}

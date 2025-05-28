@@ -21,8 +21,9 @@ export const QuestionLayout = ({
   return (
     <Collapse in={visible} unmountOnExit>
       <Box sx={{
+        // background: error ? alpha(t.palette.error.light, .15) : t.palette.background.paper,
+        border: `1px solid ${t.palette.divider}`,
         borderRadius: t.shape.borderRadius + 'px',
-        background: error ? alpha(t.palette.error.light, .15) : t.palette.background.paper,
         // border: error ? `2px solid ${t.palette.error.main}` : undefined,
         borderLeft: error ? `2px solid ${t.palette.error.main}` : undefined,
         py: 1,
