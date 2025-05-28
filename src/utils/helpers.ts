@@ -4,6 +4,8 @@ export const isValidDateString = (d: any): boolean => {
   return /^\d{4}-\d{2}-\d{2}/.test(d)
 }
 
+export const formatDateTime = (_: Date): string => _.toISOString()
+
 export type Group = Omit<Kobo.Form.Question, 'type'> & {
   type: 'begin_group' | 'begin_repeat'
   children: QuestionGrouped[]

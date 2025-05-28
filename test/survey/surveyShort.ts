@@ -4,6 +4,19 @@ export const surveyShort: Kobo.Form['content'] = {
   'schema': '1',
   'survey': [
     {
+      'name': 'start',
+      'type': 'start',
+      '$kuid': 'h4cEFmxPc',
+      '$xpath': 'start',
+      '$autoname': 'start'
+    },
+    {
+      'name': 'end',
+      'type': 'end',
+      '$xpath': 'end',
+      '$autoname': 'end'
+    },
+    {
       'name': 'geopoint',
       'type': 'geopoint',
       'label': [

@@ -1,7 +1,7 @@
 import {AstError, EvalEnvironment} from '../astEval.ts'
 import {seq} from '@axanc/ts-utils'
 
-const now = new Date()
+export const now = new Date()
 
 class Function {
   constructor(private params: {

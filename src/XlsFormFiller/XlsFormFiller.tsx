@@ -8,10 +8,11 @@ import set from 'lodash.set'
 import {surveyShort} from '../../test/survey/surveyShort.ts'
 import get from 'lodash.get'
 import {survey} from '../../test/survey/survey.ts'
-import {nestGroups} from '../utils/helpers.ts'
+import {formatDateTime, nestGroups} from '../utils/helpers.ts'
 import {Question} from './Question.tsx'
 import {surveyMsme} from '../../test/survey/surveyMsme.ts'
 import {useAttachments} from './useAttachments.ts'
+import {now} from '../engine/ast/functions/functions.ts'
 
 export interface XlsFormFillerContext {
   choicesMap: Record<string, Kobo.Form.Choice[]>
@@ -48,7 +49,7 @@ export const XlsFormFiller = ({
   survey: Kobo.Form['content']
 }) => {
   const [langIndex, setLangIndex] = useState(0)
-  const [values, setValues] = useState<Record<any, FormValues>>({})
+  const [values, setValues] = useState<FormValues>({})
   const attachments = useAttachments()
   useEffect(() => {
     console.log('default', survey.translations.indexOf(survey.settings.default_language))
@@ -103,8 +104,15 @@ export const XlsFormFiller = ({
       <Box sx={{mt: 1, display: 'flex', justifyContent: 'flex-end'}}>
         <Button
           onClick={() => {
+            const answers = {...values}
+            if (questionsMap.start && !values.start) {
+              answers.start = formatDateTime(now)
+            }
+            if (questionsMap.end) {
+              answers.end = formatDateTime(new Date())
+            }
             onSubmit({
-              answers: values,
+              answers,
               attachments: Object.values(attachments.list),
             })
           }}
