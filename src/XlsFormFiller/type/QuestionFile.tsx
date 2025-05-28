@@ -1,10 +1,11 @@
-import {alpha, Button, Icon, IconButton, styled} from '@mui/material'
+import {alpha, Button, Icon, IconButton, Input, styled, TextField} from '@mui/material'
 import {useMemo, useRef} from 'react'
 import {useXlsFormFillerContext} from '../XlsFormFiller.tsx'
 import {cssMixins} from '../../theme.ts'
+import {formatFileSize} from '../../utils/helpers.ts'
 
 const ImageContainer = styled('div')(({theme}) => ({
-  marginTop: theme.spacing(2),
+  marginTop: theme.spacing(1),
   marginBottom: theme.spacing(1),
   fontWeight: theme.typography.fontWeightBold,
   position: 'relative',
@@ -18,23 +19,6 @@ const ImageContainer = styled('div')(({theme}) => ({
   justifyContent: 'center',
 }))
 
-const ImageHeader = styled('div')(({theme}) => ({
-  borderRadius: theme.shape.borderRadius + 'px',
-  position: 'absolute',
-  height: 30,
-  paddingRight: theme.spacing(2),
-  paddingLeft: theme.spacing(2),
-  display: 'flex',
-  alignItems: 'center',
-  top: -15,
-  backdropFilter: 'blur(6px)',
-  background: alpha(theme.palette.background.paper, .7),
-  boxShadow: theme.shadows[1],
-  // ...cssMixins.truncate,
-  // minWidth: 0,
-  maxWidth: '80%',
-}))
-
 const Image = styled('img')(({theme}) => ({
   margin: 'auto',
   height: '100%',
@@ -46,11 +30,13 @@ const DeleteBtn = styled(IconButton)(({theme}) => ({
   marginLeft: theme.spacing(1),
 }))
 
-export const QuestionImage = ({
+export const QuestionFile = ({
   onClear,
   file,
-  onChange
+  onChange,
+  type,
 }: {
+  type?: 'image' | string
   file?: File
   onClear: () => void
   onChange: (_: File) => void
@@ -59,7 +45,7 @@ export const QuestionImage = ({
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const previewUrl = useMemo(() => {
-    if (!file) return
+    if (type !== 'image' || !file) return
     return URL.createObjectURL(file)
   }, [file])
 
@@ -77,7 +63,7 @@ export const QuestionImage = ({
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/*"
+        accept={type === 'image' ? 'image/*' : ''}
         style={{display: 'none'}}
         onChange={(e) => {
           const file = e.target.files?.[0]
@@ -85,32 +71,37 @@ export const QuestionImage = ({
         }}
       />
 
-      <Button
-        variant="contained"
-        startIcon={<Icon>image</Icon>}
+      <TextField
+        variant="standard"
+        fullWidth
+        helperText={file ? formatFileSize(file.size) : ''}
+        value={file?.name ?? ''}
+        slotProps={{
+          input: {
+            startAdornment: <Icon color="disabled" sx={{mr: 1}}>{type === 'image' ? 'image' : 'description'}</Icon>,
+            endAdornment: file && (
+              <DeleteBtn
+                aria-label="delete"
+                color="primary"
+                onClick={(e) => {
+                  handleDelete()
+                  e.stopPropagation()
+                }}
+                size="small"
+              >
+                <Icon fontSize="small">delete</Icon>
+              </DeleteBtn>
+            )
+          }
+        }}
         onClick={() => fileInputRef.current?.click()}
-      >
-        {file ? ctx.labels.selectImage : ctx.labels.changeImage}
-      </Button>
-
+        placeholder={type === 'image'
+          ? file ? ctx.labels.changeImage : ctx.labels.selectImage
+          : file ? ctx.labels.changeFile : ctx.labels.selectFile
+        }
+      />
       {previewUrl && (
         <ImageContainer>
-          <ImageHeader>
-            <div style={{
-              ...cssMixins.truncate,
-            }}>
-              {file!.name}
-            </div>
-
-            <DeleteBtn
-              aria-label="delete"
-              color="primary"
-              onClick={handleDelete}
-              size="small"
-            >
-              <Icon fontSize="small">delete</Icon>
-            </DeleteBtn>
-          </ImageHeader>
           <Image
             src={previewUrl}
             alt="Preview"

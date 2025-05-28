@@ -11,6 +11,15 @@ export type Group = Omit<Kobo.Form.Question, 'type'> & {
   children: QuestionGrouped[]
 }
 
+export const formatFileSize = (bytes: number) => {
+  if (bytes === 0) return '0 Bytes'
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+  const i = Math.floor(Math.log(bytes) / Math.log(1024))
+  const size = bytes / Math.pow(1024, i)
+  return `${size.toFixed(2)} ${sizes[i]}`
+}
+
+
 export type Question = Omit<Kobo.Form.Question, 'type'> & {
   type: Exclude<Kobo.Form.QuestionType, 'begin_repeat' | 'begin_group'>
 }

@@ -17,6 +17,22 @@ export const surveyShort: Kobo.Form['content'] = {
       '$autoname': 'end'
     },
     {
+      'hint': [
+        'Нам це потрібно для того, щоб встановити, чи працює Ваш бізнес або працював останнім часом, що є необхідною умовою для надання допомоги.',
+        'We need this to establish that your business is active or has recently been active, which is a requirement for assistance.'
+      ],
+      'name': 'file_tax_statement',
+      'type': 'file',
+      '$kuid': 'gmCeFq7bf',
+      'label': [
+        'Будь ласка, додайте податкову декларацію, яка показує податкові платежі (як мінімум) за останні шість місяців',
+        'Please attach a tax statement that shows tax payments (at least) the past six months'
+      ],
+      '$xpath': 'comments_documents/file_tax_statement',
+      'required': true,
+      '$autoname': 'file_tax_statement'
+    },
+    {
       'name': 'geopoint',
       'type': 'geopoint',
       'label': [

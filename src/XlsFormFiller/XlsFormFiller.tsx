@@ -27,6 +27,8 @@ export interface XlsFormFillerContext {
     getMyLocation?: string
     selectImage?: string
     changeImage?: string
+    selectFile?: string
+    changeFile?: string
   }
 }
 
@@ -40,8 +42,10 @@ export const XlsFormFiller = ({
   labels = {
     submit: 'Submit',
     getMyLocation: 'Get my location',
-    selectImage: 'Select Image',
-    changeImage: 'Change Image',
+    selectImage: 'Click to select an image...',
+    changeImage: 'Click to change the image...',
+    selectFile: 'Click to select an file...',
+    changeFile: 'Click to change the file...',
   },
 }: {
   onSubmit: (_: {attachments: File[], answers: FormValues}) => void

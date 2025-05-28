@@ -5,12 +5,12 @@ import {useXlsFormFillerContext} from './XlsFormFiller.tsx'
 import {Checkbox, FormControlLabel, FormGroup, Input, Radio, RadioGroup} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
 import {QuestionLayout, QuestionLayoutProps} from './QuestionLayout.tsx'
-import {QuestionImage} from './type/QuestionImage.tsx'
 import {GroupLayout} from './GroupLayout.tsx'
 import {mapFor} from '@axanc/ts-utils'
 import {RepeatLayout} from './RepeatLayout.tsx'
 import {AstFormEvaluator} from '../engine/ast/astEval.ts'
 import {QuestionLocation} from './type/QuestionLocation.tsx'
+import {QuestionFile} from './type/QuestionFile.tsx'
 
 const parseChoiceFilter = (q: Kobo.Form.Question): undefined | {key: string, questionName: string} => {
   if (!q.choice_filter) return
@@ -218,10 +218,12 @@ export const Question = memo(({
         </QuestionLayout>
       )
     }
+    case 'file':
     case 'image': {
       return (
         <QuestionLayout {...layout}>
-          <QuestionImage
+          <QuestionFile
+            type={q.type}
             file={ctx.attachments.get(value)}
             onClear={() => {
               onChange(undefined)
