@@ -1,7 +1,6 @@
 import {Box, CssBaseline, ThemeProvider} from '@mui/material'
 import {XlsFormFiller} from './XlsFormFiller/XlsFormFiller.tsx'
 import {defaultTheme} from './theme.ts'
-import {surveyShort} from '../test/survey/surveyShort.ts'
 import {useState} from 'react'
 import {surveyMsme} from '../test/survey/surveyMsme.ts'
 

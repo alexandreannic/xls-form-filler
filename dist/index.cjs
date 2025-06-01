@@ -116,6 +116,7 @@ var isValidDateString = (d) => {
   return /^\d{4}-\d{2}-\d{2}/.test(d);
 };
 var formatDateTime = (_) => _.toISOString();
+var formatDate = (_) => _.toISOString().substring(0, 10);
 var formatFileSize = (bytes) => {
   if (bytes === 0) return "0 Bytes";
   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
@@ -353,7 +354,7 @@ var functions = {
   today: new Function({
     localName: "today",
     call: (env, args) => {
-      return now.toISOString().substring(0, 10);
+      return formatDate(now);
     }
   }),
   int: new Function({
@@ -649,7 +650,7 @@ var QuestionLocation = ({
     /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       import_material5.Button,
       {
-        variant: "contained",
+        variant: "outlined",
         color: "primary",
         onClick: handleGetLocation,
         startIcon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_material5.Icon, { children: "my_location" }),
@@ -806,6 +807,9 @@ var Question = (0, import_react4.memo)(({
   path
 }) => {
   const ctx = useXlsFormFillerContext();
+  const value = (0, import_react4.useMemo)(() => {
+    return ctx.getValue(path, q.name);
+  }, [path, q.name]);
   const logic = (0, import_react4.useMemo)(() => {
     const engine = new AstFormEvaluator({
       values: ctx.values,
@@ -834,9 +838,6 @@ var Question = (0, import_react4.memo)(({
     hint: getLabel(q.hint),
     error: logic.valid ? void 0 : getLabel(q.constraint_message)
   };
-  const value = (0, import_react4.useMemo)(() => {
-    return ctx.getValue(path, q.name);
-  }, [path, q.name]);
   (0, import_react4.useEffect)(() => {
     if (logic.defaultValue !== void 0 && value !== logic.defaultValue) {
       onChange(logic.defaultValue);
@@ -1010,6 +1011,7 @@ var import_jsx_runtime8 = require("react/jsx-runtime");
 var Context = (0, import_react6.createContext)({});
 var useXlsFormFillerContext = () => (0, import_react6.useContext)(Context);
 var XlsFormFiller = ({
+  answers = {},
   survey,
   onSubmit,
   labels = {
@@ -1022,10 +1024,10 @@ var XlsFormFiller = ({
   }
 }) => {
   const [langIndex, setLangIndex] = (0, import_react6.useState)(0);
-  const [values, setValues] = (0, import_react6.useState)({});
+  const [values, setValues] = (0, import_react6.useState)(answers);
   const attachments = useAttachments();
+  console.log(">>>>values", values);
   (0, import_react6.useEffect)(() => {
-    console.log("default", survey.translations.indexOf(survey.settings.default_language));
     setLangIndex(survey.translations.indexOf(survey.settings.default_language));
   }, [survey]);
   const {
@@ -1039,9 +1041,9 @@ var XlsFormFiller = ({
       questionsMap: (0, import_ts_utils4.seq)(survey.survey).groupByFirst((_) => _.name)
     };
   }, [survey]);
-  const getValue = (path, name) => {
+  const getValue = (0, import_react6.useCallback)((path, name) => {
     return (0, import_lodash4.default)(values, [...path.toLodashPath(), name]);
-  };
+  }, [values]);
   const updateValues = (path, value) => {
     setValues((prev) => {
       const clone = (0, import_lodash2.default)(prev);
@@ -1071,15 +1073,15 @@ var XlsFormFiller = ({
       import_material8.Button,
       {
         onClick: () => {
-          const answers = { ...values };
+          const answers2 = { ...values };
           if (questionsMap.start && !values.start) {
-            answers.start = formatDateTime(now);
+            answers2.start = formatDateTime(now);
           }
           if (questionsMap.end) {
-            answers.end = formatDateTime(/* @__PURE__ */ new Date());
+            answers2.end = formatDateTime(/* @__PURE__ */ new Date());
           }
           onSubmit({
-            answers,
+            answers: answers2,
             attachments: Object.values(attachments.list)
           });
         },

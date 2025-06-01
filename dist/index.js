@@ -3,7 +3,7 @@ var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { en
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 
 // src/XlsFormFiller/XlsFormFiller.tsx
-import { createContext, useContext, useEffect as useEffect2, useMemo as useMemo3, useState as useState4 } from "react";
+import { createContext, useCallback, useContext, useEffect as useEffect2, useMemo as useMemo3, useState as useState4 } from "react";
 import { seq as seq2 } from "@axanc/ts-utils";
 import { Box as Box6, Button as Button3, Icon as Icon4, MenuItem, Select } from "@mui/material";
 
@@ -82,6 +82,7 @@ var isValidDateString = (d) => {
   return /^\d{4}-\d{2}-\d{2}/.test(d);
 };
 var formatDateTime = (_) => _.toISOString();
+var formatDate = (_) => _.toISOString().substring(0, 10);
 var formatFileSize = (bytes) => {
   if (bytes === 0) return "0 Bytes";
   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
@@ -319,7 +320,7 @@ var functions = {
   today: new Function({
     localName: "today",
     call: (env, args) => {
-      return now.toISOString().substring(0, 10);
+      return formatDate(now);
     }
   }),
   int: new Function({
@@ -615,7 +616,7 @@ var QuestionLocation = ({
     /* @__PURE__ */ jsx5(
       Button,
       {
-        variant: "contained",
+        variant: "outlined",
         color: "primary",
         onClick: handleGetLocation,
         startIcon: /* @__PURE__ */ jsx5(Icon2, { children: "my_location" }),
@@ -772,6 +773,9 @@ var Question = memo(({
   path
 }) => {
   const ctx = useXlsFormFillerContext();
+  const value = useMemo2(() => {
+    return ctx.getValue(path, q.name);
+  }, [path, q.name]);
   const logic = useMemo2(() => {
     const engine = new AstFormEvaluator({
       values: ctx.values,
@@ -800,9 +804,6 @@ var Question = memo(({
     hint: getLabel(q.hint),
     error: logic.valid ? void 0 : getLabel(q.constraint_message)
   };
-  const value = useMemo2(() => {
-    return ctx.getValue(path, q.name);
-  }, [path, q.name]);
   useEffect(() => {
     if (logic.defaultValue !== void 0 && value !== logic.defaultValue) {
       onChange(logic.defaultValue);
@@ -976,6 +977,7 @@ import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
 var Context = createContext({});
 var useXlsFormFillerContext = () => useContext(Context);
 var XlsFormFiller = ({
+  answers = {},
   survey,
   onSubmit,
   labels = {
@@ -988,10 +990,10 @@ var XlsFormFiller = ({
   }
 }) => {
   const [langIndex, setLangIndex] = useState4(0);
-  const [values, setValues] = useState4({});
+  const [values, setValues] = useState4(answers);
   const attachments = useAttachments();
+  console.log(">>>>values", values);
   useEffect2(() => {
-    console.log("default", survey.translations.indexOf(survey.settings.default_language));
     setLangIndex(survey.translations.indexOf(survey.settings.default_language));
   }, [survey]);
   const {
@@ -1005,9 +1007,9 @@ var XlsFormFiller = ({
       questionsMap: seq2(survey.survey).groupByFirst((_) => _.name)
     };
   }, [survey]);
-  const getValue = (path, name) => {
+  const getValue = useCallback((path, name) => {
     return get2(values, [...path.toLodashPath(), name]);
-  };
+  }, [values]);
   const updateValues = (path, value) => {
     setValues((prev) => {
       const clone = cloneDeep(prev);
@@ -1037,15 +1039,15 @@ var XlsFormFiller = ({
       Button3,
       {
         onClick: () => {
-          const answers = { ...values };
+          const answers2 = { ...values };
           if (questionsMap.start && !values.start) {
-            answers.start = formatDateTime(now);
+            answers2.start = formatDateTime(now);
           }
           if (questionsMap.end) {
-            answers.end = formatDateTime(/* @__PURE__ */ new Date());
+            answers2.end = formatDateTime(/* @__PURE__ */ new Date());
           }
           onSubmit({
-            answers,
+            answers: answers2,
             attachments: Object.values(attachments.list)
           });
         },

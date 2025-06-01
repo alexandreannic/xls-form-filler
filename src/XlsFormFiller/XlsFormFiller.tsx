@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useMemo, useState} from 'react'
+import {createContext, useCallback, useContext, useEffect, useMemo, useState} from 'react'
 import {seq} from '@axanc/ts-utils'
 import {Box, Button, Icon, MenuItem, Select} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
@@ -60,6 +60,7 @@ export const XlsFormFiller = ({
   const [values, setValues] = useState<FormValues>(answers)
   const attachments = useAttachments()
 
+  console.log('>>>>values', values)
   useEffect(() => {
     setLangIndex(survey.translations.indexOf(survey.settings.default_language))
   }, [survey])
@@ -76,9 +77,9 @@ export const XlsFormFiller = ({
     }
   }, [survey])
 
-  const getValue = (path: Path, name: string): any => {
+  const getValue = useCallback((path: Path, name: string): any => {
     return get(values, [...path.toLodashPath(), name])
-  }
+  }, [values])
 
   const updateValues = (path: LodashPath, value: any) => {
     setValues(prev => {
