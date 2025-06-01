@@ -44,6 +44,10 @@ export const Question = memo(({
 }) => {
   const ctx = useXlsFormFillerContext()
 
+  const value = useMemo(() => {
+    return ctx.getValue(path, q.name)
+  }, [path, q.name])
+
   const logic = useMemo(() => {
     const engine = new AstFormEvaluator({
       values: ctx.values,
@@ -76,10 +80,6 @@ export const Question = memo(({
     hint: getLabel(q.hint),
     error: logic.valid ? undefined : getLabel(q.constraint_message)
   }
-
-  const value = useMemo(() => {
-    return ctx.getValue(path, q.name)
-  }, [path, q.name])
 
   useEffect(() => {
     if (logic.defaultValue !== undefined && value !== logic.defaultValue) {

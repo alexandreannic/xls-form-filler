@@ -1,5 +1,6 @@
 import {AstError, EvalEnvironment} from './astEval.ts'
 import {seq} from '@axanc/ts-utils'
+import {formatDate} from '../../utils/helpers.ts'
 
 export const now = new Date()
 
@@ -89,7 +90,7 @@ export const functions = {
   today: new Function({
     localName: 'today',
     call: (env: EvalEnvironment, args: any[]) => {
-      return now.toISOString().substring(0, 10)
+      return formatDate(now)
     }
   }),
 

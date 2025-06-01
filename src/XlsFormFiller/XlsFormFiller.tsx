@@ -15,7 +15,9 @@ import {useAttachments} from './useAttachments.ts'
 import {now} from '../engine/ast/functions.ts'
 
 export type XlsFormProps = {
+  answers?: FormValues
   onSubmit: (_: {attachments: File[], answers: FormValues}) => void
+  survey: Kobo.Form['content']
   labels?: {
     submit?: string
     getMyLocation?: string
@@ -24,7 +26,6 @@ export type XlsFormProps = {
     selectFile?: string
     changeFile?: string
   }
-  survey: Kobo.Form['content']
 }
 
 export interface XlsFormFillerContext {
@@ -35,7 +36,7 @@ export interface XlsFormFillerContext {
   updateValues: (path: LodashPath, value: any) => void
   langIndex: number
   attachments: ReturnType<typeof useAttachments>
-  labels: XlsFormProps['labels']
+  labels: NonNullable<XlsFormProps['labels']>
 }
 
 const Context = createContext({} as XlsFormFillerContext)
@@ -43,6 +44,7 @@ const Context = createContext({} as XlsFormFillerContext)
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
 export const XlsFormFiller = ({
+  answers = {},
   survey,
   onSubmit,
   labels = {
@@ -55,10 +57,10 @@ export const XlsFormFiller = ({
   },
 }: XlsFormProps) => {
   const [langIndex, setLangIndex] = useState(0)
-  const [values, setValues] = useState<FormValues>({})
+  const [values, setValues] = useState<FormValues>(answers)
   const attachments = useAttachments()
+
   useEffect(() => {
-    console.log('default', survey.translations.indexOf(survey.settings.default_language))
     setLangIndex(survey.translations.indexOf(survey.settings.default_language))
   }, [survey])
 

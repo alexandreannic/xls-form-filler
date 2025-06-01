@@ -11,7 +11,6 @@ export const QuestionLocation = ({
 }) => {
   const t = useTheme()
   const ctx = useXlsFormFillerContext()
-  // const [location, setLocation] = useState<{lat: number; lon: number} | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleGetLocation = () => {
@@ -35,7 +34,7 @@ export const QuestionLocation = ({
   return (
     <>
       <Button
-        variant="contained"
+        variant="outlined"
         color="primary"
         onClick={handleGetLocation}
         startIcon={<Icon>my_location</Icon>}

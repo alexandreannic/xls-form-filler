@@ -25,7 +25,7 @@ function App() {
             </Box>
           </Box>
           <Box>
-            <XlsFormFiller survey={surveyShort} onSubmit={_ => setValues(_)}/>
+            <XlsFormFiller survey={surveyMsme} onSubmit={_ => setValues(_)}/>
           </Box>
         </Box>
       </Box>

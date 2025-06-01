@@ -6,6 +6,8 @@ export const isValidDateString = (d: any): boolean => {
 
 export const formatDateTime = (_: Date): string => _.toISOString()
 
+export const formatDate = (_: Date): string => _.toISOString().substring(0, 10)
+
 export type Group = Omit<Kobo.Form.Question, 'type'> & {
   type: 'begin_group' | 'begin_repeat'
   children: QuestionGrouped[]
