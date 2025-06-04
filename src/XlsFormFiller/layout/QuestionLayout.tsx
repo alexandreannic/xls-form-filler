@@ -2,7 +2,9 @@ import {ReactNode} from 'react'
 import {alpha, Box, Collapse, styled, useTheme} from '@mui/material'
 import ReactMarkdown from 'react-markdown'
 
-const Root = styled(Box)<{error?: boolean}>(({theme, error}) => ({
+const Root = styled(Box, {
+  shouldForwardProp: _ => _ !== 'error'
+})<{error?: boolean}>(({theme, error}) => ({
   background: error ? alpha(theme.palette.error.light, .15) : theme.palette.background.paper,
   // border: `1px solid ${theme.palette.divider}`,
   borderRadius: theme.shape.borderRadius + 'px',

@@ -30,6 +30,20 @@ class Function {
 
 export const functions = {
 
+  once: new Function({
+    localName: 'once',
+    call: (env: EvalEnvironment, args: any[]) => {
+      // TODO!!
+      return args[0]
+    }
+  }),
+  now: new Function({
+    localName: 'now',
+    call: (env: EvalEnvironment, args: any[]) => {
+      return now
+    }
+  }),
+
   regex: new Function({
     localName: 'regex',
     call: (env: EvalEnvironment, args: any[]) => {
@@ -65,6 +79,13 @@ export const functions = {
     localName: 'count-selected',
     call: (env: EvalEnvironment, args: any[]) => {
       return args[0]?.split(' ').length ?? 0
+    }
+  }),
+
+  coalesce: new Function({
+    localName: 'coalesce',
+    call: (env: EvalEnvironment, args: any[]) => {
+      return args.find(v => v !== null && v !== undefined && v !== '')
     }
   }),
 

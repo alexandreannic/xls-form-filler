@@ -2,3 +2,7 @@
 
 const console = require('console')
 global.console = console
+jest.mock('react-markdown', () => ({
+    __esModule: true,
+    default: ({children}) => children
+}))

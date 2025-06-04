@@ -103,10 +103,10 @@ export const Question = memo(({
     case 'begin_repeat': {
       if (logic.repeated <= 0) return <></>
       return mapFor(logic.repeated, i => (
-        <RepeatLayout index={i} key={i} {...layout}>
+        <RepeatLayout index={i} key={q.name + i} {...layout}>
           {q.children.map(_ =>
             <Question
-              key={i}
+              key={_.name}
               path={path.add({index: i, repeatGroupName: q.name})}
               q={_}
             />

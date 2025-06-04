@@ -59,11 +59,12 @@ export class AstFormEvaluator {
       })
       .replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName) // replace . → thatName
       .replace(/\bnot\(/g, '!(')
-      .replace(/[^<>!]=/g, '==')
-      .replace(/\bdiv\b/g, ' / ')
-      .replace(/\bmod\b/g, ' % ')
-      .replace(/\band\b/g, ' && ')
-      .replace(/\bor\b/g, ' || ')
+      .replace(/([^<>!])=/g, '$1==')
+      .replace(/\bdiv\b/g, '/')
+      .replace(/\bmod\b/g, '%')
+      .replace(/\band\b/g, '&&')
+      .replace(/\bor\b/g, '||')
+      .replace(/[‘’]/g, '\'')
       .replace(/\$\{([^}]+)}/g, (_, name) => name) // replace ${foo} → foo
     Object.entries(functions).forEach(([functionName, prototype]) => {
       parsed = parsed.replace(new RegExp(`${prototype.localName}`, 'g'), functionName)
@@ -77,12 +78,10 @@ export class AstFormEvaluator {
     const cleanFormula = this.preprocessedFormula(formula)
     try {
       const ast = jsep(cleanFormula)
-      // console.log('ast', ast)
-      const result = this.evaluate(ast)
+      return this.evaluate(ast)
       // console.log(formula, '➡️', cleanFormula, '➡️', result)
-      return result
-    } catch (e) {
-      console.error('Eval error:', cleanFormula, e)
+    } catch (e: any) {
+      console.error('Eval error:', cleanFormula, e.message)
       return
     }
   }
@@ -137,7 +136,7 @@ export class AstFormEvaluator {
     if (isValidDateString(right)) right = duration(+new Date(right)).toDays
     switch (op) {
       case '+':
-        return left + right
+        return +left + +right
       case '-': {
         return left - right
       }

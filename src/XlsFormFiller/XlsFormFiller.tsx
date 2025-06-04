@@ -60,7 +60,6 @@ export const XlsFormFiller = ({
   const [values, setValues] = useState<FormValues>(answers)
   const attachments = useAttachments()
 
-  console.log('>>>>values', values)
   useEffect(() => {
     setLangIndex(survey.translations.indexOf(survey.settings.default_language))
   }, [survey])
