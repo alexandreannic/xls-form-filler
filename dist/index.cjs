@@ -160,7 +160,9 @@ var import_material7 = require("@mui/material");
 var import_material = require("@mui/material");
 var import_react_markdown = __toESM(require("react-markdown"), 1);
 var import_jsx_runtime = require("react/jsx-runtime");
-var Root = (0, import_material.styled)(import_material.Box)(({ theme, error }) => ({
+var Root = (0, import_material.styled)(import_material.Box, {
+  shouldForwardProp: (_) => _ !== "error"
+})(({ theme, error }) => ({
   background: error ? (0, import_material.alpha)(theme.palette.error.light, 0.15) : theme.palette.background.paper,
   // border: `1px solid ${theme.palette.divider}`,
   borderRadius: theme.shape.borderRadius + "px",
@@ -305,6 +307,18 @@ var Function = class {
   }
 };
 var functions = {
+  once: new Function({
+    localName: "once",
+    call: (env, args) => {
+      return args[0];
+    }
+  }),
+  now: new Function({
+    localName: "now",
+    call: (env, args) => {
+      return now;
+    }
+  }),
   regex: new Function({
     localName: "regex",
     call: (env, args) => {
@@ -336,6 +350,12 @@ var functions = {
     localName: "count-selected",
     call: (env, args) => {
       return args[0]?.split(" ").length ?? 0;
+    }
+  }),
+  coalesce: new Function({
+    localName: "coalesce",
+    call: (env, args) => {
+      return args.find((v) => v !== null && v !== void 0 && v !== "");
     }
   }),
   indexedRepeat: new Function({
@@ -503,7 +523,7 @@ var AstFormEvaluator = class {
         const index = this.env.path?.last?.index;
         if (index === void 0) throw new AstError.UndefinedParentIndex();
         return index + 1 + "";
-      }).replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName).replace(/\bnot\(/g, "!(").replace(/[^<>!]=/g, "==").replace(/\bdiv\b/g, " / ").replace(/\bmod\b/g, " % ").replace(/\band\b/g, " && ").replace(/\bor\b/g, " || ").replace(/\$\{([^}]+)}/g, (_, name) => name);
+      }).replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName).replace(/\bnot\(/g, "!(").replace(/([^<>!])=/g, "$1==").replace(/\bdiv\b/g, "/").replace(/\bmod\b/g, "%").replace(/\band\b/g, "&&").replace(/\bor\b/g, "||").replace(/[‘’]/g, "'").replace(/\$\{([^}]+)}/g, (_, name) => name);
       Object.entries(functions).forEach(([functionName, prototype]) => {
         parsed = parsed.replace(new RegExp(`${prototype.localName}`, "g"), functionName);
       });
@@ -548,7 +568,7 @@ var AstFormEvaluator = class {
       if (isValidDateString(right)) right = (0, import_ts_utils2.duration)(+new Date(right)).toDays;
       switch (op) {
         case "+":
-          return left + right;
+          return +left + +right;
         case "-": {
           return left - right;
         }
@@ -607,10 +627,9 @@ var AstFormEvaluator = class {
     const cleanFormula = this.preprocessedFormula(formula);
     try {
       const ast = (0, import_jsep.default)(cleanFormula);
-      const result = this.evaluate(ast);
-      return result;
+      return this.evaluate(ast);
     } catch (e) {
-      console.error("Eval error:", cleanFormula, e);
+      console.error("Eval error:", cleanFormula, e.message);
       return;
     }
   }
@@ -861,9 +880,9 @@ var Question = (0, import_react4.memo)(({
             path: path.add({ index: i, repeatGroupName: q.name }),
             q: _
           },
-          i
+          _.name
         )
-      ) }, i));
+      ) }, q.name + i));
     }
     case "note": {
       return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(QuestionLayout, { ...layout, children: logic.calculation && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_material7.Input, { value, disabled: true }) });
@@ -1010,10 +1029,11 @@ var useAttachments = () => {
 var import_jsx_runtime8 = require("react/jsx-runtime");
 var Context = (0, import_react6.createContext)({});
 var useXlsFormFillerContext = () => (0, import_react6.useContext)(Context);
-var XlsFormFiller = ({
+var XlsFormFiller = (0, import_react6.forwardRef)(({
   answers = {},
   survey,
   onSubmit,
+  hideActions,
   labels = {
     submit: "Submit",
     getMyLocation: "Get my location",
@@ -1022,11 +1042,10 @@ var XlsFormFiller = ({
     selectFile: "Click to select an file...",
     changeFile: "Click to change the file..."
   }
-}) => {
+}, ref) => {
   const [langIndex, setLangIndex] = (0, import_react6.useState)(0);
   const [values, setValues] = (0, import_react6.useState)(answers);
   const attachments = useAttachments();
-  console.log(">>>>values", values);
   (0, import_react6.useEffect)(() => {
     setLangIndex(survey.translations.indexOf(survey.settings.default_language));
   }, [survey]);
@@ -1051,6 +1070,22 @@ var XlsFormFiller = ({
       return clone;
     });
   };
+  const submit = () => {
+    const answers2 = { ...values };
+    if (questionsMap.start && !values.start) {
+      answers2.start = formatDateTime(now);
+    }
+    if (questionsMap.end) {
+      answers2.end = formatDateTime(/* @__PURE__ */ new Date());
+    }
+    onSubmit({
+      answers: answers2,
+      attachments: Object.values(attachments.list)
+    });
+  };
+  (0, import_react6.useImperativeHandle)(ref, () => ({
+    submit
+  }));
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Context.Provider, { value: {
     labels,
     values,
@@ -1069,29 +1104,17 @@ var XlsFormFiller = ({
         (q) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Question, { q, path: new Path() }, q.name)
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_material8.Box, { sx: { mt: 1, display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    !hideActions && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_material8.Box, { sx: { mt: 1, display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
       import_material8.Button,
       {
-        onClick: () => {
-          const answers2 = { ...values };
-          if (questionsMap.start && !values.start) {
-            answers2.start = formatDateTime(now);
-          }
-          if (questionsMap.end) {
-            answers2.end = formatDateTime(/* @__PURE__ */ new Date());
-          }
-          onSubmit({
-            answers: answers2,
-            attachments: Object.values(attachments.list)
-          });
-        },
+        onClick: submit,
         startIcon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_material8.Icon, { children: "send" }),
         variant: "contained",
         children: labels.submit
       }
     ) })
   ] });
-};
+});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   XlsFormFiller

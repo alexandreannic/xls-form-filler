@@ -1,4 +1,4 @@
-import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as react from 'react';
 import { Kobo } from 'kobo-sdk';
 
 type FormValue = any;
@@ -11,6 +11,7 @@ type XlsFormProps = {
         answers: FormValues;
     }) => void;
     survey: Kobo.Form['content'];
+    hideActions?: boolean;
     labels?: {
         submit?: string;
         getMyLocation?: string;
@@ -20,6 +21,9 @@ type XlsFormProps = {
         changeFile?: string;
     };
 };
-declare const XlsFormFiller: ({ answers, survey, onSubmit, labels, }: XlsFormProps) => react_jsx_runtime.JSX.Element;
+interface XlsFormFillerHandle {
+    submit: () => void;
+}
+declare const XlsFormFiller: react.ForwardRefExoticComponent<XlsFormProps & react.RefAttributes<XlsFormFillerHandle>>;
 
-export { XlsFormFiller, type XlsFormProps };
+export { XlsFormFiller, type XlsFormFillerHandle, type XlsFormProps };

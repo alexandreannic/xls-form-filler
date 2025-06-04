@@ -1,4 +1,4 @@
-import {createContext, useCallback, useContext, useEffect, useMemo, useState} from 'react'
+import {createContext, forwardRef, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useState} from 'react'
 import {seq} from '@axanc/ts-utils'
 import {Box, Button, Icon, MenuItem, Select} from '@mui/material'
 import {Kobo} from 'kobo-sdk'
@@ -18,6 +18,7 @@ export type XlsFormProps = {
   answers?: FormValues
   onSubmit: (_: {attachments: File[], answers: FormValues}) => void
   survey: Kobo.Form['content']
+  hideActions?: boolean
   labels?: {
     submit?: string
     getMyLocation?: string
@@ -39,14 +40,19 @@ export interface XlsFormFillerContext {
   labels: NonNullable<XlsFormProps['labels']>
 }
 
+export interface XlsFormFillerHandle {
+  submit: () => void
+}
+
 const Context = createContext({} as XlsFormFillerContext)
 
 export const useXlsFormFillerContext = () => useContext<XlsFormFillerContext>(Context)
 
-export const XlsFormFiller = ({
+export const XlsFormFiller = forwardRef<XlsFormFillerHandle, XlsFormProps>(({
   answers = {},
   survey,
   onSubmit,
+  hideActions,
   labels = {
     submit: 'Submit',
     getMyLocation: 'Get my location',
@@ -55,7 +61,7 @@ export const XlsFormFiller = ({
     selectFile: 'Click to select an file...',
     changeFile: 'Click to change the file...',
   },
-}: XlsFormProps) => {
+}, ref) => {
   const [langIndex, setLangIndex] = useState(0)
   const [values, setValues] = useState<FormValues>(answers)
   const attachments = useAttachments()
@@ -88,6 +94,24 @@ export const XlsFormFiller = ({
     })
   }
 
+  const submit = () => {
+    const answers = {...values}
+    if (questionsMap.start && !values.start) {
+      answers.start = formatDateTime(now)
+    }
+    if (questionsMap.end) {
+      answers.end = formatDateTime(new Date())
+    }
+    onSubmit({
+      answers,
+      attachments: Object.values(attachments.list),
+    })
+  }
+
+  useImperativeHandle(ref, () => ({
+    submit,
+  }))
+
   return (
     <Context.Provider value={{
       labels,
@@ -109,27 +133,17 @@ export const XlsFormFiller = ({
           <Question key={q.name} q={q} path={new Path()}/>
         )}
       </Box>
-      <Box sx={{mt: 1, display: 'flex', justifyContent: 'flex-end'}}>
-        <Button
-          onClick={() => {
-            const answers = {...values}
-            if (questionsMap.start && !values.start) {
-              answers.start = formatDateTime(now)
-            }
-            if (questionsMap.end) {
-              answers.end = formatDateTime(new Date())
-            }
-            onSubmit({
-              answers,
-              attachments: Object.values(attachments.list),
-            })
-          }}
-          startIcon={<Icon>send</Icon>}
-          variant="contained"
-        >
-          {labels.submit}
-        </Button>
-      </Box>
+      {!hideActions && (
+        <Box sx={{mt: 1, display: 'flex', justifyContent: 'flex-end'}}>
+          <Button
+            onClick={submit}
+            startIcon={<Icon>send</Icon>}
+            variant="contained"
+          >
+            {labels.submit}
+          </Button>
+        </Box>
+      )}
     </Context.Provider>
   )
-}
+})

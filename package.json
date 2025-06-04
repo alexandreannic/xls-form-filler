@@ -36,6 +36,7 @@
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
+    "tsup": "^8.5.0",
     "@eslint/js": "^9.22.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",

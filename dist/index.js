@@ -3,7 +3,7 @@ var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { en
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 
 // src/XlsFormFiller/XlsFormFiller.tsx
-import { createContext, useCallback, useContext, useEffect as useEffect2, useMemo as useMemo3, useState as useState4 } from "react";
+import { createContext, forwardRef, useCallback, useContext, useEffect as useEffect2, useImperativeHandle, useMemo as useMemo3, useState as useState4 } from "react";
 import { seq as seq2 } from "@axanc/ts-utils";
 import { Box as Box6, Button as Button3, Icon as Icon4, MenuItem, Select } from "@mui/material";
 
@@ -126,7 +126,9 @@ import { Checkbox, FormControlLabel, FormGroup, Input as Input3, Radio, RadioGro
 import { alpha, Box, Collapse, styled, useTheme } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
-var Root = styled(Box)(({ theme, error }) => ({
+var Root = styled(Box, {
+  shouldForwardProp: (_) => _ !== "error"
+})(({ theme, error }) => ({
   background: error ? alpha(theme.palette.error.light, 0.15) : theme.palette.background.paper,
   // border: `1px solid ${theme.palette.divider}`,
   borderRadius: theme.shape.borderRadius + "px",
@@ -271,6 +273,18 @@ var Function = class {
   }
 };
 var functions = {
+  once: new Function({
+    localName: "once",
+    call: (env, args) => {
+      return args[0];
+    }
+  }),
+  now: new Function({
+    localName: "now",
+    call: (env, args) => {
+      return now;
+    }
+  }),
   regex: new Function({
     localName: "regex",
     call: (env, args) => {
@@ -302,6 +316,12 @@ var functions = {
     localName: "count-selected",
     call: (env, args) => {
       return args[0]?.split(" ").length ?? 0;
+    }
+  }),
+  coalesce: new Function({
+    localName: "coalesce",
+    call: (env, args) => {
+      return args.find((v) => v !== null && v !== void 0 && v !== "");
     }
   }),
   indexedRepeat: new Function({
@@ -469,7 +489,7 @@ var AstFormEvaluator = class {
         const index = this.env.path?.last?.index;
         if (index === void 0) throw new AstError.UndefinedParentIndex();
         return index + 1 + "";
-      }).replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName).replace(/\bnot\(/g, "!(").replace(/[^<>!]=/g, "==").replace(/\bdiv\b/g, " / ").replace(/\bmod\b/g, " % ").replace(/\band\b/g, " && ").replace(/\bor\b/g, " || ").replace(/\$\{([^}]+)}/g, (_, name) => name);
+      }).replace(/(?<=^|[^\w])\.(?=$|[^\w])/g, this.env.thatName).replace(/\bnot\(/g, "!(").replace(/([^<>!])=/g, "$1==").replace(/\bdiv\b/g, "/").replace(/\bmod\b/g, "%").replace(/\band\b/g, "&&").replace(/\bor\b/g, "||").replace(/[‘’]/g, "'").replace(/\$\{([^}]+)}/g, (_, name) => name);
       Object.entries(functions).forEach(([functionName, prototype]) => {
         parsed = parsed.replace(new RegExp(`${prototype.localName}`, "g"), functionName);
       });
@@ -514,7 +534,7 @@ var AstFormEvaluator = class {
       if (isValidDateString(right)) right = duration(+new Date(right)).toDays;
       switch (op) {
         case "+":
-          return left + right;
+          return +left + +right;
         case "-": {
           return left - right;
         }
@@ -573,10 +593,9 @@ var AstFormEvaluator = class {
     const cleanFormula = this.preprocessedFormula(formula);
     try {
       const ast = jsep(cleanFormula);
-      const result = this.evaluate(ast);
-      return result;
+      return this.evaluate(ast);
     } catch (e) {
-      console.error("Eval error:", cleanFormula, e);
+      console.error("Eval error:", cleanFormula, e.message);
       return;
     }
   }
@@ -827,9 +846,9 @@ var Question = memo(({
             path: path.add({ index: i, repeatGroupName: q.name }),
             q: _
           },
-          i
+          _.name
         )
-      ) }, i));
+      ) }, q.name + i));
     }
     case "note": {
       return /* @__PURE__ */ jsx7(QuestionLayout, { ...layout, children: logic.calculation && /* @__PURE__ */ jsx7(Input3, { value, disabled: true }) });
@@ -976,10 +995,11 @@ var useAttachments = () => {
 import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
 var Context = createContext({});
 var useXlsFormFillerContext = () => useContext(Context);
-var XlsFormFiller = ({
+var XlsFormFiller = forwardRef(({
   answers = {},
   survey,
   onSubmit,
+  hideActions,
   labels = {
     submit: "Submit",
     getMyLocation: "Get my location",
@@ -988,11 +1008,10 @@ var XlsFormFiller = ({
     selectFile: "Click to select an file...",
     changeFile: "Click to change the file..."
   }
-}) => {
+}, ref) => {
   const [langIndex, setLangIndex] = useState4(0);
   const [values, setValues] = useState4(answers);
   const attachments = useAttachments();
-  console.log(">>>>values", values);
   useEffect2(() => {
     setLangIndex(survey.translations.indexOf(survey.settings.default_language));
   }, [survey]);
@@ -1017,6 +1036,22 @@ var XlsFormFiller = ({
       return clone;
     });
   };
+  const submit = () => {
+    const answers2 = { ...values };
+    if (questionsMap.start && !values.start) {
+      answers2.start = formatDateTime(now);
+    }
+    if (questionsMap.end) {
+      answers2.end = formatDateTime(/* @__PURE__ */ new Date());
+    }
+    onSubmit({
+      answers: answers2,
+      attachments: Object.values(attachments.list)
+    });
+  };
+  useImperativeHandle(ref, () => ({
+    submit
+  }));
   return /* @__PURE__ */ jsxs7(Context.Provider, { value: {
     labels,
     values,
@@ -1035,29 +1070,17 @@ var XlsFormFiller = ({
         (q) => /* @__PURE__ */ jsx8(Question, { q, path: new Path() }, q.name)
       )
     ] }),
-    /* @__PURE__ */ jsx8(Box6, { sx: { mt: 1, display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ jsx8(
+    !hideActions && /* @__PURE__ */ jsx8(Box6, { sx: { mt: 1, display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ jsx8(
       Button3,
       {
-        onClick: () => {
-          const answers2 = { ...values };
-          if (questionsMap.start && !values.start) {
-            answers2.start = formatDateTime(now);
-          }
-          if (questionsMap.end) {
-            answers2.end = formatDateTime(/* @__PURE__ */ new Date());
-          }
-          onSubmit({
-            answers: answers2,
-            attachments: Object.values(attachments.list)
-          });
-        },
+        onClick: submit,
         startIcon: /* @__PURE__ */ jsx8(Icon4, { children: "send" }),
         variant: "contained",
         children: labels.submit
       }
     ) })
   ] });
-};
+});
 export {
   XlsFormFiller
 };
